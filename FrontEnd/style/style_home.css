@@ -8,125 +8,114 @@
 }
 
 body{
-    background: white;
     background-size: 100vw 100vh;
     background-repeat: no-repeat;
 }
 
-.capa{
-    position: absolute;
-    width: 100%;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0);
-    z-index: -1;
-    top: 0;
-    left: 0;
-}
 
 /*INICIO ESTILOS HEADER*/
-.container1{
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
+.header{
+    width: 100%;
+    height: 10vh;
+    position: fixed;
+    top: 0; left: 0;
+    background: #6D6E6F;
 }
 
-.container1 .btn-menu, .logo{
+.header .logo{
     float: left;
-    line-height: 70px;
-}
-
-.container1 .btn-menu label{
-    color: black;
-    font-size: 25px;
-    cursor: pointer;
+    line-height: 7.5vh;
 }
 
 .logo h1{
     color: black;
-    font-weight: 400;
-    font-size: 22px;
-    margin-left: 10px;
+    font-weight: 42vh;
+    font-size: 2.2vh;
+    margin-left: 4vh;
+}
+
+.container1{
+    width: 90%;
+    max-width: 125vh;
+    margin: auto;
+    
 }
 
 .container1 .menu-superior{
     float: right;
-    line-height: 70px;
+    line-height: 8vh;
 }
 
 .container1 .menu-superior a{
     display: inline-block;
-    padding: 15px 10px;
+    padding: 2vh 1vh;
     line-height: normal;
     text-decoration: none;
     color: black;
     transition: all 0.3s ease;
     border-bottom: 2px solid transparent;
-    font-size: 15px;
+    font-size: 2vh;
+    
 }
 
 .container1 .menu-superior a:hover{
-    border-bottom: 2px solid #c7c7c7;
-    padding: 5px 10px;
+    border-bottom: 0.21vh solid #c7c7c7;
+    padding: 0.5vh 1vh;
 }
 /*FIN ESTILOS HEADER*/
                 
 /*INICIO MENU LATERAL*/
-#btn-menu{
-    display: none;
-}
 
 .container2{
     position: absolute;
-    
     width: 100%;
     height: 100vh;
-    top: 8vh;
+    top: 10vh;
     left: 0;
     transition: all 500ms ease;
-    opacity:0;
-    visibility: hidden;
+    opacity:1;
     
 }
 
-#btn-menu:checked ~ .container2{
-    opacity:1;
-    visibility: visible;
-}
 
 .cont-menu-lateral{
     width: 100%;
-    max-width: 250px;
+    max-width: 25.9vh;
     background: #2980F2;
     height: 100vh;
     position: relative;
     transition: all 500ms ease;
-    transform: translateX(-100%);
 }
 
-#btn-menu:checked ~ .container2 .cont-menu-lateral{
-    transform: translateX(0%);
-}
 
 .cont-menu-lateral nav{
-    transform: translateY(15%);
+    transform: translateY(0%);
 }
 
 .cont-menu-lateral nav a{
     display: block;
     text-decoration: none;
-    padding: 20px;
+    padding: 2.5vh;
     color: white;
+    font-size: large;
     border-left: 5px solid transparent;
-    transition: all 500ms ease;
-    
+    transition: all 500ms ease; 
 }
-
-
 
 .cont-menu-lateral nav a:hover{
     border-left: 5px solid #c7c7c7;
     background: #172540;
 }
+
+.container2 .cont-menu-lateral nav a#b{
+    background: #1636eb;
+}
+
+.cont-menu-lateral nav a#b:hover{
+    border-left: 5px solid #c7c7c7;
+    background: #172540;
+}
+
 
 .cont-menu-lateral label{
     position: absolute;
