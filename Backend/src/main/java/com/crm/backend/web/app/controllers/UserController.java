@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,18 +20,28 @@ public class UserController {
 	@Autowired
 	private UserDao userDao;
 
-	@RequestMapping("/register")
+	@PostMapping("/register")
 	public void registerUser (@RequestBody User user) {
 		userDao.register(user);
 	}
 
-	@RequestMapping("/list")
+	@GetMapping("/list")
 	public List<User> listUsers (){
 		return userDao.List();
 	}
 
-	@RequestMapping("/list/client")
+	@GetMapping("/list/client")
 	public List<User> listClient () {
 		return userDao.ListClient();
+	}
+	
+	@GetMapping("/type/{id}")
+	public List<User> returnType (@PathVariable String id) {
+		return userDao.returnType(id);
+	}
+	
+	@GetMapping("/search/{id}")
+	public List<User> returnUser (@PathVariable String id) {
+		return userDao.returnUser(id);
 	}
 }

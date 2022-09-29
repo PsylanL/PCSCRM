@@ -1,6 +1,6 @@
 package com.crm.backend.web.app.dao;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -31,9 +31,25 @@ public class UserDaoImp implements UserDao{
 
     @SuppressWarnings("unchecked")
     @Override
-    public java.util.List<User> ListClient() {
+    public List<User> ListClient() {
         String query = "from User Where Type = 'Client'";
 		return entityManager.createQuery(query).getResultList();
     }
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<User> returnType(String id) {
+		String query = "Select type from User Where Id = ".concat(id);
+		List<User> user = entityManager.createQuery(query).getResultList();
+		return user;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<User> returnUser(String id) {
+		String query = "from User Where Id = ".concat(id);
+		List<User> user = entityManager.createQuery(query).getResultList();
+		return user;
+	}
     
 }

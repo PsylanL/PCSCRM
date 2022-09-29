@@ -6,9 +6,9 @@ async function Register() {
     users.adress = "cra 59";
     users.mail = "algo";
     users.password = "pass";
-    users.type = "tipo";
+    users.type = "Admin";
 
-    console.log("Usuarios: " + users);
+    //Metodo POST
     const requestPost = await fetch('http://localhost:8080/api/user/register', {
         method: 'POST',
         headers: {
@@ -17,20 +17,15 @@ async function Register() {
         },
         body: JSON.stringify(users)
     });
-    alert("revisar base de datos")
+     alert("revisar base de datos")
 }
 
 async function list () {
-    const requestGet = await fetch('http://localhost:8080/api/user/list', {
-        method: 'GET',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-    });
-    const usersGet = await requestGet.json;
-    console.log(usersGet);
-    
+    //Metodo GET
+    const getInitialData = "http://localhost:8080/api/user/list";
+    let request = await fetch(getInitialData);
+    let response = await request.json();
+    console.log(response);
 }
 
 Register();

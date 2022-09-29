@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/FrontEnd/style/style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <div>
+        <div class="container1">
+            <div class="con1left"><img class="img_container1" src="../img/20943705.png" width="500px"></div>
+            <div class="con1right">
+                <h1 class="con1title">Hello!, Welcome back.</h1>
+                <h3 class="con1subtitle">Login with your data that you entered<br> during your registration.</h3>
+                <form action="#" method="post">
+                    
+                    <!-- Hay que arreglar todos los div, solo hago el formulario para que funcione el back -->
+                    <!-- No cambiar los id -->
+                    <div class="con1email">
+                        <p class="con1p">Numero de identificacion</p>
+                        <img class="con1img" src="../img/email.png" height="30px">
+                        <input class="con1input_email" type="text" name="id" id="txtId" placeholder="id" >
+                    </div>
+
+                    <div class="con1email">
+                        <p class="con1p">Nombre completo</p>
+                        <img class="con1img" src="../img/email.png" height="30px">
+                        <input class="con1input_email" type="text" name="name" id="txtName" placeholder="example123@mail.com">
+                    </div>
+
+                    <div class="con1email">
+                        <p class="con1p">Numero de celular</p>
+                        <img class="con1img" src="../img/email.png" height="30px">
+                        <input class="con1input_email" type="text" name="cellPhone" id="txtCellPhone" placeholder="example123@mail.com">
+                    </div>
+
+                    <div class="con1email">
+                        <p class="con1p">Direccion</p>
+                        <img class="con1img" src="../img/email.png" height="30px">
+                        <input class="con1input_email" type="text" name="adress" id="txtAdress" placeholder="example123@mail.com">
+                    </div>
+
+                    <div class="con1email">
+                        <p class="con1p">Email</p>
+                        <img class="con1img" src="../img/email.png" height="30px">
+                        <input class="con1input_email" type="text" name="mail" id="txtMail" placeholder="example123@mail.com">
+                    </div>
+
+                    <div class="con1email">
+                        <p class="con1p">Tipo de usuario</p>
+                        <img class="con1img" src="../img/email.png" height="30px">
+                        <select name="type" id="txtType">
+                            <option value="Client" selected>Cliente</option>
+                            <option value="ClientService">Usuario servicio al cliente</option>
+                            <option value="Admin">Administrador</option>
+                            <option value="Manager">Manager</option>
+                          </select>
+                    </div>
+
+                    <div class="con1pass">
+                        <p class="con1p">Contrasena</p>
+                        <img class="con1img" src="../img/padlock.png" height="30px">
+                        <input class="con1input_pass" type="password" name="password" id="txtPassword" placeholder="Contrasena">
+                    </div> 
+
+                    <div class="con1pass">
+                        <p class="con1p">Repetir contrasena</p>
+                        <img class="con1img" src="../img/padlock.png" height="30px">
+                        <input class="con1input_pass" type="password" name="password" id="txtRepeat" placeholder="Contrasena">
+                    </div> 
+
+
+                    
+                    
+                </form>
+                <button class="boton_login" onclick="register()">Register</button>
+                <a href="index.html">Iniciar sesion</a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../js/register.js"></script>
+</body>
+</html>

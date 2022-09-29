@@ -10,6 +10,10 @@ public interface UserDao {
 
     List<User> List();
 
-    java.util.List<User> ListClient();
+    List<User> ListClient();
+
+    List<User> returnType(String id);
+
+	List<User> returnUser(String id);
     
 }
