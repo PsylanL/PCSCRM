@@ -34,19 +34,13 @@ body{
     margin-left: 4vh;
 }
 
-.container1{
-    width: 90%;
-    max-width: 125vh;
-    margin: auto;
-    
-}
 
-.container1 .menu-superior{
+.header .menu-superior{
     float: right;
     line-height: 8vh;
 }
 
-.container1 .menu-superior a{
+.header .menu-superior a{
     display: inline-block;
     padding: 2vh 1vh;
     line-height: normal;
@@ -58,7 +52,11 @@ body{
     
 }
 
-.container1 .menu-superior a:hover{
+.header .menu-superior a i{
+    font-size: 5vh;
+}
+
+.header .menu-superior a:hover{
     border-bottom: 0.21vh solid #c7c7c7;
     padding: 0.5vh 1vh;
 }
@@ -114,6 +112,11 @@ body{
 .cont-menu-lateral nav a#b:hover{
     border-left: 5px solid #c7c7c7;
     background: #172540;
+}
+
+.cont-menu-lateral nav a#admin{
+    visibility: hidden;
+    cursor: default;
 }
 
 
