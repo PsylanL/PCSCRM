@@ -32,6 +32,4 @@ public class Extract {
     @Column(name = "orderdate")
     @Getter @Setter
     private String orderDate;
-
-
 }

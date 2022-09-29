@@ -19,20 +19,18 @@ public class UserController {
 	@Autowired
 	private UserDao userDao;
 
-	@PostMapping("/register")
+	@RequestMapping("/register")
 	public void registerUser (@RequestBody User user) {
 		userDao.register(user);
 	}
 
-	@GetMapping("/list")
+	@RequestMapping("/list")
 	public List<User> listUsers (){
 		return userDao.List();
 	}
 
-	@GetMapping("/list/client")
+	@RequestMapping("/list/client")
 	public List<User> listClient () {
 		return userDao.ListClient();
 	}
-
-
 }
