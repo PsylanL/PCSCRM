@@ -17,11 +17,11 @@
         <div class="logo">
             <h1>Logo</h1>
         </div>
-        <div class="container1">
-            <nav class="menu-superior">
-                <a href="#">User</a>
-            </nav>
-        </div>
+        
+        <nav class="menu-superior">
+            <a href="#"> <i class="icon-users" ></i> User</a>
+        </nav>
+        
     </header>
 <!-- FIN MENU SUPERIOR -->
 
@@ -34,6 +34,8 @@
             <a id="b" class="icon-users" href="lead.html">  Lead</a>
             <a class="icon-check" href="orders.html">  Orders</a>
             <a id="b" class="icon-basket" href="products.html">  Products</a>
+            <a id="admin" class="icon-doc-inv" href="#">  Report</a>
+            <a id="admin" class="icon-users" href="#">  Create User</a>
         </nav>
     </div>
 
@@ -41,3 +43,10 @@
 <!-- FIN MENU LATERAL -->
 </body>
 </html>
+
+<script>
+    function alter(){
+        elem = document.getElementById('admin');
+        elem.style.opacity = 1;
+    }
+</script>

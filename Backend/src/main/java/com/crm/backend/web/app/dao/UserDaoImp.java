@@ -22,11 +22,12 @@ public class UserDaoImp implements UserDao{
         entityManager.merge(user);
     }
 
+    //Retorna lista
     @SuppressWarnings("unchecked")
     @Override
     public java.util.List<User> List() {
         String query = "from User";
-		return entityManager.createQuery(query).getResultList();
+        return entityManager.createQuery(query).getResultList();
     }
 
     @SuppressWarnings("unchecked")
