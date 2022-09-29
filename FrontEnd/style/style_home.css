@@ -1,0 +1,128 @@
+@import url('http://fonts.cdnfonts.com/css/montserrat');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    background-size: 100vw 100vh;
+    background-repeat: no-repeat;
+}
+
+
+/*INICIO ESTILOS HEADER*/
+.header{
+    width: 100%;
+    height: 10vh;
+    position: fixed;
+    top: 0; left: 0;
+    background: #6D6E6F;
+}
+
+.header .logo{
+    float: left;
+    line-height: 7.5vh;
+}
+
+.logo h1{
+    color: black;
+    font-weight: 42vh;
+    font-size: 2.2vh;
+    margin-left: 4vh;
+}
+
+.container1{
+    width: 90%;
+    max-width: 125vh;
+    margin: auto;
+    
+}
+
+.container1 .menu-superior{
+    float: right;
+    line-height: 8vh;
+}
+
+.container1 .menu-superior a{
+    display: inline-block;
+    padding: 2vh 1vh;
+    line-height: normal;
+    text-decoration: none;
+    color: black;
+    transition: all 0.3s ease;
+    border-bottom: 2px solid transparent;
+    font-size: 2vh;
+    
+}
+
+.container1 .menu-superior a:hover{
+    border-bottom: 0.21vh solid #c7c7c7;
+    padding: 0.5vh 1vh;
+}
+/*FIN ESTILOS HEADER*/
+                
+/*INICIO MENU LATERAL*/
+
+.container2{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 10vh;
+    left: 0;
+    transition: all 500ms ease;
+    opacity:1;
+    
+}
+
+
+.cont-menu-lateral{
+    width: 100%;
+    max-width: 25.9vh;
+    background: #2980F2;
+    height: 100vh;
+    position: relative;
+    transition: all 500ms ease;
+}
+
+
+.cont-menu-lateral nav{
+    transform: translateY(0%);
+}
+
+.cont-menu-lateral nav a{
+    display: block;
+    text-decoration: none;
+    padding: 2.5vh;
+    color: white;
+    font-size: large;
+    border-left: 5px solid transparent;
+    transition: all 500ms ease; 
+}
+
+.cont-menu-lateral nav a:hover{
+    border-left: 5px solid #c7c7c7;
+    background: #172540;
+}
+
+.container2 .cont-menu-lateral nav a#b{
+    background: #1636eb;
+}
+
+.cont-menu-lateral nav a#b:hover{
+    border-left: 5px solid #c7c7c7;
+    background: #172540;
+}
+
+
+.cont-menu-lateral label{
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+/*FIN MENU LATERAL*/
