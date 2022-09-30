@@ -8,15 +8,20 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Repository;
 
+import com.crm.backend.web.app.models.User;
+
 @Transactional
 @Repository
 public class ProductDaoImp implements ProductDao{
 
+	//variable que ejecuta comandos y queries de sql
 	@PersistenceContext
 	private EntityManager entityManager;
 	
+	
+    @SuppressWarnings("unchecked")
 	@Override
-	public List list() {
+	public List<User> list() {
 		String query = "from Product";
 		return entityManager.createQuery(query).getResultList();
 	}

@@ -20,26 +20,31 @@ public class UserController {
 	@Autowired
 	private UserDao userDao;
 
+	//Metodo que se llama al ejecutar request desde front
 	@PostMapping("/register")
 	public void registerUser (@RequestBody User user) {
 		userDao.register(user);
 	}
 
+	//Metodo que se llama al ejecutar request desde front
 	@GetMapping("/list")
 	public List<User> listUsers (){
 		return userDao.List();
 	}
 
+	//Metodo que se llama al ejecutar request desde front
 	@GetMapping("/list/client")
 	public List<User> listClient () {
 		return userDao.ListClient();
 	}
 	
+	//Metodo que se llama al ejecutar request desde front
 	@GetMapping("/type/{id}")
 	public List<User> returnType (@PathVariable String id) {
 		return userDao.returnType(id);
 	}
 	
+	//Metodo que se llama al ejecutar request desde front
 	@GetMapping("/search/{id}")
 	public List<User> returnUser (@PathVariable String id) {
 		return userDao.returnUser(id);

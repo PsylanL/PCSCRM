@@ -14,6 +14,7 @@ import com.crm.backend.web.app.models.User;
 @Transactional
 public class UserDaoImp implements UserDao{
 
+    //variable que ejecuta comandos y queries de sql
     @PersistenceContext
 	private EntityManager entityManager;
 
@@ -49,8 +50,7 @@ public class UserDaoImp implements UserDao{
 	@Override
 	public List<User> returnUser(String id) {
 		String query = "from User Where Id = ".concat(id);
-		List<User> user = entityManager.createQuery(query).getResultList();
-		return user;
+		return entityManager.createQuery(query).getResultList();
 	}
     
 }
