@@ -14,6 +14,10 @@ async function client() {
         let row = document.createElement('tr');
         let td = document.createElement('td');
 
+        td.innerHTML = '<i class="icon-user-circle-o" id="icon-user"></i>';
+        row.appendChild(td);
+
+        td = document.createElement('td');
         td.innerText = element.id;
         row.appendChild(td);
 
@@ -34,8 +38,8 @@ async function client() {
         row.appendChild(td);
 
         td = document.createElement('td');
-        td.innerHTML = '<button class="icon-trash btn btn-outline-primary btn-sm" id="btnDelete"></button>'
-            +' '+ '<button class="icon-edit btn btn-outline-primary btn-sm" id="btnEdit"></button>';
+        td.innerHTML = '<div class="size"><button class="icon-trash btn btn-outline-primary btn-sm" id="btnDelete"></button>'
+            +' '+ '<button class="icon-edit btn btn-outline-primary btn-sm" id="btnEdit"></button></div>';
         row.appendChild(td);
 
         tableBody.appendChild(row);

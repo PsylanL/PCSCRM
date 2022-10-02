@@ -149,4 +149,16 @@ body{
    
 }
 
+.size{
+    width: max-content;
+}
+
+
+
+
+
+#icon-user{
+   width: 10vh;
+}
+
 /*FIN TABLA*/

@@ -6,7 +6,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/FrontEnd/style/style_clients.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/FrontEnd/style/fontello.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -48,18 +49,20 @@
 
         <div class="cont-tabla">
 
-            <button id="btn-agg-client" class="btn btn-info">Agregar Cliente  <i class="icon-plus"></i> </button>
+            <button id="btn-agg-client" class="btn btn-info">Agregar Cliente <i class="icon-user-add"></i> </button>
 
             <table id="clients" class="table table-bordered">
-                <tr>
-                    <th>ID</th>
-                    <th>DIRECCIÓN</th>
-                    <th>CELULAR</th>
-                    <th>CORREO</th>
-                    <th>NOMBRE</th>
-                    <th>ACCIONES</th>
-                </tr>
-
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>ID</th>
+                        <th>ADRESS</th>
+                        <th>CELLPHONE</th>
+                        <th>MAIL</th>
+                        <th>NAME</th>
+                        <th>ACTIONS</th>
+                    </tr>
+                </thead>
                 <tbody id="tbody"></tbody>
             </table>
 
@@ -67,12 +70,13 @@
 
         <!-- FIN TABLA -->
 
-        
+
     </div>
 
 
-    
+
 </body>
+
 </html>
 <!-- JavaScript Bundle with Popper -->
 <script src="../js/clients.js"></script>
