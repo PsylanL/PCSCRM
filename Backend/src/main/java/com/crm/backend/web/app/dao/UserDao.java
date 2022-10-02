@@ -17,6 +17,6 @@ public interface UserDao {
 
 	List<User> returnUser(String id);
 
-    void verify(User user);
+    boolean login(User user);
     
 }

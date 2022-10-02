@@ -10,6 +10,9 @@ import org.springframework.stereotype.Repository;
 
 import com.crm.backend.web.app.models.User;
 
+import de.mkammerer.argon2.Argon2;
+import de.mkammerer.argon2.Argon2Factory;
+
 @Repository
 @Transactional
 public class UserDaoImp implements UserDao{
@@ -53,10 +56,20 @@ public class UserDaoImp implements UserDao{
 		return entityManager.createQuery(query).getResultList();
 	}
 
+	@SuppressWarnings("unchecked")
     @Override
-    public void verify(User user) {
-        String query = "From User Where mail = :mail AND password = :password";
-//        List<User>
+    public boolean login(User user) {
+        String query = "From User Where mail = :mail";
+        List<User> lista = entityManager.createQuery(query)
+                            .setParameter("mail", user.getMail())
+                            .getResultList();
+
+        if(lista.isEmpty()){
+            return false;
+        }
+
+        Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
+        return argon2.verify(lista.get(0).getPassword(), user.getPassword());
+        
     }
-    
 }
