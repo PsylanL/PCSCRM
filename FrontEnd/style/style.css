@@ -42,13 +42,21 @@ p{
 }
 
 .con1title{
+    position:relative; 
+    margin:0;
+    top: -2rem;
     font-weight: 400;
+    padding-left: 2rem;
 }
 
 .con1subtitle{
+    position:relative; 
+    top: -2rem;
     font-weight: 500;
     color: #7A788C;
+    padding-left: 2rem;
 }
+
 
 .con1email{
     display: block;
@@ -94,6 +102,31 @@ p{
     margin-left: 1rem;
     bottom: 14px;
     border: none;
+}
+
+.con1right_top{
+    display: flex;
+    position: relative;
+    
+    left: 8rem;
+    top: -6rem;
+}
+
+.con1button_top{
+    color: #fff;
+    background-color:#276BF2 ;
+    border: none;
+    padding: 0.4rem;
+    border-radius: 0.2rem;
+    font-family: 'Poppins';
+}
+
+.con1account{
+    padding-top: 0.5rem;
+    padding-right: 1rem;
+    margin: 0;
+    font-size: small;
+    font-weight: 400;
 }
 
 .boton_login{
