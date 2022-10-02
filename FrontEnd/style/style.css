@@ -23,6 +23,73 @@ p{
     "con1left con1right"; 
 }
 
+.container2{
+    backdrop-filter: blur(0px) saturate(200%);
+    -webkit-backdrop-filter: blur(0px) saturate(200%);
+    background-color: rgba(8, 44, 120, 0.59);
+    border-radius: 2vh;
+    border: 1px solid rgba(255, 255, 255, 0.125)
+}
+
+.container3{
+    position: relative;
+    margin-left: 35vh;
+    margin-right: 35vh;
+    margin-top: 15vh;
+    border-radius: 2vh;
+    background-color: #276BF2;
+
+}
+
+.con3cloud1{
+    top: 40vh;
+    left: -2vh;
+    border-radius: 3vh;
+    background-color: rgb(160, 149, 255);
+    position: absolute;
+    min-width: 17vh;
+}
+.con3cloud2{
+    top: 37.5vh;
+    left: -5vh;
+    border-radius: 3vh;
+    background-color: rgb(160, 149, 255);
+    position: absolute;
+    min-width: 20vh;
+}
+
+.con3cloud3{
+    top: 3vh;
+    left: 111vh;
+    border-radius: 3vh;
+    background-color: rgb(160, 149, 255);
+    position: absolute;
+    min-width: 20vh;
+}
+
+.con3cloud4{
+    top: 5.5vh;
+    left: 111vh;
+    border-radius: 3vh;
+    background-color: rgb(160, 149, 255);
+    position: absolute;
+    min-width: 17vh;
+}
+
+.con2title{
+    position: relative;
+    left: 45vh;
+    color: #fff;
+}
+
+.con2img{
+    padding-top: 5vh;
+    position: relative;
+    left: 45vh;
+}
+
+
+
 .con1left{ grid-area: con1left; }
 .con1right { grid-area: con1right; }
 
@@ -119,6 +186,7 @@ p{
     padding: 0.4rem;
     border-radius: 0.2rem;
     font-family: 'Poppins';
+    text-decoration: none !important;
 }
 
 .con1account{
