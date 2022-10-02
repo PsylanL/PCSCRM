@@ -1,46 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/FrontEnd/style/style_home.css">
+    <link rel="stylesheet" href="/FrontEnd/style/style_clients.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/FrontEnd/style/fontello.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clients</title>
 </head>
+
 <body>
-<!--INICIO MENU SUPERIOR -->
+    <!--INICIO MENU SUPERIOR -->
     <header class="header">
         <div class="logo">
             <h1>Logo</h1>
         </div>
-        
-        <nav class="menu-superior">
-            <a href="#"> <i class="icon-users" ></i> User</a>
-        </nav>
-        
-    </header>
-<!-- FIN MENU SUPERIOR -->
 
-<!-- INICIO MENU LATERAL -->
-<div class="container2">
-    <div class="cont-menu-lateral">
-        <nav>
-            <a id="b" class="icon-home" href="/FrontEnd/view/home.html" onclick="alter(this,'red')">  Home</a>
-            <a class="icon-users" href="clients.html">  Clients</a>
-            <a id="b" class="icon-users" href="lead.html">  Lead</a>
-            <a class="icon-check" href="orders.html">  Orders</a>
-            <a id="b" class="icon-basket" href="products.html">  Products</a>
-            <a id="admin" class="icon-doc-inv" href="#">  Report</a>
-            <a id="admin" class="icon-users" href="#">  Create User</a>
+        <nav class="menu-superior">
+            <a href="#"> <i class="icon-users"></i> User</a>
         </nav>
-        <label for="btn-menu" class="icon-cancel"></label>
+
+    </header>
+    <!-- FIN MENU SUPERIOR -->
+
+
+    <div class="container2">
+        <!-- INICIO MENU LATERAL -->
+        <div class="cont-menu-lateral">
+            <nav>
+                <a id="b" class="icon-home" href="/FrontEnd/view/home.html" onclick="alter(this,'red')"> Home</a>
+                <a class="icon-users" href="clients.html"> Clients</a>
+                <a id="b" class="icon-users" href="lead.html"> Lead</a>
+                <a class="icon-check" href="orders.html"> Orders</a>
+                <a id="b" class="icon-basket" href="products.html"> Products</a>
+                <a id="admin" class="icon-doc-inv" href="#"> Report</a>
+                <a id="admin" class="icon-users" href="#"> Create User</a>
+            </nav>
+        </div>
+        <!-- FIN MENU LATERAL -->
+
+        <!-- INICIO TABLA -->
+
+        <div class="cont-tabla">
+
+            <button id="btn-agg-client" class="btn btn-info">Agregar Cliente  <i class="icon-plus"></i> </button>
+
+            <table id="clients" class="table table-bordered">
+                <tr>
+                    <th>ID</th>
+                    <th>DIRECCIÓN</th>
+                    <th>CELULAR</th>
+                    <th>CORREO</th>
+                    <th>NOMBRE</th>
+                    <th>ACCIONES</th>
+                </tr>
+
+                <tbody id="tbody"></tbody>
+            </table>
+
+        </div>
+
+        <!-- FIN TABLA -->
+
+        
     </div>
 
-</div>
-<!-- FIN MENU LATERAL -->
+
+    
 </body>
 </html>
+<!-- JavaScript Bundle with Popper -->
+<script src="../js/clients.js"></script>
