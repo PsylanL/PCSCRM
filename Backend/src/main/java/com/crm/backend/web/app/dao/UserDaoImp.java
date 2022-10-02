@@ -58,18 +58,20 @@ public class UserDaoImp implements UserDao{
 
 	@SuppressWarnings("unchecked")
     @Override
-    public boolean login(User user) {
+    public User getUserByCredentials(User user) {
         String query = "From User Where mail = :mail";
         List<User> lista = entityManager.createQuery(query)
                             .setParameter("mail", user.getMail())
                             .getResultList();
 
         if(lista.isEmpty()){
-            return false;
+            return null;
         }
 
         Argon2 argon2 = Argon2Factory.create(Argon2Factory.Argon2Types.ARGON2id);
-        return argon2.verify(lista.get(0).getPassword(), user.getPassword());
-        
+        if(argon2.verify(lista.get(0).getPassword(), user.getPassword())){
+            return lista.get(0);
+        }  
+        return null;      
     }
 }
