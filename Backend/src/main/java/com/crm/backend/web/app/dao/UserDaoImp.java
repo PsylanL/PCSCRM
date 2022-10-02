@@ -52,5 +52,11 @@ public class UserDaoImp implements UserDao{
 		String query = "from User Where Id = ".concat(id);
 		return entityManager.createQuery(query).getResultList();
 	}
+
+    @Override
+    public void verify(User user) {
+        String query = "From User Where mail = :mail AND password = :password";
+//        List<User>
+    }
     
 }

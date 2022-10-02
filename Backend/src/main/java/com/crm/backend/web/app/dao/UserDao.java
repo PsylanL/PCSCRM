@@ -16,5 +16,7 @@ public interface UserDao {
     List<User> returnType(String id);
 
 	List<User> returnUser(String id);
+
+    void verify(User user);
     
 }

@@ -31,12 +31,4 @@ public class Client {
     @Column(name = "mail")
     @Getter @Setter
     private String mail;
-
-    @Column(name = "password")
-    @Getter @Setter
-    private String password;
-
-    @Column(name = "type")
-    @Getter @Setter
-    private String type;
 }
