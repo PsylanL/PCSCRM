@@ -4,7 +4,8 @@
 
 
 .img_container1{
-    margin-left: 2.5rem;
+    margin-left: -3vh;
+    margin-top: -16vh;
 }
 
 p{
@@ -14,10 +15,11 @@ p{
 /*CONTENEDORES*/
 
 .container1{
-    margin-top: 8rem;
+    margin-top: 10vh;
+    margin-left: -20vh;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
+    grid-template-columns: 1vh 1vh;
+    grid-template-rows: 1vhfr;
     gap: 0px 0px;
     grid-template-areas: 
     "con1left con1right"; 
@@ -28,33 +30,33 @@ p{
 
 .con1left{
     background-color: #276BF2;
-    padding-top: 5rem;
-    width: 30%;
-    height: 60%;
-    position: absolute;
-    left: 25rem;
+    padding-top: 15vh;
+    width: 65vh;
+    height: 70vh;
+    position: relative;
+    left: 68vh;
 }
 
 .con1right{
-    margin-top: 8rem;
+    margin-top: 16vh;
     position: absolute;
-    left: 55%;
+    left: 120vh;
 }
 
 .con1title{
     position:relative; 
     margin:0;
-    top: -2rem;
-    font-weight: 400;
-    padding-left: 2rem;
+    top: -5vh;
+    font-weight: 400vh;
+    padding-left: 5vh;
 }
 
 .con1subtitle{
     position:relative; 
-    top: -2rem;
-    font-weight: 500;
+    top: -5vh;
+    font-weight: 500vh;
     color: #7A788C;
-    padding-left: 2rem;
+    padding-left: 5vh;
 }
 
 
@@ -62,45 +64,45 @@ p{
     display: block;
     background-color:#EFF0F6 ;
     border: 2px solid #EFF0F6;
-    border-radius: 0.7rem;
-    margin-bottom: 1.7rem;
+    border-radius: 5vh;
+    margin-bottom: 5vh;
 }
 
 .con1pass{
     display: block;
     border: 2px solid #000000;
-    border-radius: 0.7rem;
+    border-radius: 5vh;
 }
 .con1p{
     font-size: small;
-    padding-left: 4rem;
+    padding-left: 10vh;
     color: #6E7191 ;
 }
 
 .con1img{
-    margin-left: 1rem;
-    bottom: 0.5rem;
+    margin-left: 2vh;
+    bottom: 1vh;
     position: relative;
 }
 
 .con1input_pass{
     position: relative;
-    margin-left: 1rem;
+    margin-left: 1vh;
     border: none;
 }
 
 .con1input_email{
     background-color:#EFF0F6 ;
     position: relative;
-    margin-left: 1rem;
-    bottom: 14px;
+    margin-left: 2.5vh;
+    bottom: 2vh;
     border: none;
 }
 
 .con1input_pass{
     position: relative;
-    margin-left: 1rem;
-    bottom: 14px;
+    margin-left: 2.5vh;
+    bottom: 2vh;
     border: none;
 }
 
@@ -108,33 +110,33 @@ p{
     display: flex;
     position: relative;
     
-    left: 8rem;
-    top: -6rem;
+    left: 40vh;
+    top: -15vh;
 }
 
 .con1button_top{
     color: #fff;
     background-color:#276BF2 ;
     border: none;
-    padding: 0.4rem;
-    border-radius: 0.2rem;
+    padding: 1vh;
+    border-radius: 1vh;
     font-family: 'Poppins';
 }
 
 .con1account{
-    padding-top: 0.5rem;
-    padding-right: 1rem;
+    padding-top: 1vh;
+    padding-right: 1vh;
     margin: 0;
     font-size: small;
-    font-weight: 400;
+    font-weight: 100vh;
 }
 
 .boton_login{
     color: #fff;
     background-color: #276BF2;
-    margin-top: 2rem;
-    width: 25rem;
-    height: 2.4rem;
+    margin-top: 9vh;
+    width: 50vh;
+    height: 7vh;
     border: none;
-    border-radius: 0.4rem;
+    border-radius: 1vh;
 }

@@ -19,10 +19,10 @@ body{
     height: 10vh;
     position: fixed;
     top: 0; left: 0;
-    background: #6D6E6F;
+    background: #80828560;
 }
 
-.header .logo{
+.header .logo{  
     float: left;
     line-height: 7.5vh;
 }
