@@ -27,7 +27,7 @@ public class LeadDaoImp implements LeadDao {
     @SuppressWarnings("unchecked")
     @Override
     public List<Lead> list() {
-        String query = "from lead";
+        String query = "from Lead";
         return entityManager.createQuery(query).getResultList();
     }
 
