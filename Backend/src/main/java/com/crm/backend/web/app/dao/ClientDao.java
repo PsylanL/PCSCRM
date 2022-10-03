@@ -12,5 +12,7 @@ public interface ClientDao {
     List<Client> list();
 
     List<Client> search(String id);
+
+    String deleteClient(String id);
     
 }

@@ -20,9 +20,12 @@ async function login(){
 
     console.log(response);
 
-    if (response == 'ok'){
-        window.location.replace('home.html');
+    if (response == 'fail'){
+        alert('Usuario o contrasena no correctos. Verifique las credenciales');
     } else {
-        alert('Usuario o contrasena no correctos. Verifique las credenciales')
+        console.log('si entro');
+        localStorage.token = response;
+        localStorage.email = user.mail;
+        window.location.replace('home.html');
     }
 }

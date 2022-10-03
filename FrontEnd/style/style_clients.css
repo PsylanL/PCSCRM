@@ -19,7 +19,7 @@ body{
     height: 10vh;
     position: relative;
     top: 0; left: 0;
-    background: #6D6E6F;
+    background: #949597d0;
 }
 
 .header .logo{
@@ -162,7 +162,7 @@ body{
 
 /*BEGINNING MODAL POPUP*/
 .modal1{
-    position: fixed;
+    position: absolute;
     top:0;
     left: 0;
     right: 0;
@@ -228,6 +228,8 @@ body{
 
 .modal_close:hover{
     text-decoration: none;
+    background-color: rgba(255, 0, 0, 0);
+    color: rgb(0, 0, 0);
 }
 
 .modal1--show{

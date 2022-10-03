@@ -37,5 +37,20 @@ public class LeadDaoImp implements LeadDao {
         String query = "from Lead Where Id = ".concat(id);
 		return entityManager.createQuery(query).getResultList();
     }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public String deleteLead(String id) {
+        String query = "from Lead Where Id = ".concat(id);
+		List<Lead> leadList = entityManager.createQuery(query).getResultList();
+        try {
+            entityManager.remove(leadList.get(0));
+            return "Cliente Potencial eliminado satisfactoriamente";
+        } catch (Exception e) {
+            return "El cliente Potencial no fue eliminado";
+        }
+    }
+
+    
     
 }

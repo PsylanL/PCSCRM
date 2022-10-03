@@ -17,6 +17,8 @@ public interface UserDao {
 
 	List<User> returnUser(String id);
 
-    boolean login(User user);
+    User getUserByCredentials(User user);
+
+    String deleteUser(String id);
     
 }

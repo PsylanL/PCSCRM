@@ -37,5 +37,18 @@ public class ClientDaoImp implements ClientDao {
         String query = "from Client Where Id = ".concat(id);
 		return entityManager.createQuery(query).getResultList();
     }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public String deleteClient(String id) {
+        String query = "from Client Where Id = ".concat(id);
+		List<Client> clientList = entityManager.createQuery(query).getResultList();
+        try {
+            entityManager.remove(clientList.get(0));
+            return "Cliente eliminado satisfactoriamente";
+        } catch (Exception e) {
+            return "el cliente no fue eliminado";
+        }
+    }
     
 }
