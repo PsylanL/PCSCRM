@@ -218,6 +218,7 @@ body{
     height: 2.4rem;
     border: none;
     border-radius: 0.4rem;
+    cursor: pointer;
 }
 
 .con3select{

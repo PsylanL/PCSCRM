@@ -70,7 +70,6 @@ body{
     max-height: fit-content;
     left: 0;
     transition: all 500ms ease;
-    opacity:1;
     
 }
 
@@ -153,14 +152,146 @@ body{
     width: max-content;
 }
 
-
-
-
-
 #icon-user{
-   width: 10vh;
+    width: 10vh;
 }
 
 
 
 /*FIN TABLA*/
+
+/*BEGINNING MODAL POPUP*/
+.modal1{
+    position: fixed;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #111111bd;
+    display: flex;
+    opacity: 0;
+    pointer-events: none; /*while opacity 0 we cant select any element from the page. Pointer-events help us fix that*/
+}
+
+.modal_container{
+    height: fit-content;
+    width: 50%;
+    background-color: #fff;
+    margin: auto; /*Centers everything because its father has a display:flex*/
+}
+
+.modal_close{
+    position: absolute;
+    top: 0;
+    left: 150vh;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: red;
+    color: white;
+}
+
+.modal1--show{
+    transition: all 500ms ease;
+    opacity: 1;
+    pointer-events: unset;
+}
+/*END MODAL POPUP*/
+
+
+
+.con3{
+    margin-right: 20vh;
+    background-color:#EFF0F6 ;
+    border: 2px solid #EFF0F6;
+    border-radius: 0.7rem;
+    margin-bottom: 1.7rem;
+}
+
+.con3title{
+    padding-top: 2vh;
+    padding-bottom: 1vh;
+    position: relative;
+    left: 30vh;
+}
+
+.con3pass{
+    margin-right: 20vh;
+    border: 2px solid #000000;
+    border-radius: 0.7rem;
+    margin-bottom: 2vh;
+}
+.con3p{
+    font-size: small;
+    padding-left: 4rem;
+    color: #6E7191 ;
+}
+
+.con3img{
+    margin-left: 1rem;
+    bottom: 2vh;
+    position: relative;
+}
+
+
+.con3inputs{
+    background-color:#EFF0F6 ;
+    position: relative;
+    margin-left: 1rem;
+    bottom: 14px;
+    border: none;
+}
+
+.con3input_pass{
+    position: relative;
+    margin-left: 1rem;
+    bottom: 14px;
+    border: none;
+}
+
+.con3right_top{
+    display: flex;
+    position: relative;
+    left: 8rem;
+    top: -6rem;
+}
+
+.con3button_top{
+    color: #fff;
+    background-color:#276BF2 ;
+    border: none;
+    padding: 0.4rem;
+    border-radius: 0.2rem;
+    font-family: 'Poppins';
+    text-decoration: none !important;
+}
+
+.con3account{
+    padding-top: 0.5rem;
+    padding-right: 1rem;
+    margin: 0;
+    font-size: small;
+    font-weight: 400;
+}
+
+.register_button{
+    margin-left: 10vh;
+    color: #fff;
+    background-color: #276BF2;
+    margin-top: 2vh;
+    width: 40vh;
+    height: 3.8vh;
+    border: none;
+    border-radius: 0.4rem;
+    cursor: pointer;
+}
+
+.con3select{
+    position: absolute;
+    margin-left: 2vh;
+    margin-top: -1vh;
+}
+
+.center-forms{
+    padding-left: 20vh;
+}
+
