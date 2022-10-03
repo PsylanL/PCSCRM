@@ -41,40 +41,6 @@ p{
 
 }
 
-.con3cloud1{
-    top: 40vh;
-    left: -2vh;
-    border-radius: 3vh;
-    background-color: rgb(160, 149, 255);
-    position: absolute;
-    min-width: 17vh;
-}
-.con3cloud2{
-    top: 37.5vh;
-    left: -5vh;
-    border-radius: 3vh;
-    background-color: rgb(160, 149, 255);
-    position: absolute;
-    min-width: 20vh;
-}
-
-.con3cloud3{
-    top: 3vh;
-    left: 111vh;
-    border-radius: 3vh;
-    background-color: rgb(160, 149, 255);
-    position: absolute;
-    min-width: 20vh;
-}
-
-.con3cloud4{
-    top: 5.5vh;
-    left: 111vh;
-    border-radius: 3vh;
-    background-color: rgb(160, 149, 255);
-    position: absolute;
-    min-width: 17vh;
-}
 
 .con2title{
     position: relative;
@@ -87,7 +53,6 @@ p{
     position: relative;
     left: 45vh;
 }
-
 
 
 .con1left{ grid-area: con1left; }
