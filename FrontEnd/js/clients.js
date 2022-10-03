@@ -80,7 +80,7 @@ async function register(){
     console.log(user);
 
     if(user.password == document.getElementById('txtRepeat').value){
-        const request = await fetch('http://localhost:8080/api/user/register', {
+        const request = await fetch('http://localhost:8080/api/client/register', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -88,7 +88,7 @@ async function register(){
             },
             body: JSON.stringify(user)
         });
-        window.location.replace('index.html');
+        window.location.replace('clients.html');
     } else {
         alert('Las contraseñas no coinciden, por favor retifique');
     }

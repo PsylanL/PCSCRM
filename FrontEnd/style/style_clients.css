@@ -19,7 +19,7 @@ body{
     height: 10vh;
     position: relative;
     top: 0; left: 0;
-    background: #6D6E6F;
+    background: #949597d0;
 }
 
 .header .logo{
@@ -186,8 +186,8 @@ body{
     left: 150vh;
     font-weight: bold;
     text-decoration: none;
-    background-color: red;
-    color: white;
+    background-color: rgba(255, 0, 0, 0);
+    color: rgb(0, 0, 0);
 }
 
 .modal1--show{
