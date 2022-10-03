@@ -74,4 +74,17 @@ public class UserDaoImp implements UserDao{
         }  
         return null;      
     }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public String deleteUser(String id) {
+        String query = "from User Where Id = ".concat(id);
+		List<User> userList = entityManager.createQuery(query).getResultList();
+        try {
+            entityManager.remove(userList.get(0));
+            return "Usuario eliminado satisfactoriamente";
+        } catch (Exception e) {
+            return "el usuario no fue eliiminado";
+        }
+    }
 }

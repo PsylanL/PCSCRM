@@ -38,7 +38,7 @@ async function client() {
         row.appendChild(td);
 
         td = document.createElement('td');
-        td.innerHTML = '<div class="size"><button class="icon-trash btn btn-outline-primary btn-sm" id="btnDelete"></button>'
+        td.innerHTML = '<div class="size"><button class="icon-trash btn btn-outline-primary btn-sm" onclick="deleteClient(' + element.id +')" id="btnDelete"></button>'
             +' '+ '<button class="icon-edit btn btn-outline-primary btn-sm" id="btnEdit"></button></div>';
         row.appendChild(td);
 
@@ -50,4 +50,18 @@ async function client() {
 
 }
 
+async function deleteClient(id){
+    if(confirm("alerta, va a eliminar al usuario con id: "+id)){
+        const request = await fetch('http://localhost:8080/api/client/delete/'+id, {
+                method: 'DELETE',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+            });
+            let response = await request.text();
+        alert(response);
+        location.reload();
+    }
+}
 window.onload = client; 
