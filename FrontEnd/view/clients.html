@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +33,7 @@
         <!-- INICIO MENU LATERAL -->
         <div class="cont-menu-lateral">
             <nav>
-                <a id="b" class="icon-home" href="/FrontEnd/view/home.html" onclick="alter(this,'red')"> Home</a>
+                <a id="b" class="icon-home" href="/FrontEnd/view/home.html"> Home</a>
                 <a class="icon-users" href="clients.html"> Clients</a>
                 <a id="b" class="icon-users" href="lead.html"> Lead</a>
                 <a class="icon-check" href="orders.html"> Orders</a>
@@ -44,39 +43,94 @@
             </nav>
         </div>
         <!-- FIN MENU LATERAL -->
-
         <!-- INICIO TABLA -->
-
         <div class="cont-tabla">
-
-            <button id="btn-agg-client" class="btn btn-info">Agregar Cliente <i class="icon-user-add"></i> </button>
-
+            <button id="btn-agg-client" class="btn btn-info">Add New Client <i class="icon-user-add"></i> </button>
             <table id="clients" class="table table-bordered">
                 <thead>
                     <tr>
                         <th></th>
                         <th>ID</th>
-                        <th>ADRESS</th>
+                        <th>NAME</th>
                         <th>CELLPHONE</th>
                         <th>MAIL</th>
-                        <th>NAME</th>
+                        <th>ADDRESS</th>
                         <th>ACTIONS</th>
                     </tr>
                 </thead>
                 <tbody id="tbody"></tbody>
             </table>
-
         </div>
-
-        <!-- FIN TABLA -->
-
-
+        <!-- FIN TABLA --> 
     </div>
-
+ <!-- BEGINNING MODAL POPUP -->
+ <section class="modal1">
+    <div class="modal_container">
+        <div class="container3">
+            <h1 class="con3title">Register New Client</h1>
+            <div class="center-forms">
+            <form action="#" method="post">
+                <div class="con3">
+                    <p class="con3p">Identification Number</p>
+                    <img class="con3img" src="../img/register_id.png" height="30px">
+                    <input class="con3inputs" type="text" name="id" id="txtId" placeholder="10002222334" >
+                </div>
+                <div class="con3">
+                    <p class="con3p">Full Name</p>
+                    <img class="con3img" src="../img/register_id.png" height="30px">
+                    <input class="con3inputs" type="text" name="name" id="txtName" placeholder="Pimienta Pimienta">
+                </div>
+                <div class="con3">
+                    <p class="con3p">Phone Number</p>
+                    <img class="con3img" src="../img/register_phone.png" height="30px">
+                    <input class="con3inputs" type="text" name="cellPhone" id="txtCellPhone" placeholder="300999888">
+                </div>
+    
+                <div class="con3">
+                    <p class="con3p">Address</p>
+                    <img class="con3img" src="../img/register_address.png" height="30px">
+                    <input class="con3inputs" type="text" name="adress" id="txtAdress" placeholder="Calle 1">
+                </div>
+    
+                <div class="con3">
+                    <p class="con3p">Email</p>
+                    <img class="con3img" src="../img/email.png" height="30px">
+                    <input class="con3inputs" type="text" name="mail" id="txtMail" placeholder="example123@mail.com">
+                </div>
+    
+                <div class="con3">
+                    <p class="con3p">Type of User</p>
+                    <img class="con3img" src="../img/register_tuser.png" height="30px">
+                    <select class="con3select" name="type" id="txtType">
+                        <option value="ClientService" selected>Call Center User</option>
+                        <option value="Admin">Admin</option>
+                        <option value="Manager">Manager</option>
+                    </select>
+                </div>
+    
+                <div class="con3pass">
+                    <p class="con3p">Password</p>
+                    <img class="con3img" src="../img/padlock.png" height="30px">
+                    <input class="con3input_pass" type="password" name="password" id="txtPassword" placeholder="123sdf">
+                </div> 
+    
+                <div class="con3pass">
+                    <p class="con3p">Repeat Password</p>
+                    <img class="con3img" src="../img/padlock.png" height="30px">
+                    <input class="con3input_pass" type="password" name="password" id="txtRepeat" placeholder="123sdf">
+                </div> 
+            </form>
+            <a href="./succesful_re.html"><button class="register_button" onclick="register()">Register</button></a>
+                </div> <!-- END MODAL POPUP -->
+        </div> <!-- END COINTAINER3 -->
+            <a href="#" class="modal_close">X</a>
+    </div><!-- END MODAL CONTAINER -->
+</section>
+<!-- END MODAL POPUP -->
 
 
 </body>
 
 </html>
-<!-- JavaScript Bundle with Popper -->
+
 <script src="../js/clients.js"></script>

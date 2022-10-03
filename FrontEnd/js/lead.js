@@ -1,20 +1,18 @@
-
-
-async function client() {
-    const getClients = "http://localhost:8080/api/client/list";
-    let request = await fetch(getClients);
+async function lead() {
+    const getLeads = "http://localhost:8080/api/lead/list";
+    let request = await fetch(getLeads);
     let response = await request.json();
 
     console.log(response);
 
-    let clientsTable = document.getElementById('clients');
+    let leadsTable = document.getElementById('leads');
     let tableBody = document.getElementById('tbody');
 
     response.forEach(element => {
         let row = document.createElement('tr');
         let td = document.createElement('td');
 
-        td.innerHTML = '<i class="icon-user-circle-o" id="icon-user"></i>';
+        td.innerHTML = '<i class="icon-user-plus" id="icon-user"></i>';
         row.appendChild(td);
 
         td = document.createElement('td');
@@ -22,7 +20,7 @@ async function client() {
         row.appendChild(td);
 
         td = document.createElement('td');
-        td.innerText = element.name;
+        td.innerText = element.adress;
         row.appendChild(td);
 
         td = document.createElement('td');
@@ -34,38 +32,24 @@ async function client() {
         row.appendChild(td);
 
         td = document.createElement('td');
-        td.innerText = element.adress;
+        td.innerText = element.name;
         row.appendChild(td);
 
         td = document.createElement('td');
-        td.innerHTML = '<div class="size"><button class="icon-trash btn btn-outline-primary btn-sm" onclick="deleteClient(' + element.id +')" id="btnDelete"></button>'
+        td.innerHTML = '<div class="size"><button class="icon-trash btn btn-outline-primary btn-sm" id="btnDelete"></button>'
             +' '+ '<button class="icon-edit btn btn-outline-primary btn-sm" id="btnEdit"></button></div>';
         row.appendChild(td);
 
         tableBody.appendChild(row);
     });
 
-    clientsTable.appendChild(tableBody);
-
+    leadsTable.appendChild(tableBody);
 
 }
 
-async function deleteClient(id){
-    if(confirm("alerta, va a eliminar al usuario con id: "+id)){
-        const request = await fetch('http://localhost:8080/api/client/delete/'+id, {
-                method: 'DELETE',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-            });
-            let response = await request.text();
-        alert(response);
-        location.reload();
-    }
-}
-window.onload = client; 
-const openModal = document.getElementById('btn-agg-client');
+window.onload = lead;
+
+const openModal = document.getElementById('btn-agg-lead');
 const  modal1 = document.querySelector('.modal1');
 const closeModal = document.querySelector('.modal_close');
 openModal.addEventListener('click', (e)=>{ 
@@ -83,7 +67,7 @@ window.onload = client;
 
 /* REGISTER FUNCTION*/
 
-async function register(){
+async function registerLead(){
     let user = {};
     user.id = document.getElementById('txtId').value;
     user.name = document.getElementById('txtName').value;
@@ -95,7 +79,7 @@ async function register(){
     console.log(user);
 
     if(user.password == document.getElementById('txtRepeat').value){
-        const request = await fetch('http://localhost:8080/api/client/register', {
+        const request = await fetch('http://localhost:8080/api/lead/register', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -103,7 +87,7 @@ async function register(){
             },
             body: JSON.stringify(user)
         });
-        window.location.replace('clients.html');
+        window.location.replace('lead.html');
     } else {
         alert('Las contraseñas no coinciden, por favor retifique');
     }

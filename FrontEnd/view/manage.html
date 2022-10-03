@@ -5,78 +5,69 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/FrontEnd/style/style_clients.css">
-    <link rel="stylesheet" href="/FrontEnd/style/fontello.css">
-    <link rel="stylesheet" href="/FrontEnd/style/style_leads.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="/FrontEnd/style/fontello.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lead</title>
+    <title>Clients</title>
 </head>
+
 <body>
-<!--INICIO MENU SUPERIOR -->
+    <!--INICIO MENU SUPERIOR -->
     <header class="header">
         <div class="logo">
             <h1>Logo</h1>
         </div>
-        
+
         <nav class="menu-superior">
-            <a href="#"> <i class="icon-users" ></i> User</a>
+            <a href="#"> <i class="icon-users"></i> User</a>
         </nav>
-        
+
     </header>
-  
-<!-- FIN MENU SUPERIOR -->
+    <!-- FIN MENU SUPERIOR -->
 
-<!-- INICIO MENU LATERAL -->
-<div class="container2">
-    <div class="cont-menu-lateral">
-        <nav>
-            <a id="b" class="icon-home" href="/FrontEnd/view/home.html">  Home</a>
-            <a class="icon-users" href="clients.html">  Clients</a>
-            <a id="b" class="icon-users" href="lead.html">  Lead</a>
-            <a class="icon-check" href="orders.html">  Orders</a>
-            <a id="b" class="icon-basket" href="products.html">  Products</a>
-            <a id="admin" class="icon-doc-inv" href="#">  Report</a>
-            <a id="admin" class="icon-users" href="#">  Create User</a>
-        </nav>
+
+    <div class="container2">
+        <!-- INICIO MENU LATERAL -->
+        <div class="cont-menu-lateral">
+            <nav>
+                <a id="b" class="icon-home" href="/FrontEnd/view/home.html"> Home</a>
+                <a class="icon-users" href="clients.html"> Clients</a>
+                <a id="b" class="icon-users" href="lead.html"> Lead</a>
+                <a class="icon-check" href="orders.html"> Orders</a>
+                <a id="b" class="icon-basket" href="products.html"> Products</a>
+                <a id="admin" class="icon-doc-inv" href="#"> Report</a>
+                <a id="admin" class="icon-users" href="#"> Create User</a>
+            </nav>
+        </div>
+        <!-- FIN MENU LATERAL -->
+        <!-- INICIO TABLA -->
+        <div class="cont-tabla">
+            <button id="btn-agg-client" class="btn btn-info">Add New Client <i class="icon-user-add"></i> </button>
+            <table id="clients" class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>ID</th>
+                        <th>NAME</th>
+                        <th>CELLPHONE</th>
+                        <th>MAIL</th>
+                        <th>ADDRESS</th>
+                        <th>ACTIONS</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody"></tbody>
+            </table>
+        </div>
+        <!-- FIN TABLA --> 
     </div>
-<!-- FIN MENU LATERAL -->
-
-    <!-- INICIO TABLA -->
-
-    <div class="cont-tabla">
-
-        <button onclick="show()" id="btn-agg-lead" class="btn btn-info">Agregar Cliente Potencial <i class="icon-user-add"></i> </button>
-
-        <table id="leads" class="table table-bordered">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>ID</th>
-                    <th>NAME</th>
-                    <th>CELLPHONE</th>
-                    <th>MAIL</th>
-                    <th>ADRESS</th>
-                    <th>ACTIONS</th>
-                </tr>
-            </thead>
-            <tbody id="tbody"></tbody>
-        </table>
-
-    </div>
-
-    <!-- FIN TABLA -->
-
-
-</div>
-
  <!-- BEGINNING MODAL POPUP -->
  <section class="modal1">
     <div class="modal_container">
         <div class="container3">
-            <h1 class="con3title">Register New Lead</h1>
+            <h1 class="con3title">Register New User</h1>
             <div class="center-forms">
             <form action="#" method="post">
                 <div class="con3">
@@ -129,7 +120,7 @@
                     <input class="con3input_pass" type="password" name="password" id="txtRepeat" placeholder="123sdf">
                 </div> 
             </form>
-            <a href="./succesful_re.html"><button class="register_button" onclick="registerLead()">Register</button></a>
+            <a href="./succesful_re.html"><button class="register_button" onclick="register()">Register</button></a>
                 </div> <!-- END MODAL POPUP -->
         </div> <!-- END COINTAINER3 -->
             <a href="#" class="modal_close">X</a>
@@ -137,8 +128,9 @@
 </section>
 <!-- END MODAL POPUP -->
 
-</body>
-</html>
 
-<script src="../js/lead.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</body>
+
+</html>
+<!-- JavaScript Bundle with Popper -->
+<script src="../js/clients.js"></script>
