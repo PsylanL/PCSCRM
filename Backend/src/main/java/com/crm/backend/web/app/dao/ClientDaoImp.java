@@ -47,7 +47,7 @@ public class ClientDaoImp implements ClientDao {
             entityManager.remove(clientList.get(0));
             return "Cliente eliminado satisfactoriamente";
         } catch (Exception e) {
-            return "el cliente no fue eliiminado";
+            return "el cliente no fue eliminado";
         }
     }
     
