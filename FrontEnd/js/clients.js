@@ -107,17 +107,6 @@ closeModal.addEventListener('click', (e)=>{
     modal1.classList.remove('modal1--show')
 })
 
-<<<<<<< HEAD
-=======
-closeModal2.addEventListener('click', (e)=>{ 
-    e.preventDefault();/*Evita que se ponga un # en el url cada que se abre el modal */
-    modal2.classList.remove('modal2--show')
-    modal1.classList.add('modal1--show')
-})
-
-
-window.onload = client; 
->>>>>>> 45619e4ac4baea955588ce7efb5abd3f36d2c02b
 
 
 /* REGISTER FUNCTION*/
