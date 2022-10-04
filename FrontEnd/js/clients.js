@@ -84,11 +84,22 @@ async function deleteClient(id){
 
 /*Modal*/
 const openModal = document.getElementById('btn-agg-client');
+const  openModal2 = document.querySelector('.register_button');
 const  modal1 = document.querySelector('.modal1');
+const  modal2 = document.querySelector('.modal2');
+
+//const  modal2 = document.querySelector('.modal2');
 const closeModal = document.querySelector('.modal_close');
+const closeModal2 = document.getElementById('modal_close2');
 openModal.addEventListener('click', (e)=>{ 
     e.preventDefault();/*Evita que se ponga un # en el url cada que se abre el modal */
     modal1.classList.add('modal1--show')
+})
+
+openModal2.addEventListener('click', (e)=>{
+    e.preventDefault();
+    modal2.classList.add('modal2--show')
+    modal1.classList.remove('modal1--show')
 })
 
 closeModal.addEventListener('click', (e)=>{ 
@@ -96,6 +107,17 @@ closeModal.addEventListener('click', (e)=>{
     modal1.classList.remove('modal1--show')
 })
 
+<<<<<<< HEAD
+=======
+closeModal2.addEventListener('click', (e)=>{ 
+    e.preventDefault();/*Evita que se ponga un # en el url cada que se abre el modal */
+    modal2.classList.remove('modal2--show')
+    modal1.classList.add('modal1--show')
+})
+
+
+window.onload = client; 
+>>>>>>> 45619e4ac4baea955588ce7efb5abd3f36d2c02b
 
 
 /* REGISTER FUNCTION*/
