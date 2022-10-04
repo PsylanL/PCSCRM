@@ -1,16 +1,29 @@
+var data = '';
 
-
-async function client() {
+async function client(){
     const getClients = "http://localhost:8080/api/client/list";
     let request = await fetch(getClients);
     let response = await request.json();
+    this.data = response;
+    console.log(data);
+    list(this.data);
+    
+}
 
-    console.log(response);
+window.onload = client(); 
+
+
+async function list(elem) {
 
     let clientsTable = document.getElementById('clients');
     let tableBody = document.getElementById('tbody');
 
-    response.forEach(element => {
+    if(elem != this.data){
+        tableBody.innerHTML = "";
+        //console.log('hola')
+    }
+
+    for(element of elem) {
         let row = document.createElement('tr');
         let td = document.createElement('td');
 
@@ -43,12 +56,15 @@ async function client() {
         row.appendChild(td);
 
         tableBody.appendChild(row);
-    });
+    }
 
     clientsTable.appendChild(tableBody);
 
+    elem = '';
 
 }
+
+
 
 async function deleteClient(id){
     if(confirm("alerta, va a eliminar al usuario con id: "+id)){
@@ -64,7 +80,9 @@ async function deleteClient(id){
         location.reload();
     }
 }
-window.onload = client; 
+
+
+/*Modal*/
 const openModal = document.getElementById('btn-agg-client');
 const  modal1 = document.querySelector('.modal1');
 const closeModal = document.querySelector('.modal_close');
@@ -78,7 +96,6 @@ closeModal.addEventListener('click', (e)=>{
     modal1.classList.remove('modal1--show')
 })
 
-window.onload = client; 
 
 
 /* REGISTER FUNCTION*/
@@ -110,3 +127,32 @@ async function register(){
 
 }
 
+
+/*SEARCH */
+function search(){
+
+    let form = document.querySelector('#input-search');
+
+    let filtered = {};
+    let array = [];
+
+    
+        console.log(form.value);
+
+        for(let data of this.data ){
+            let inf = data.id;
+            //console.log(inf);
+            if (inf.includes(form.value)) {
+                filtered = data;
+                array.push(filtered);
+            }
+        }
+
+        
+        list(array);
+        //console.log(filtered);
+        //console.log('a',array);
+
+}
+
+/*FIN SEARCH */

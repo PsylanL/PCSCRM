@@ -4,6 +4,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="/FrontEnd/style/style_home.css">
     <link rel="stylesheet" href="/FrontEnd/style/fontello.css">
     <meta charset="UTF-8">
@@ -30,7 +31,7 @@
     <div class="cont-menu-lateral">
         <nav>
             <a id="b" class="icon-home" href="/FrontEnd/view/home.html" onclick="alter(this,'red')">  Home</a>
-            <a class="icon-users" href="clients.html">  Clients</a>
+            <a class="icon-users" href="clients.html" onclick="client()">  Clients</a>
             <a id="b" class="icon-users" href="lead.html">  Lead</a>
             <a class="icon-check" href="orders.html">  Orders</a>
             <a id="b" class="icon-basket" href="products.html">  Products</a>
@@ -44,9 +45,3 @@
 </body>
 </html>
 
-<script>
-    function alter(){
-        elem = document.getElementById('admin');
-        elem.style.opacity = 1;
-    }
-</script>
