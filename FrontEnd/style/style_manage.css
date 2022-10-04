@@ -19,7 +19,7 @@ body{
     height: 10vh;
     position: relative;
     top: 0; left: 0;
-    background: #949597d0;
+    background: #6D6E6F;
 }
 
 .header .logo{
@@ -162,18 +162,6 @@ body{
 
 /*BEGINNING MODAL POPUP*/
 .modal1{
-    position: absolute;
-    top:0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #111111bd;
-    display: flex;
-    opacity: 0;
-    pointer-events: none; /*while opacity 0 we cant select any element from the page. Pointer-events help us fix that*/
-}
-
-.modal2{
     position: fixed;
     top:0;
     left: 0;
@@ -192,30 +180,9 @@ body{
     margin: auto; /*Centers everything because its father has a display:flex*/
 }
 
-.modal_container2{
-    height: fit-content;
-    width: 50%;
-    background-color: #fff;
-    margin: auto; /*Centers everything because its father has a display:flex*/
-}
-
 .modal_close{
     position: absolute;
-    top: 18vh;
-    left: 145vh;
-    font-weight: bold;
-    text-decoration: none;
-    padding-left: 0.5vh;
-    padding-right: 0.5vh;
-    background-color: red;
-    color: white;
-    border-radius: 0.5vh;
-}
-
-
-.modal_close2{
-    position: absolute;
-    top: 18vh;
+    top: 5vh;
     left: 145vh;
     font-weight: bold;
     text-decoration: none;
@@ -228,8 +195,6 @@ body{
 
 .modal_close:hover{
     text-decoration: none;
-    background-color: rgba(255, 0, 0, 0);
-    color: rgb(0, 0, 0);
 }
 
 .modal1--show{
@@ -237,14 +202,7 @@ body{
     opacity: 1;
     pointer-events: unset;
 }
-
-
-.modal2--show{
-    transition: all 500ms ease;
-    opacity: 1;
-    pointer-events: unset;
-}
-/*END MODALS POPUP*/
+/*END MODAL POPUP*/
 
 
 
@@ -333,25 +291,6 @@ body{
     border-radius: 0.4rem;
     cursor: pointer;
     margin-bottom: 2vh;
-    transition: all 500ms ease;
-}
-
-.register_button2{
-    margin-left:30vh;
-    color: #fff;
-    background-color: #276BF2;
-    margin-top: 2vh;
-    width: 40vh;
-    height: 3.8vh;
-    border: none;
-    border-radius: 0.4rem;
-    cursor: pointer;
-    margin-bottom: 2vh;
-    transition: all 500ms ease;
-}
-
-.register_button:hover{
-    background-color: #1636eb;
 }
 
 .con3select{
@@ -363,110 +302,4 @@ body{
 .center-forms{
     padding-left: 20vh;
 }
-.con3cloud1{
-    top: 40vh;
-    left: -2vh;
-    border-radius: 3vh;
-    background-color: rgb(160, 149, 255);
-    position: absolute;
-    min-width: 17vh;
-}
-.con3cloud2{
-    top: 37.5vh;
-    left: -5vh;
-    border-radius: 3vh;
-    background-color: rgb(160, 149, 255);
-    position: absolute;
-    min-width: 20vh;
-}
 
-.con3cloud3{
-    top: 3vh;
-    left: 111vh;
-    border-radius: 3vh;
-    background-color: rgb(160, 149, 255);
-    position: absolute;
-    min-width: 20vh;
-}
-
-.con3cloud4{
-    top: 5.5vh;
-    left: 111vh;
-    border-radius: 3vh;
-    background-color: rgb(160, 149, 255);
-    position: absolute;
-    min-width: 17vh;
-}
-
-/***** Beginning Succesfull Registration *****/
-.container3{
-    position: relative;
-    margin-top: 0vh;
-    background-color: #276BF2;
-}
-
-
-
-.con3cloud1{
-    top: 31vh;
-    left: 0vh;
-    border-radius: 0;
-    border-bottom-right-radius: 3vh;
-    border-top-right-radius: 3vh;
-    background-color: rgb(160, 149, 255);
-    position: absolute;
-    min-width: 17vh;
-}
-.con3cloud2{
-    top: 28.5vh;
-    left: 0vh;
-    border-radius: 0;
-    border-bottom-right-radius: 3vh;
-    border-top-right-radius: 3vh;
-    background-color: rgb(160, 149, 255);
-    position: absolute;
-    min-width: 20vh;
-}
-
-.con3cloud3{
-    top: 3vh;
-    left: 78.6vh;
-    border-radius: 0;
-    border-bottom-left-radius: 3vh;
-    border-top-left-radius: 3vh;
-    background-color: rgb(160, 149, 255);
-    position: absolute;
-    min-width: 20vh;
-}
-
-.con3cloud4{
-    top: 5.5vh;
-    left: 81.6vh;
-    border-radius: 0;
-    border-bottom-left-radius: 3vh;
-    border-top-left-radius: 3vh;
-    background-color: rgb(160, 149, 255);
-    position: absolute;
-    min-width: 17vh;
-}
-
-/***** End Section *****/
-
-.container4{
-    margin-top: 8vh;
-    backdrop-filter: blur(0px) saturate(200%);
-    -webkit-backdrop-filter: blur(0px) saturate(200%);
-    background: rgba(8, 44, 120, 0.59);
-    border: 1px solid rgba(255, 255, 255, 0.125);
-
-}
-
-.con4img{
-    padding-left: 32vh;
-}
-
-.con4title{
-    position: relative;
-    left: 25vh;
-    color: #fff;
-}
