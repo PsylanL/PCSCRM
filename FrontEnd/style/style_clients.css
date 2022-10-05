@@ -61,6 +61,9 @@ body{
     padding: 0.5vh 1vh;
 }
 /*FIN ESTILOS HEADER*/
+
+
+
                 
 /*INICIO MENU LATERAL*/
 
@@ -128,12 +131,45 @@ body{
 }
 /*FIN MENU LATERAL*/
 
-/*INICIO TABLA*/
 
-#btn-agg-client{
-    margin-top: 5vh;
+/*BOTONES E INPUT*/
+.buttons{
+    width: max-content;
     margin-left: 50vh;
 }
+
+.input-group{
+    margin-top: 5vh;
+}
+
+#btn-search{
+    margin-left: 1vh;
+}
+
+#btn-agg-client{
+   margin-left: 25vh;
+   
+}
+
+#icon-input-search{
+    margin-left: 2vh;
+}
+
+#notify{
+    color: #000000;
+}
+
+#msg{
+    background-color: white;
+    color: #000000;
+}
+
+
+
+
+/*INICIO TABLA*/
+
+
 
 .cont-tabla{
     left: 25vh;

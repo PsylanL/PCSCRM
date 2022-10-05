@@ -150,13 +150,32 @@ function search(){
                 filtered = data;
                 array.push(filtered);
             }
+
+            if(array.length != 0){
+                list(array);
+            } else{
+                notification();
+            }
         }
 
         
-        list(array);
+        
         //console.log(filtered);
         //console.log('a',array);
 
 }
 
 /*FIN SEARCH */
+
+
+function notification(){
+let toastTrigger = document.getElementById('btn-search')
+let toastLiveExample = document.getElementById('liveToast')
+if (toastTrigger) {
+ 
+    const toast = new bootstrap.Toast(toastLiveExample)
+
+    toast.show()
+  
+}
+}

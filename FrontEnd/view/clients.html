@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/FrontEnd/style/style_clients.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
     <link rel="stylesheet" href="/FrontEnd/style/fontello.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,7 +27,7 @@
             <a href="#" id="user"></a>
             <a href="#" onclick="cerrarSesion()"> Cerrar sesion</a>
         </nav>
-        
+
         <script src="../js/Header.js"></script>
 
     </header>
@@ -33,6 +35,7 @@
 
 
     <div class="container2">
+
         <!-- INICIO MENU LATERAL -->
         <div class="cont-menu-lateral">
             <nav>
@@ -46,11 +49,25 @@
             </nav>
         </div>
         <!-- FIN MENU LATERAL -->
+
+        <!-- BOTONES E INPUT-->
+        <div class="buttons">
+            <div class="input-group flex-nowrap">
+                <button id="btn-agg-client" class="btn btn-primary">Add New Client <i class="icon-user-add"></i>
+                </button>
+                <span class="input-group-text" id="icon-input-search"><i class="icon-id"></i></span>
+                <input id="input-search" type="text" class="form-control" placeholder="Insert ID">
+                <button onclick="search()" class="btn btn-primary" id="btn-search">Buscar <i
+                        class="icon-search"></i></button>
+            </div>
+
+        </div>
+        <!-- BOTONES E INPUT-->
+
         <!-- INICIO TABLA -->
+
         <div class="cont-tabla">
-            <button id="btn-agg-client" class="btn btn-info">Add New Client <i class="icon-user-add"></i> </button>
-            <input type="text" placeholder="buscar por ID" id="input-search">
-            <button onclick="search()" class="btn btn-info" id="btn-search">Buscar</button>
+
             <table id="clients" class="table table-bordered">
                 <thead>
                     <tr>
@@ -66,71 +83,98 @@
                 <tbody id="tbody"></tbody>
             </table>
         </div>
-        <!-- FIN TABLA --> 
-    </div>
- <!-- BEGINNING MODAL POPUP -->
- <section class="modal1">
-    <div class="modal_container">
-        <div>
-        <div>
-        <div>
-            <h1 class="con3title">Register New Client</h1>
-            <div class="center-forms">
-            <form action="#" method="post">
-                <div class="con3">
-                    <p class="con3p">Identification Number</p>
-                    <img class="con3img" src="../img/register_id.png" height="30px">
-                    <input class="con3inputs" type="text" name="id" id="txtId" placeholder="10002222334" >
+        <!-- FIN TABLA -->
+
+
+        <!--NOTIFICACIONES-->
+        <div class="toast-container position-fixed  end-0 p-3">
+            <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                <div id="notify" class="toast-header bg-danger">
+                    <i id="equis" class="icon-cancel"></i>
+                    <strong class="me-auto" id="strong">Client not found</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
                 </div>
-                <div class="con3">
-                    <p class="con3p">Full Name</p>
-                    <img class="con3img" src="../img/register_id.png" height="30px">
-                    <input class="con3inputs" type="text" name="name" id="txtName" placeholder="Pimienta Pimienta">
-                </div>
-                <div class="con3">
-                    <p class="con3p">Phone Number</p>
-                    <img class="con3img" src="../img/register_phone.png" height="30px">
-                    <input class="con3inputs" type="text" name="cellPhone" id="txtCellPhone" placeholder="300999888">
-                </div>
-    
-                <div class="con3">
-                    <p class="con3p">Address</p>
-                    <img class="con3img" src="../img/register_address.png" height="30px">
-                    <input class="con3inputs" type="text" name="adress" id="txtAdress" placeholder="Calle 1">
-                </div>
-    
-                <div class="con3">
-                    <p class="con3p">Email</p>
-                    <img class="con3img" src="../img/email.png" height="30px">
-                    <input class="con3inputs" type="text" name="mail" id="txtMail" placeholder="example123@mail.com">
-                </div>
-            </form>
-            <a href="./succesful_re.html"><button class="register_button" onclick="register()">Register</button></a>
-                </div> <!-- END MODAL POPUP -->
-        </div> <!-- END COINTAINER3 -->
-            <a href="#" class="modal_close">X</a>
-    </div><!-- END MODAL CONTAINER -->
-</section>
-<!-- END MODAL POPUP -->
-<section class="modal2">
-    <div class="modal_container2">
-        <div>
-            <div class="container3">
-                <div class="con3cloud1">ㅤ</div>
-                <div class="con3cloud2">ㅤ</div>
-                <div class="con3cloud3">ㅤ</div>
-                <div class="con3cloud4">ㅤ</div>
-                <div class="container4">
-                    <img src="../img/figma_regis_check.png" height="300" class="con4img">
-                    <h1 class="con4title">Succesful Registration</h1>
-                    <h3></h3>
+                <div class="toast-body" id="msg">
+                    Please validate the identification!
                 </div>
             </div>
-            <a id="modal_close2"href="./clients.html"><button class="register_button2">Close</button></a>
-        </div> <!-- END MODAL POPUP -->
+        </div>
+        <!--FIN NOTIFICACIONES-->
+
+    </div>
+    <!--FIN CONTAINER2-->
+
+    <!-- BEGINNING MODAL POPUP -->
+    <section class="modal1">
+        <div class="modal_container">
+            <div>
+                <div>
+                    <div>
+                        <h1 class="con3title">Register New Client</h1>
+                        <div class="center-forms">
+                            <form action="#" method="post">
+                                <div class="con3">
+                                    <p class="con3p">Identification Number</p>
+                                    <img class="con3img" src="../img/register_id.png" height="30px">
+                                    <input class="con3inputs" type="text" name="id" id="txtId"
+                                        placeholder="10002222334">
+                                </div>
+                                <div class="con3">
+                                    <p class="con3p">Full Name</p>
+                                    <img class="con3img" src="../img/register_id.png" height="30px">
+                                    <input class="con3inputs" type="text" name="name" id="txtName"
+                                        placeholder="Pimienta Pimienta">
+                                </div>
+                                <div class="con3">
+                                    <p class="con3p">Phone Number</p>
+                                    <img class="con3img" src="../img/register_phone.png" height="30px">
+                                    <input class="con3inputs" type="text" name="cellPhone" id="txtCellPhone"
+                                        placeholder="300999888">
+                                </div>
+
+                                <div class="con3">
+                                    <p class="con3p">Address</p>
+                                    <img class="con3img" src="../img/register_address.png" height="30px">
+                                    <input class="con3inputs" type="text" name="adress" id="txtAdress"
+                                        placeholder="Calle 1">
+                                </div>
+
+                                <div class="con3">
+                                    <p class="con3p">Email</p>
+                                    <img class="con3img" src="../img/email.png" height="30px">
+                                    <input class="con3inputs" type="text" name="mail" id="txtMail"
+                                        placeholder="example123@mail.com">
+                                </div>
+                            </form>
+                            <a href="./succesful_re.html"><button class="register_button"
+                                    onclick="register()">Register</button></a>
+                        </div> <!-- END MODAL POPUP -->
+                    </div> <!-- END COINTAINER3 -->
+                    <a href="#" class="modal_close">X</a>
+                </div><!-- END MODAL CONTAINER -->
+    </section>
+    <!-- END MODAL POPUP -->
+    <section class="modal2">
+        <div class="modal_container2">
+            <div>
+                <div class="container3">
+                    <div class="con3cloud1">ㅤ</div>
+                    <div class="con3cloud2">ㅤ</div>
+                    <div class="con3cloud3">ㅤ</div>
+                    <div class="con3cloud4">ㅤ</div>
+                    <div class="container4">
+                        <img src="../img/figma_regis_check.png" height="300" class="con4img">
+                        <h1 class="con4title">Succesful Registration</h1>
+                        <h3></h3>
+                    </div>
+                </div>
+                <a id="modal_close2" href="./clients.html"><button class="register_button2">Close</button></a>
+            </div> <!-- END MODAL POPUP -->
         </div> <!-- END COINTAINER4 -->
-    </div><!-- END MODAL CONTAINER -->
-</section>
+        </div><!-- END MODAL CONTAINER -->
+    </section>
+
+
 
 
 </body>
@@ -138,3 +182,6 @@
 </html>
 
 <script src="../js/clients.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
