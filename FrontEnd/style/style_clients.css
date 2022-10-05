@@ -207,6 +207,7 @@ body{
     display: flex;
     opacity: 0;
     pointer-events: none; /*while opacity 0 we cant select any element from the page. Pointer-events help us fix that*/
+    z-index: 5;
 }
 
 .modal2{
@@ -509,3 +510,20 @@ body{
 }
 
 /***** END CONTAINER4 *****/
+
+/*EDIT MODAL*/
+.modal-header{
+    background-color: #2980F2;
+}
+
+#title-modal{
+    margin-left: auto;
+    font-weight: 700;
+    color: #000000;
+}
+
+
+.modal-body .input-group{
+    margin-top: 2vh;
+}
+/*FIN EDIT MODAL*/

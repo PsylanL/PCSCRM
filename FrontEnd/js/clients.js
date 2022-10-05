@@ -51,7 +51,7 @@ async function list(elem) {
 
         td = document.createElement('td');
         td.innerHTML = '<div class="size"><button class="icon-trash btn btn-outline-primary btn-sm" onclick="deleteClient(' + element.id +')" id="btnDelete"></button>'
-            +' '+ '<button class="icon-edit btn btn-outline-primary btn-sm" id="btnEdit"></button></div>';
+            +' '+ '<button class="icon-edit btn btn-outline-primary btn-sm" id="btnEdit" onclick="listEdit('+ element.id +');" data-bs-toggle="modal" data-bs-target="#editModal"></button></div>';
         row.appendChild(td);
 
         tableBody.appendChild(row);
@@ -75,8 +75,8 @@ async function deleteClient(id){
                 },
             });
             let response = await request.text();
-        alert(response);
-        location.reload();
+        notification("success", "Client Deleted", "Client Id: "+id+ " Deleted");
+        setTimeout(function(){ window.location.href = 'clients.html';}, 1000);
     }
 }
 
@@ -149,14 +149,13 @@ function search(){
                 filtered = data;
                 array.push(filtered);
             }
-
-            if(array.length != 0){
-                list(array);
-            } else{
-                notification();
-            }
         }
 
+        if(array.length != 0){
+            list(array);
+        } else{
+            notification("error","CLIENT NOT FOUND", "Please verify");
+        }
         
         
         //console.log(filtered);
@@ -166,15 +165,52 @@ function search(){
 
 /*FIN SEARCH */
 
+/*NOTIFICATIONS */
 
-function notification(){
-let toastTrigger = document.getElementById('btn-search')
-let toastLiveExample = document.getElementById('liveToast')
-if (toastTrigger) {
- 
-    const toast = new bootstrap.Toast(toastLiveExample)
+function notification(type,title,msg){
 
-    toast.show()
-  
+        toastr[type](msg, title);
 }
+
+
+
+
+/*FIN NOTIFICATIONS */
+
+/*EDIT */
+var editClient = '';
+
+ function listEdit(elem){
+    let array = []
+
+    for(let data of this.data){
+        if(data.id == elem){
+            array = data
+        }
+    }
+
+    this.editClient = array;
+    console.log(array)
+
+    $("#id-modal").val(array.id);
+    $("#name-modal").val(array.name);
+    $("#cel-modal").val(array.cellPhone);
+    $("#mail-modal").val(array.mail);
+    $("#address-modal").val(array.adress);
+
+
+
 }
+
+async function edit(){
+
+    notification("success", "CLIENT EDITED", "Edited correctly");
+
+    setTimeout(function(){ window.location.href = 'clients.html';}, 1000);
+
+    
+    
+}
+
+
+/*FIN EDIT */
