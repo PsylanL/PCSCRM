@@ -1,5 +1,5 @@
 @import url('http://fonts.cdnfonts.com/css/montserrat');
-
+/*GLOBAL*/
 *{
     margin: 0;
     padding: 0;
@@ -13,7 +13,7 @@ body{
 }
 
 
-/*INICIO ESTILOS HEADER*/
+/*BEGINNING HEADER STYLES*/
 .header{
     width: 100%;
     height: 10vh;
@@ -65,7 +65,7 @@ body{
 
 
                 
-/*INICIO MENU LATERAL*/
+/*BEGINNING SIDEBAR*/
 
 .container2{
     position: absolute;
@@ -129,7 +129,7 @@ body{
     font-size: 18px;
     cursor: pointer;
 }
-/*FIN MENU LATERAL*/
+/*END SIDEBAR*/
 
 
 /*BOTONES E INPUT*/
@@ -194,7 +194,7 @@ body{
 
 
 
-/*FIN TABLA*/
+/*END TABLE*/
 
 /*BEGINNING MODAL POPUP*/
 .modal1{
@@ -268,7 +268,7 @@ body{
     color: rgb(0, 0, 0);
 }
 
-.modal1--show{
+.modal1--show{ /*modal--show have the corresponding attributes to show the modal*/
     transition: all 500ms ease;
     opacity: 1;
     pointer-events: unset;
@@ -283,7 +283,7 @@ body{
 /*END MODALS POPUP*/
 
 
-
+/*BEGINNING CONTAINER3*/
 .con3{
     margin-right: 20vh;
     background-color:#EFF0F6 ;
@@ -486,8 +486,9 @@ body{
     min-width: 17vh;
 }
 
-/***** End Section *****/
+/***** END CONTAINER3 *****/
 
+/***** BEGINNING CONTAINER4 *****/
 .container4{
     margin-top: 8vh;
     backdrop-filter: blur(0px) saturate(200%);
@@ -506,3 +507,5 @@ body{
     left: 25vh;
     color: #fff;
 }
+
+/***** END CONTAINER4 *****/

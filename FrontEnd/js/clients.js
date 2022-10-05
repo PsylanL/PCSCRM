@@ -109,7 +109,7 @@ closeModal.addEventListener('click', (e)=>{
 
 
 
-/* REGISTER FUNCTION*/
+/*BEGINNING REGISTER FUNCTION*/
 
 async function register(){
     let user = {};
@@ -130,9 +130,9 @@ async function register(){
     });
     window.location.replace('clients.html');
 }
+/*END REGISTER FUNCTION*/
 
-
-/*SEARCH */
+/*BEGINNING SEARCH FUNCTION*/
 function search(){
 
     let form = document.querySelector('#input-search');

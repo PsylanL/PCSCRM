@@ -76,6 +76,7 @@ p{
 .con1title{
     position:relative; 
     margin:0;
+    margin-top: 6vh;
     top: -2rem;
     font-weight: 400;
     padding-left: 2rem;
@@ -136,13 +137,6 @@ p{
     border: none;
 }
 
-.con1right_top{
-    display: flex;
-    position: relative;
-    
-    left: 8rem;
-    top: -6rem;
-}
 
 .con1button_top{
     color: #fff;
