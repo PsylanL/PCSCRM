@@ -39,24 +39,20 @@ public class UserController {
 		return userDao.List();
 	}
 
-	//Metodo que se llama al ejecutar request desde front
-	@GetMapping("/list/client")
-	public List<User> listClient () {
-		return userDao.ListClient();
-	}
-	
+		
 	//Metodo que se llama al ejecutar request desde front
 	@GetMapping("/type/{id}")
 	public List<User> returnType (@PathVariable String id) {
 		return userDao.returnType(id);
 	}
 	
-	//Metodo que se llama al ejecutar request desde front
+	//Metodo que se llama al ejecutar request desde front y recibe un parametro id(Para buscar usuario)
 	@GetMapping("/search/{id}")
 	public List<User> returnUser (@PathVariable String id) {
 		return userDao.returnUser(id);
 	}
 
+	//Metodo que se llama al ejecutar request desde front y recibe un parametro id(Para Eliminar usuario)
 	@DeleteMapping("/delete/{id}")
 	public String deleteUser (@PathVariable String id){
 		return userDao.deleteUser(id);

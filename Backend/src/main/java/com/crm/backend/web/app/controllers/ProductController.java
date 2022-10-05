@@ -31,12 +31,14 @@ public class ProductController {
 	public List<Product> list () {
 		return productDao.list();
 	}
-	
+
+	//Metodo que se llama al ejecutar request desde front y recibe parametro id (Para buscar Cliente Potencial)
 	@PostMapping("/search/{id}")
     public List<Product> search (@PathVariable String id){
         return productDao.search(id);
     }
 
+    //Metodo que se llama al ejecutar request desde front y recibe parametro id (Para eliminar Cliente Potencial)
     @DeleteMapping("/delete/{id}")
     public String deleteProduct (@PathVariable String id){
         return productDao.deleteProduct(id);

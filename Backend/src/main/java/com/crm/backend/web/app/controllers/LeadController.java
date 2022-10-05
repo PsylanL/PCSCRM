@@ -33,11 +33,13 @@ public class LeadController {
         return lDao.list();
     }
 
+    //Metodo que se llama al ejecutar request desde front y recibe parametro id (Para buscar Cliente Potencial)
     @PostMapping
     public List<Lead> search (String id){
         return lDao.search(id);
     }
-
+    
+    //Metodo que se llama al ejecutar request desde front y recibe parametro id(Para eliminar Cliente)
     @DeleteMapping("/delete/{id}")
 	public String deleteLead (@PathVariable String id){
 		return lDao.deleteLead(id);

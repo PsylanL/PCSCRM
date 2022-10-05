@@ -20,6 +20,7 @@ public class AuthController {
     @Autowired
     private JWTUtil jwtUtil;
 
+    //Metodo que se llama al ejecutar request desde front
     @PostMapping("/login")
     public String loginUser (@RequestBody User user) {
         User userVerified = userDao.getUserByCredentials(user);

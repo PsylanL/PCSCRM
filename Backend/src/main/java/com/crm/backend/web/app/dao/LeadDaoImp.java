@@ -19,11 +19,13 @@ public class LeadDaoImp implements LeadDao {
     @PersistenceContext
 	private EntityManager entityManager;
 
+    //Método para registar un cliente potencial (Merge inserta)
     @Override
     public void register(Lead lead) {
         entityManager.merge(lead);
     }
 
+    //Método para listar los clientes potenciales
     @SuppressWarnings("unchecked")
     @Override
     public List<Lead> list() {
@@ -31,6 +33,7 @@ public class LeadDaoImp implements LeadDao {
         return entityManager.createQuery(query).getResultList();
     }
 
+    //Método para buscar  un cliente potencial por medio del id
     @SuppressWarnings("unchecked")
     @Override
     public List<Lead> search(String id) {
@@ -38,6 +41,7 @@ public class LeadDaoImp implements LeadDao {
 		return entityManager.createQuery(query).getResultList();
     }
 
+    //Método para buscar  un cliente potencial por medio del id
     @SuppressWarnings("unchecked")
     @Override
     public String deleteLead(String id) {

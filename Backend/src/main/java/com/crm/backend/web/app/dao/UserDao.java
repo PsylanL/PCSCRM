@@ -11,8 +11,6 @@ public interface UserDao {
 
     List<User> List();
 
-    List<User> ListClient();
-
     List<User> returnType(String id);
 
 	List<User> returnUser(String id);

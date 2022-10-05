@@ -26,7 +26,7 @@ public class UserDaoImp implements UserDao{
         entityManager.merge(user);
     }
 
-    //Retorna lista
+    //Retorna lista con los usuarios del sistema
     @SuppressWarnings("unchecked")
     @Override
     public java.util.List<User> List() {
@@ -34,13 +34,7 @@ public class UserDaoImp implements UserDao{
         return entityManager.createQuery(query).getResultList();
     }
 
-    @SuppressWarnings("unchecked")
-    @Override
-    public List<User> ListClient() {
-        String query = "from User Where Type = 'Client'";
-		return entityManager.createQuery(query).getResultList();
-    }
-
+    //Método retorna el tipo de usuario
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<User> returnType(String id) {
@@ -49,6 +43,7 @@ public class UserDaoImp implements UserDao{
 		return user;
 	}
 
+    //Método para buscar un usuario en la base de datos
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<User> returnUser(String id) {
@@ -56,6 +51,7 @@ public class UserDaoImp implements UserDao{
 		return entityManager.createQuery(query).getResultList();
 	}
 
+    //Método para obtener las credenciales de un usuarios con el mail y verificación contraseña (Argon para la encriptación)
 	@SuppressWarnings("unchecked")
     @Override
     public User getUserByCredentials(User user) {
@@ -75,6 +71,7 @@ public class UserDaoImp implements UserDao{
         return null;      
     }
 
+    //Método para eliminar un usario del sistema con el id
     @SuppressWarnings("unchecked")
     @Override
     public String deleteUser(String id) {

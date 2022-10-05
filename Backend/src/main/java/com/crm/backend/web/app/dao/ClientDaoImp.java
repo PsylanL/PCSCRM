@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.crm.backend.web.app.models.Client;
 
-//implementacion de la interfaz
+//implementacion de la interfaz ClientDao
 @Transactional
 @Repository
 public class ClientDaoImp implements ClientDao {
@@ -19,11 +19,13 @@ public class ClientDaoImp implements ClientDao {
     @PersistenceContext
 	private EntityManager entityManager;
 
+    //Método para registrar al cliente en la base de datos (Merge inserta el cliente)
     @Override
     public void register(Client client) {
         entityManager.merge(client);
     }
 
+    //Método para listar clientes 
     @SuppressWarnings("unchecked")
     @Override
     public List<Client> list() {
@@ -31,13 +33,15 @@ public class ClientDaoImp implements ClientDao {
         return entityManager.createQuery(query).getResultList();
     }
 
-    @SuppressWarnings("unchecked")
+    //Método para buscar cliente
+    @SuppressWarnings("unchecked") //Suprime las advertencias sobre operaciones genericas no verificadas
     @Override
     public List<Client> search(String id) {
         String query = "from Client Where Id = ".concat(id);
 		return entityManager.createQuery(query).getResultList();
     }
 
+    //Método para eliminar un cliente
     @SuppressWarnings("unchecked")
     @Override
     public String deleteClient(String id) {

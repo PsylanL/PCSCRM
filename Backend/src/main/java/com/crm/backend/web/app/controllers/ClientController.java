@@ -32,12 +32,13 @@ public class ClientController {
     public List<Client> list (){
         return clientDao.list();
     }
-
+    //Metodo que se llama al ejecutar request desde front y recibe parametro id (Para buscar Cliente)
     @PostMapping("/search/{id}")
     public List<Client> search (@PathVariable String id){
         return clientDao.search(id);
     }
 
+    //Metodo que se llama al ejecutar request desde front y recibe parametro id(Para eliminar Cliente)
     @DeleteMapping("/delete/{id}")
 	public String deleteClient (@PathVariable String id){
 		return clientDao.deleteClient(id);

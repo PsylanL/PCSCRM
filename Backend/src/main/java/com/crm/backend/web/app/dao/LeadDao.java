@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.crm.backend.web.app.models.Lead;
 
-//Interfaz que se llama desde el controlador
+//Interfaz que se llama desde el controlador 
 public interface LeadDao {
 
     void register(Lead lead);

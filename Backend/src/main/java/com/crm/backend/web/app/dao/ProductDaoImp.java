@@ -19,6 +19,7 @@ public class ProductDaoImp implements ProductDao{
 	private EntityManager entityManager;
 	
 	
+    //Método para listar productos
     @SuppressWarnings("unchecked")
 	@Override
 	public List<Product> list() {
@@ -26,12 +27,13 @@ public class ProductDaoImp implements ProductDao{
 		return entityManager.createQuery(query).getResultList();
 	}
 
-
+    //Método para registrar productos
     @Override
     public void register(Product product) {
         entityManager.merge(product);
     }
 
+    //Método para buscar recibiendo como parámetro el id
     @SuppressWarnings("unchecked")
     @Override
     public List<Product> search(String id) {
@@ -39,6 +41,7 @@ public class ProductDaoImp implements ProductDao{
         return entityManager.createQuery(query).getResultList();
     }
     
+    //Método para eliminar recibiendo como parámetro el id
     @SuppressWarnings("unchecked")
     @Override
     public String deleteProduct(String id) {
