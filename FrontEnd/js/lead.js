@@ -61,7 +61,7 @@ async function deleteLead(id){
     }
 }
 
-window.onload = lead;
+window.onload = lead();
 
 const openModal = document.getElementById('btn-agg-lead');
 const  modal1 = document.querySelector('.modal1');

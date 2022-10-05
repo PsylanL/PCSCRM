@@ -1,4 +1,73 @@
-const openModal = document.getElementById('btn-agg-client');
+
+
+var data = '';
+
+
+async function us(){
+    const getUsers = "http://localhost:8080/api/user/list";
+    let request = await fetch(getUsers);
+    let response = await request.json();
+    this.data = response;
+    console.log(data);
+    list(this.data);
+   
+}
+ 
+
+async function list(elem) {
+    let UsersTable = document.getElementById('users');
+    let tableBody = document.getElementById('tbody');
+
+    if(elem != this.data){
+        tableBody.innerHTML = "";
+    }
+
+    for(element of elem) {
+        let row = document.createElement('tr');
+        let td = document.createElement('td');
+
+        td.innerHTML = '<i class="icon-user-circle-o" id="icon-user"></i>';
+        row.appendChild(td);
+
+        td = document.createElement('td');
+        td.innerText = element.id;
+        row.appendChild(td);
+
+        td = document.createElement('td');
+        td.innerText = element.name;
+        row.appendChild(td);
+
+        td = document.createElement('td');
+        td.innerText = element.cellPhone;
+        row.appendChild(td);
+
+        td = document.createElement('td');
+        td.innerText = element.adress;
+        row.appendChild(td);
+
+        td = document.createElement('td');
+        td.innerText = element.mail;
+        row.appendChild(td);
+       
+        td = document.createElement('td');
+        td.innerText = element.type;
+        row.appendChild(td);
+
+        td = document.createElement('td');
+        td.innerHTML = '<div class="size"><button class="icon-trash btn btn-outline-primary btn-sm" onclick="deleteUser(' + element.id +')" id="btnDelete"></button>'
+            +' '+ '<button class="icon-edit btn btn-outline-primary btn-sm" id="btnEdit"></button></div>';
+        row.appendChild(td);
+
+        tableBody.appendChild(row);
+    }
+
+    UsersTable.appendChild(tableBody);
+
+    elem = '';
+
+}
+
+const openModal = document.getElementById('btn-agg-user');
 const  modal1 = document.querySelector('.modal1');
 const closeModal = document.querySelector('.modal_close');
 openModal.addEventListener('click', (e)=>{ 
@@ -48,3 +117,8 @@ async function register(){
     }
 
 }
+window.onload = us();
+
+
+
+

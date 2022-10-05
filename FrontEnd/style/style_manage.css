@@ -130,7 +130,7 @@ body{
 
 /*INICIO TABLA*/
 
-#btn-agg-client{
+#btn-agg-user{
     margin-top: 5vh;
     margin-left: 50vh;
 }
@@ -142,7 +142,7 @@ body{
     float: left;
 }
 
-#clients{
+#users{
     margin-top: 5vh;
     margin-left: 50vh;
    
@@ -162,7 +162,7 @@ body{
 
 /*BEGINNING MODAL POPUP*/
 .modal1{
-    position: fixed;
+    position: relative;
     top:0;
     left: 0;
     right: 0;

@@ -7,7 +7,6 @@ async function client(){
     this.data = response;
     console.log(data);
     list(this.data);
-    
 }
 
 window.onload = client(); 
