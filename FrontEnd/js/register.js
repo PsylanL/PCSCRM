@@ -13,6 +13,7 @@ async function us(){
    
 }
  
+window.onload = us();
 
 async function list(elem) {
     let UsersTable = document.getElementById('users');
@@ -117,7 +118,21 @@ async function register(){
     }
 
 }
-window.onload = us();
+
+async function deleteUser(id){
+    if(confirm("alerta, va a eliminar al usuario con id: "+id)){
+        const request = await fetch('http://localhost:8080/api/user/delete/'+id, {
+                method: 'DELETE',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+            });
+            let response = await request.text();
+        alert(response);
+        location.reload();
+    }
+}
 
 
 
