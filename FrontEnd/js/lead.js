@@ -49,7 +49,7 @@ async function list(elem){
 
         td = document.createElement('td');
         td.innerHTML = '<div class="size"><button class="icon-trash btn btn-outline-primary btn-sm" onclick="deleteLead(' + element.id +')" id="btnDelete"></button>'
-            +' '+ '<button class="icon-edit btn btn-outline-primary btn-sm"  id="btnEdit onclick="listEditLead('+ element.id +');" data-bs-toggle="modal" data-bs-target="#editModal"></button></div>';
+            +' '+ '<button class="icon-edit btn btn-outline-primary btn-sm"  id="btnEdit" onclick="listEditLead('+ element.id +');" data-bs-toggle="modal" data-bs-target="#editModal"></button></div>';
         row.appendChild(td);
 
         tableBody.appendChild(row);

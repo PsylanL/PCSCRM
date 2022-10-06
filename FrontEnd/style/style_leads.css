@@ -545,6 +545,8 @@ body{
 /***** END CONTAINER4 *****/
 
 /*EDIT MODAL*/
+
+
 .modal-header{
     background-color: #2980F2;
 }
@@ -555,6 +557,9 @@ body{
     color: #000000;
 }
 
+#modal-content{
+    z-index: 5;
+}
 
 .modal-body .input-group{
     margin-top: 2vh;
