@@ -80,3 +80,7 @@
 .icon-user-plus:before { content: '\f234'; } /* '' */
 .icon-id:before { content: '\f2bb'; } /* '' */
 .icon-user-circle-o:before { content: '\f2be'; } /* '' */
+
+#manageLateral{
+  display: none;
+}

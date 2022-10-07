@@ -15,37 +15,38 @@
 </head>
 
 <body>
-    <!--INICIO MENU SUPERIOR -->
-    <header class="header">
-        <div class="logo">
-            <h1>Logo</h1>
-        </div>
+<!--INICIO MENU SUPERIOR -->
+<header class="header">
+    <div class="logo">
+        <h1>Logo</h1>
+    </div>
+    
+    <nav class="menu-superior">
+        <a href="#" id="user"></a>
+        <a href="#" onclick="cerrarSesion()"> Cerrar sesion</a>
+    </nav>
+    
 
-        <nav class="menu-superior">
-            <a href="#" id="user"></a>
-            <a href="#" onclick="cerrarSesion()"> Cerrar sesion</a>
-        </nav>
-        
-        <script src="../js/Header.js"></script>
+</header>
+<!-- FIN MENU SUPERIOR -->
 
-    </header>
-    <!-- FIN MENU SUPERIOR -->
+<!-- INICIO MENU LATERAL -->
+<div class="container2">
+<div class="cont-menu-lateral">
+    <nav>
+        <a id="homeLateral" class="icon-home" href="/FrontEnd/view/home.html" onclick="alter(this,'red')">  Home</a>
+        <a id="clientsLateral" class="icon-users" href="clients.html" onclick="client()">  Clients</a>
+        <a id="leadLateral" class="icon-users" href="lead.html">  Lead</a>
+        <a id="ordersLateral" class="icon-check" href="orders.html">  Orders</a>
+        <a id="productsLateral" class="icon-basket" href="products.html">  Products</a>
+        <a id="reportLateral" class="icon-doc-inv" href="#">Report</a>
+        <a id="manageLateral" class="icon-users" href="manage.html"> Manage</a>
+    </nav>
+</div>
 
-
-    <div class="container2">
-        <!-- INICIO MENU LATERAL -->
-        <div class="cont-menu-lateral">
-            <nav>
-                <a id="b" class="icon-home" href="/FrontEnd/view/home.html"> Home</a>
-                <a class="icon-users" href="clients.html"> Clients</a>
-                <a id="b" class="icon-users" href="lead.html"> Lead</a>
-                <a class="icon-check" href="orders.html"> Orders</a>
-                <a id="b" class="icon-basket" href="products.html"> Products</a>
-                <a id="admin" class="icon-doc-inv" href="#"> Report</a>
-                <a id="b" class="icon-users" href="manage.html"> Manage</a>
-            </nav>
-        </div>
-        <!-- FIN MENU LATERAL -->
+</div>
+<script src="../js/Header.js"></script>
+<!-- FIN MENU LATERAL -->
         <!-- INICIO TABLA -->
         <div class="cont-tabla">
             <button id="btn-agg-user" class="btn btn-info">Add New User <i class="icon-user-add"></i> </button>

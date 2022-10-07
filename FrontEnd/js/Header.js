@@ -1,6 +1,8 @@
 let mail = localStorage.email;
 let user = {} ;
 
+window.onload = getIdByEmail(); 
+
 function cerrarSesion() {
     localStorage.token = null;
     localStorage.email = null;
@@ -8,6 +10,7 @@ function cerrarSesion() {
     window.location.replace('index.html');
 }
 
+//Se almacena el usuario logueado
 async function getIdByEmail (){
     const getUsers = "http://localhost:8080/api/user/list";
     let request = await fetch(getUsers);
@@ -17,14 +20,35 @@ async function getIdByEmail (){
             localStorage.id = element.id;
         }
     });
-    getUser();
+    getUser().then((userObj) => {
+        userHTML = document.getElementById('user');
+        userHTML.innerHTML = ' <i class="icon-users" ></i>' + userObj[0].name;
+        if (userObj[0].type == 'ClientService'){
+            document.getElementById('productsLateral').style.display = 'none';
+            document.getElementById('reportLateral').style.display = 'none';
+            document.getElementById('manageLateral').style.display = 'none';
+            console.log('soy servicio cliente');
+        }
+        if (userObj[0].type == 'Admin'){
+            document.getElementById('manageLateral').style.display = 'block';
+        }
+        if (localStorage.token==null){
+            document.getElementById('homeLateral').style.display = 'none';
+            document.getElementById('clientsLateral').style.display = 'none';
+            document.getElementById('leadLateral').style.display = 'none';
+            document.getElementById('ordersLateral').style.display = 'none';
+            document.getElementById('productsLateral').style.display = 'none';
+            document.getElementById('reportLateral').style.display = 'none';
+            document.getElementById('manageLateral').style.display = 'none';
+        }
+    });
 }
 
-async function getUser (){
-    const getUser = 'http://localhost:8080/api/user/search/'+localStorage.id;
-    let request = await fetch(getUser);
-    user = await request.json();
-    let userHTML = document.getElementById('user');
-    userHTML.innerHTML = ' <i class="icon-users" ></i>' + user[0].name;
+
+async function getUser(){
+    const getUsers = "http://localhost:8080/api/user/search/"+localStorage.id;
+    let request = await fetch(getUsers);
+    let response = await request.json();
+    console.log(response);
+    return response;
 }
-window.onload = getIdByEmail(); 
