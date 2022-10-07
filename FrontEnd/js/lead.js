@@ -1,14 +1,26 @@
+var data = '';
+
 async function lead() {
     const getLeads = "http://localhost:8080/api/lead/list";
     let request = await fetch(getLeads);
     let response = await request.json();
-
+    this.data = response;
     console.log(response);
+    list(this.data);
+}
 
+window.onload = lead();
+
+async function list(elem){
     let leadsTable = document.getElementById('leads');
     let tableBody = document.getElementById('tbody');
 
-    response.forEach(element => {
+    if(elem != this.data){
+        tableBody.innerHTML = "";
+        //console.log('hola')
+    }
+
+    for (element of elem) {
         let row = document.createElement('tr');
         let td = document.createElement('td');
 
@@ -37,15 +49,17 @@ async function lead() {
 
         td = document.createElement('td');
         td.innerHTML = '<div class="size"><button class="icon-trash btn btn-outline-primary btn-sm" onclick="deleteLead(' + element.id +')" id="btnDelete"></button>'
-            +' '+ '<button class="icon-edit btn btn-outline-primary btn-sm" id="btnEdit"></button></div>';
+            +' '+ '<button class="icon-edit btn btn-outline-primary btn-sm"  id="btnEdit" onclick="listEditLead('+ element.id +');" data-bs-toggle="modal" data-bs-target="#editModal"></button></div>';
         row.appendChild(td);
 
         tableBody.appendChild(row);
-    });
+    }
 
     leadsTable.appendChild(tableBody);
-
+    elem = '';
 }
+
+
 async function deleteLead(id){
     if(confirm("alerta, va a eliminar al cliente potencial con id: "+id)){
         const request = await fetch('http://localhost:8080/api/lead/delete/'+id, {
@@ -61,7 +75,6 @@ async function deleteLead(id){
     }
 }
 
-window.onload = lead();
 
 const openModal = document.getElementById('btn-agg-lead');
 const  modal1 = document.querySelector('.modal1');
@@ -75,9 +88,6 @@ closeModal.addEventListener('click', (e)=>{
     e.preventDefault();/*Evita que se ponga un # en el url cada que se abre el modal */
     modal1.classList.remove('modal1--show')
 })
-
-window.onload = client; 
-
 
 /* REGISTER FUNCTION*/
 
@@ -103,4 +113,84 @@ async function registerLead(){
    
 
 }
+/*BEGINNING SEARCH FUNCTION*/
+function searchLead(){
 
+    let form = document.querySelector('#input-search');
+    let filtered = {};
+    let array = [];
+
+    console.log(form.value);
+
+        for(let data of this.data ){
+            let inf = data.id;
+            //console.log(inf);
+            if (inf.includes(form.value)) {
+                filtered = data;
+                array.push(filtered);
+            }
+        }
+
+
+        if(array.length != 0){
+            list(array);
+        } else{
+            notification("error","LEAD NOT FOUND", "Please verify Id");
+        }
+        
+        
+        //console.log(filtered);
+        //console.log('a',array);
+
+}
+
+/*FIN SEARCH */
+
+/*NOTIFICATIONS */
+
+function notification(type,title,msg){
+
+    toastr[type](msg, title);
+}
+
+/*FIN NOTIFICATIONS */
+
+
+/*EDIT */
+var editLead = '';
+
+ function listEditLead(elem){
+    let array = []
+
+    for(let data of this.data){
+        if(data.id == elem){
+            array = data
+        }
+    }
+    
+    this.editLead = array;
+    console.log(array)
+
+    $("#id-modal").val(array.id);
+    $("#name-modal").val(array.name);
+    $("#cel-modal").val(array.cellPhone);
+    $("#mail-modal").val(array.mail);
+    $("#address-modal").val(array.adress);
+
+
+
+}
+
+
+async function editLead(){
+
+    notification("success", "LEAD EDITED", "Edited correctly");
+
+    setTimeout(function(){ window.location.href = 'lead.html';}, 1000);
+
+    
+    
+}
+
+
+/*FIN EDIT */
