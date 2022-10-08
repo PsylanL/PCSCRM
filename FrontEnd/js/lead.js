@@ -157,7 +157,7 @@ function notification(type,title,msg){
 
 
 /*EDIT */
-var editLead = '';
+var editLeadC = '';
 
  function listEditLead(elem){
     let array = []
@@ -168,8 +168,7 @@ var editLead = '';
         }
     }
     
-    this.editLead = array;
-    console.log(array)
+    this.editLeadC = array;
 
     $("#id-modal").val(array.id);
     $("#name-modal").val(array.name);
@@ -183,11 +182,26 @@ var editLead = '';
 
 
 async function editLead(){
-
-    notification("success", "LEAD EDITED", "Edited correctly");
-
-    setTimeout(function(){ window.location.href = 'lead.html';}, 1000);
-
+    let userLead = editLeadC;
+    userLead.name = document.getElementById('name-modal').value;
+    userLead.cellPhone = document.getElementById('cel-modal').value;
+    userLead.adress = document.getElementById('address-modal').value;
+    userLead.mail = document.getElementById('mail-modal').value;
+    
+    try {
+        const request = await fetch('http://localhost:8080/api/lead/edit', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userLead)
+            });
+        notification("success", "LEAD EDITED", "Edited correctly");
+        setTimeout(function(){ window.location.href = 'lead.html';}, 1000);
+    } catch (error) {
+        notification("error", "UNEDITED LEAD", "Not edited correctly");
+    }
     
     
 }

@@ -303,3 +303,19 @@ body{
     padding-left: 20vh;
 }
 
+/*EDIT MODAL*/
+.modal-header{
+    background-color: #2980F2;
+}
+
+#title-modal{
+    margin-left: auto;
+    font-weight: 700;
+    color: #000000;
+}
+
+
+.modal-body .input-group{
+    margin-top: 2vh;
+}
+/*FIN EDIT MODAL*/

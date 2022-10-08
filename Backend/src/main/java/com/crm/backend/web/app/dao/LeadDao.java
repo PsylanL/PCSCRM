@@ -14,6 +14,9 @@ public interface LeadDao {
     List<Lead> search(String id);
 
     String deleteLead(String id);
+    
+    void editLead(Lead lead);
+
 
     
 }

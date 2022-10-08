@@ -45,4 +45,8 @@ public class LeadController {
 		return lDao.deleteLead(id);
 	}
 
+    @PostMapping("/edit")
+    public void editLead (@RequestBody Lead lead){
+        lDao.editLead(lead);
+    }
 }
