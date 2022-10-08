@@ -44,4 +44,9 @@ public class ClientController {
 		return clientDao.deleteClient(id);
 	}
 
+    @PostMapping("/edit")
+    public void edit (@RequestBody Client client){
+        clientDao.edit(client);
+    }
+
 }

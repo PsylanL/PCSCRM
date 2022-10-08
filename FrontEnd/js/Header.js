@@ -21,18 +21,19 @@ async function getIdByEmail (){
         }
     });
     getUser().then((userObj) => {
-        userHTML = document.getElementById('user');
-        userHTML.innerHTML = ' <i class="icon-users" ></i>' + userObj[0].name;
-        if (userObj[0].type == 'ClientService'){
-            document.getElementById('productsLateral').style.display = 'none';
-            document.getElementById('reportLateral').style.display = 'none';
-            document.getElementById('manageLateral').style.display = 'none';
-            console.log('soy servicio cliente');
-        }
-        if (userObj[0].type == 'Admin'){
-            document.getElementById('manageLateral').style.display = 'block';
-        }
-        if (localStorage.token==null){
+        try {
+            userHTML = document.getElementById('user');
+            userHTML.innerHTML = ' <i class="icon-users" ></i>' + userObj[0].name;
+            if (userObj[0].type == 'ClientService'){
+                document.getElementById('productsLateral').style.display = 'none';
+                document.getElementById('reportLateral').style.display = 'none';
+                document.getElementById('manageLateral').style.display = 'none';
+                console.log('soy servicio cliente');
+            }
+            if (userObj[0].type == 'Admin'){
+                document.getElementById('manageLateral').style.display = 'block';
+            }
+        } catch (error) {
             document.getElementById('homeLateral').style.display = 'none';
             document.getElementById('clientsLateral').style.display = 'none';
             document.getElementById('leadLateral').style.display = 'none';
@@ -40,6 +41,8 @@ async function getIdByEmail (){
             document.getElementById('productsLateral').style.display = 'none';
             document.getElementById('reportLateral').style.display = 'none';
             document.getElementById('manageLateral').style.display = 'none';
+            console.log('user not logged');
+            window.location.replace('notLogged.html');
         }
     });
 }
@@ -49,6 +52,5 @@ async function getUser(){
     const getUsers = "http://localhost:8080/api/user/search/"+localStorage.id;
     let request = await fetch(getUsers);
     let response = await request.json();
-    console.log(response);
     return response;
 }

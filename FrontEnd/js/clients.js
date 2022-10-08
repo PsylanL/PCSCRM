@@ -190,7 +190,6 @@ var editClient = '';
     }
 
     this.editClient = array;
-    console.log(array)
 
     $("#id-modal").val(array.id);
     $("#name-modal").val(array.name);
@@ -203,10 +202,27 @@ var editClient = '';
 }
 
 async function edit(){
+    let user = editClient;
+    user.name = document.getElementById('name-modal').value;
+    user.cellPhone = document.getElementById('cel-modal').value;
+    user.adress = document.getElementById('address-modal').value;
+    user.mail = document.getElementById('mail-modal').value;
+    console.log(user);
 
-    notification("success", "CLIENT EDITED", "Edited correctly");
-
-    setTimeout(function(){ window.location.href = 'clients.html';}, 1000);
+    try {
+        const request = await fetch('http://localhost:8080/api/client/edit', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            });
+        notification("success", "CLIENT EDITED", "Edited correctly");
+        setTimeout(function(){ window.location.href = 'clients.html';}, 1000);
+    } catch (error) {
+        alert('no se modifico correctamente');
+    }
 
     
     

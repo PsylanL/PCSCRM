@@ -54,5 +54,10 @@ public class ClientDaoImp implements ClientDao {
             return "el cliente no fue eliminado";
         }
     }
+
+    @Override
+    public void edit(Client client) {
+        entityManager.merge(client);
+    }
     
 }
