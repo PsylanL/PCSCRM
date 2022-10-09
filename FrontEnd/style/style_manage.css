@@ -194,7 +194,7 @@ body{
 
 
 
-/*END TABLE*/
+/*ENcdBLE*/
 
 /*BEGINNING MODAL POPUP*/
 .modal1{
@@ -210,17 +210,6 @@ body{
     z-index: 5;
 }
 
-.modal2{
-    position: fixed;
-    top:0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: #111111bd;
-    display: flex;
-    opacity: 0;
-    pointer-events: none; /*while opacity 0 we cant select any element from the page. Pointer-events help us fix that*/
-}
 
 .modal_container{
     height: fit-content;

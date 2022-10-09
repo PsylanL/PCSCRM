@@ -55,4 +55,9 @@ public class ProductDaoImp implements ProductDao{
        }
     }
 
+    @Override
+    public void edit(Product product) {
+        entityManager.merge(product);
+    }
+
 }

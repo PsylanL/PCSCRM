@@ -1,4 +1,3 @@
-
 @import url('http://fonts.cdnfonts.com/css/montserrat');
 /*GLOBAL*/
 *{
@@ -11,39 +10,6 @@
 body{
     background-size: 100vw 100vh;
     background-repeat: no-repeat;
-}
-
-/*BOTONES E INPUT*/
-.buttons{
-    width: max-content;
-    margin-left: 50vh;
-}
-
-.input-group{
-    width: max-content;
-    margin-top: 5vh;
-}
-
-#btn-search{
-    margin-left: 1vh;
-}
-
-#btn-agg-lead{
-   margin-left: 25vh;
-   
-}
-
-#icon-input-search{
-    margin-left: 2vh;
-}
-
-#notify{
-    color: #000000;
-}
-
-#msg{
-    background-color: white;
-    color: #000000;
 }
 
 
@@ -180,7 +146,7 @@ body{
     margin-left: 1vh;
 }
 
-#btn-agg-client{
+#btn-agg-product{
    margin-left: 25vh;
    
 }
@@ -203,22 +169,21 @@ body{
 
 /*INICIO TABLA*/
 
-#leads{
-    margin-top: 5vh;
-    margin-left: 50vh;
-   
-}
+
 
 .cont-tabla{
     left: 25vh;
     width: 75vh;
     max-height: fit-content;
+    margin-left: 30vh;
     float: left;
-    margin-left: 15vh;
-
 }
 
-
+#products{
+    margin-top: 5vh;
+    margin-left: 50vh;
+   
+}
 
 .size{
     width: max-content;
@@ -243,6 +208,7 @@ body{
     display: flex;
     opacity: 0;
     pointer-events: none; /*while opacity 0 we cant select any element from the page. Pointer-events help us fix that*/
+    z-index: 5;
 }
 
 .modal2{
@@ -260,7 +226,7 @@ body{
 .modal_container{
     height: fit-content;
     width: 50%;
-    background-color: rgb(255, 255, 255);
+    background-color: #fff;
     margin: auto; /*Centers everything because its father has a display:flex*/
 }
 
@@ -378,7 +344,7 @@ body{
 
 .con3button_top{
     color: #fff;
-    background-color:#276bf2 ;
+    background-color:#276BF2 ;
     border: none;
     padding: 0.4rem;
     border-radius: 0.2rem;
@@ -547,8 +513,6 @@ body{
 /***** END CONTAINER4 *****/
 
 /*EDIT MODAL*/
-
-
 .modal-header{
     background-color: #2980F2;
 }
@@ -559,12 +523,8 @@ body{
     color: #000000;
 }
 
-#modal-content{
-    z-index: 5;
-}
 
 .modal-body .input-group{
     margin-top: 2vh;
 }
 /*FIN EDIT MODAL*/
-

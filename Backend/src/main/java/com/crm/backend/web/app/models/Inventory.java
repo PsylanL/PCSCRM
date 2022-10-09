@@ -16,7 +16,8 @@ public class Inventory {
     @Column (name = "id")
     @Getter @Setter
     private String id;
-    
+
+        
     @Column (name = "orderinventory")
     @Getter @Setter
     private String orderInventory;

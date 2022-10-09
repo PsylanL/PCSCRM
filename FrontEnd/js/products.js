@@ -1,20 +1,26 @@
+
+
+
+
+
+
 var data = '';
 
-async function client(){
-    const getClients = "http://localhost:8080/api/client/list";
-    let request = await fetch(getClients);
+async function product(){
+    const getProduct = "http://localhost:8080/api/product/list";
+    let request = await fetch(getProduct);
     let response = await request.json();
     this.data = response;
     console.log(data);
     list(this.data);
 }
 
-window.onload = client(); 
+window.onload = product(); 
 
 
 async function list(elem) {
 
-    let clientsTable = document.getElementById('clients');
+    let ProductsTable = document.getElementById('products');
     let tableBody = document.getElementById('tbody');
 
     if(elem != this.data){
@@ -38,26 +44,18 @@ async function list(elem) {
         row.appendChild(td);
 
         td = document.createElement('td');
-        td.innerText = element.cellPhone;
+        td.innerText = element.idInventory;
         row.appendChild(td);
 
         td = document.createElement('td');
-        td.innerText = element.mail;
-        row.appendChild(td);
-
-        td = document.createElement('td');
-        td.innerText = element.adress;
-        row.appendChild(td);
-
-        td = document.createElement('td');
-        td.innerHTML = '<div class="size"><button class="icon-trash btn btn-outline-primary btn-sm" onclick="deleteClient(' + element.id +')" id="btnDelete"></button>'
+        td.innerHTML = '<div class="size"><button class="icon-trash btn btn-outline-primary btn-sm" onclick="deleteProduct(' + element.id +')" id="btnDelete"></button>'
             +' '+ '<button class="icon-edit btn btn-outline-primary btn-sm" id="btnEdit" onclick="listEdit('+ element.id +');" data-bs-toggle="modal" data-bs-target="#editModal"></button></div>';
         row.appendChild(td);
 
         tableBody.appendChild(row);
     }
 
-    clientsTable.appendChild(tableBody);
+    ProductsTable.appendChild(tableBody);
 
     elem = '';
 
@@ -65,24 +63,8 @@ async function list(elem) {
 
 
 
-async function deleteClient(id){
-    if(confirm("alerta, va a eliminar al usuario con id: "+id)){
-        const request = await fetch('http://localhost:8080/api/client/delete/'+id, {
-                method: 'DELETE',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-            });
-            let response = await request.text();
-        notification("success", "Client Deleted", "Client Id: "+id+ " Deleted");
-        setTimeout(function(){ window.location.href = 'clients.html';}, 1000);
-    }
-}
 
-
-/*Modal*/
-const openModal = document.getElementById('btn-agg-client');
+const openModal = document.getElementById('btn-agg-product');
 const  modal1 = document.querySelector('.modal1');
 
 //const  modal2 = document.querySelector('.modal2');
@@ -98,19 +80,16 @@ closeModal.addEventListener('click', (e)=>{
     modal1.classList.remove('modal1--show')
 })
 
-
 /*BEGINNING REGISTER FUNCTION*/
 
-async function register(){
+async function registerProduct(){
     let user = {};
     user.id = document.getElementById('txtId').value;
     user.name = document.getElementById('txtName').value;
-    user.cellPhone = document.getElementById('txtCellPhone').value; 
-    user.adress = document.getElementById('txtAdress').value;
-    user.mail = document.getElementById('txtMail').value;
-    console.log(user);
-
-    const request = await fetch('http://localhost:8080/api/client/register', {
+    user.idInventory = document.getElementById('txtIdInventory').value; 
+    
+  
+    const request = await fetch('http://localhost:8080/api/product/register', {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
@@ -119,12 +98,36 @@ async function register(){
         body: JSON.stringify(user)
     });
     notification("success", "REGISTERED CLIENT ", "Successfully Registered");
-    setTimeout(function(){ window.location.href = 'clients.html';}, 1000);
+    setTimeout(function(){ window.location.href = 'products.html';}, 1000);
 }
 /*END REGISTER FUNCTION*/
 
+/*NOTIFICATIONS */
+
+function notification(type,title,msg){
+
+    toastr[type](msg, title);
+}
+
+/*FIN NOTIFICATIONS */
+
+async function deleteProduct(id){
+    if(confirm("alerta, va a eliminar el producto con id: "+id)){
+        const request = await fetch('http://localhost:8080/api/product/delete/'+id, {
+                method: 'DELETE',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+            });
+            let response = await request.text();
+        notification("success", "Product Deleted", "Product Id: "+id+ " Deleted");
+        setTimeout(function(){ window.location.href = 'products.html';}, 1000);
+    }
+}
+
 /*BEGINNING SEARCH FUNCTION*/
-function search(){
+function searchProduct(){
 
     let form = document.querySelector('#input-search');
 
@@ -146,28 +149,16 @@ function search(){
         if(array.length != 0){
             list(array);
         } else{
-            notification("error","CLIENT NOT FOUND", "Please verify");
+            notification("error","PRODUCT NOT FOUND", "Please verify Id");
         }
         
-        
-        //console.log(filtered);
-        //console.log('a',array);
 
 }
 
 /*FIN SEARCH */
 
-/*NOTIFICATIONS */
-
-function notification(type,title,msg){
-
-        toastr[type](msg, title);
-}
-
-/*FIN NOTIFICATIONS */
-
 /*EDIT */
-var editClient = '';
+var editProduct = '';
 
  function listEdit(elem){
     let array = []
@@ -178,28 +169,20 @@ var editClient = '';
         }
     }
 
-    this.editClient = array;
+    this.editProduct = array;
 
     $("#id-modal").val(array.id);
     $("#name-modal").val(array.name);
-    $("#cel-modal").val(array.cellPhone);
-    $("#mail-modal").val(array.mail);
-    $("#address-modal").val(array.adress);
-
-
-
-}
+    $("#idInventory-modal").val(array.idInventory);
+  }
 
 async function edit(){
-    let user = editClient;
+    let user = editProduct;
     user.name = document.getElementById('name-modal').value;
-    user.cellPhone = document.getElementById('cel-modal').value;
-    user.adress = document.getElementById('address-modal').value;
-    user.mail = document.getElementById('mail-modal').value;
-    console.log(user);
+    user.idInventory = document.getElementById('idInventory-modal').value;
 
     try {
-        const request = await fetch('http://localhost:8080/api/client/edit', {
+        const request = await fetch('http://localhost:8080/api/product/edit', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -207,10 +190,10 @@ async function edit(){
                 },
                 body: JSON.stringify(user)
             });
-        notification("success", "CLIENT EDITED", "Edited correctly");
-        setTimeout(function(){ window.location.href = 'clients.html';}, 1000);
+        notification("success", "PRODUCT EDITED", "Edited correctly");
+        setTimeout(function(){ window.location.href = 'products.html';}, 1000);
     } catch (error) {
-        notification("error", "UNEDITED CLIENT", "Not edited correctly");
+        notification("error", "UNEDITED PRODUCT", "Not edited correctly");
     }
 
     

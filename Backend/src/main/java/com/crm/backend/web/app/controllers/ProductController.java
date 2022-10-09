@@ -44,4 +44,9 @@ public class ProductController {
         return productDao.deleteProduct(id);
     }
 
+    @PostMapping("/edit")
+    public void edit (@RequestBody Product  product){
+        productDao.edit(product);
+    }
+
 }
