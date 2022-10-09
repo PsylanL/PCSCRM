@@ -109,8 +109,8 @@ async function registerLead(){
         },
         body: JSON.stringify(user)
     });
-    window.location.replace('lead.html');
-   
+    notification("success", "REGISTERED LEAD ", "Successfully Registered");
+    setTimeout(function(){ window.location.href = 'lead.html';}, 1000);
 
 }
 /*BEGINNING SEARCH FUNCTION*/

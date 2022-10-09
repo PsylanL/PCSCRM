@@ -112,9 +112,10 @@ async function register(){
             },
             body: JSON.stringify(user)
         });
-        window.location.replace('manage.html');
+        notification("success", "REGISTERED USER ", "Successfully Registered");
+        setTimeout(function(){ window.location.href = 'manage.html';}, 1000);
     } else {
-        alert('Las contraseñas no coinciden, por favor retifique');
+        notification("error", "WRONG PASSWORD", "Verify Password");
     }
 
 }

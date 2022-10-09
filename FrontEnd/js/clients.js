@@ -83,29 +83,20 @@ async function deleteClient(id){
 
 /*Modal*/
 const openModal = document.getElementById('btn-agg-client');
-const  openModal2 = document.querySelector('.register_button');
 const  modal1 = document.querySelector('.modal1');
-const  modal2 = document.querySelector('.modal2');
 
 //const  modal2 = document.querySelector('.modal2');
 const closeModal = document.querySelector('.modal_close');
-const closeModal2 = document.getElementById('modal_close2');
 openModal.addEventListener('click', (e)=>{ 
     e.preventDefault();/*Evita que se ponga un # en el url cada que se abre el modal */
     modal1.classList.add('modal1--show')
 })
 
-openModal2.addEventListener('click', (e)=>{
-    e.preventDefault();
-    modal2.classList.add('modal2--show')
-    modal1.classList.remove('modal1--show')
-})
 
 closeModal.addEventListener('click', (e)=>{ 
     e.preventDefault();/*Evita que se ponga un # en el url cada que se abre el modal */
     modal1.classList.remove('modal1--show')
 })
-
 
 
 /*BEGINNING REGISTER FUNCTION*/
@@ -127,7 +118,8 @@ async function register(){
         },
         body: JSON.stringify(user)
     });
-    window.location.replace('clients.html');
+    notification("success", "REGISTERED CLIENT ", "Successfully Registered");
+    setTimeout(function(){ window.location.href = 'clients.html';}, 1000);
 }
 /*END REGISTER FUNCTION*/
 
@@ -221,7 +213,7 @@ async function edit(){
         notification("success", "CLIENT EDITED", "Edited correctly");
         setTimeout(function(){ window.location.href = 'clients.html';}, 1000);
     } catch (error) {
-        alert('no se modifico correctamente');
+        notification("error", "UNEDITED CLIENT", "Not edited correctly");
     }
 
     
