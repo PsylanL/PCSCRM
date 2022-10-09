@@ -57,7 +57,6 @@ public class LeadDaoImp implements LeadDao {
 
     @Override
     public void editLead(Lead lead) {
-        System.out.println("Hola: " + lead.getId());
         entityManager.merge(lead);
     }
 

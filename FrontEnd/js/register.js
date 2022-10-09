@@ -56,7 +56,7 @@ async function list(elem) {
 
         td = document.createElement('td');
         td.innerHTML = '<div class="size"><button class="icon-trash btn btn-outline-primary btn-sm" onclick="deleteUser(' + element.id +')" id="btnDelete"></button>'
-            +' '+ '<button class="icon-edit btn btn-outline-primary btn-sm" id="btnEdit"></button></div>';
+            +' '+ '<button class="icon-edit btn btn-outline-primary btn-sm" id="btnEdit" onclick="listEditUser('+ element.id +');" data-bs-toggle="modal" data-bs-target="#editModal"></button></div>';
         row.appendChild(td);
 
         tableBody.appendChild(row);
@@ -98,8 +98,8 @@ async function register(){
     user.mail = document.getElementById('txtMail').value;
 
     user.password = document.getElementById('txtPassword').value;
-
-    user.type = document.getElementById('txtType').value;
+      
+     user.type = document.getElementById('txtType').value;
 
     console.log(user);
 
@@ -134,6 +134,93 @@ async function deleteUser(id){
     }
 }
 
+/*BEGINNING SEARCH FUNCTION*/
+function searchUser(){
 
+    let form = document.querySelector('#input-search');
+    let filtered = {};
+    let array = [];
+
+    console.log(form.value);
+
+        for(let data of this.data ){
+            let inf = data.id;
+            //console.log(inf);
+            if (inf.includes(form.value)) {
+                filtered = data;
+                array.push(filtered);
+            }
+        }
+
+
+        if(array.length != 0){
+            list(array);
+        } else{
+            notification("error","USER NOT FOUND", "Please verify Id");
+        }
+        
+ }
+
+/*FIN SEARCH */
+
+/*NOTIFICATIONS */
+
+function notification(type,title,msg){
+
+    toastr[type](msg, title);
+}
+
+/*FIN NOTIFICATIONS */
+
+/*EDIT */
+var editUserC = '';
+
+ function listEditUser(elem){
+    let array = []
+
+    for(let data of this.data){
+        if(data.id == elem){
+            array = data
+        }
+    }
+    
+    this.editUserC = array;
+    $("#id-modal").val(array.id);
+    $("#name-modal").val(array.name);
+    $("#cel-modal").val(array.cellPhone);
+    $("#mail-modal").val(array.mail);
+    $("#address-modal").val(array.adress);
+    $("#type-modal").val(array.type);
+}
+
+
+async function editUser(){
+    
+    let user = editUserC;
+    user.name = document.getElementById('name-modal').value;
+    user.cellPhone = document.getElementById('cel-modal').value;
+    user.adress = document.getElementById('address-modal').value;
+    user.mail = document.getElementById('mail-modal').value;
+
+    try {
+        const request = await fetch('http://localhost:8080/api/user/edit', {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(user)
+            });
+        notification("success", "USER EDITED", "Edited correctly");
+        setTimeout(function(){ window.location.href = 'manage.html';}, 1000);
+    } catch (error) {
+        notification("error", "UNEDITED USER", "Not edited correctly");
+    }
+    
+    
+}
+
+
+/*FIN EDIT */
 
 

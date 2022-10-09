@@ -19,4 +19,5 @@ public interface UserDao {
 
     String deleteUser(String id);
     
+    void editUser(User user);
 }

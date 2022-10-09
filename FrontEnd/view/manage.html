@@ -6,7 +6,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/FrontEnd/style/style_manage.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     <link rel="stylesheet" href="/FrontEnd/style/fontello.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -47,9 +48,20 @@
 </div>
 <script src="../js/Header.js"></script>
 <!-- FIN MENU LATERAL -->
+
+<div class="buttons">
+    <div class="input-group flex-nowrap">
+        <button id="btn-agg-user" class="btn btn-primary">Add New User <i class="icon-user-add"></i>
+        </button>
+        <span class="input-group-text" id="icon-input-search"><i class="icon-id"></i></span>
+        <input id="input-search" type="text" class="form-control" placeholder="Insert ID">
+        <button onclick="searchUser()" class="btn btn-primary" id="btn-search">Buscar <i
+                class="icon-search"></i></button>
+    </div>
+
+</div>
         <!-- INICIO TABLA -->
         <div class="cont-tabla">
-            <button id="btn-agg-user" class="btn btn-info">Add New User <i class="icon-user-add"></i> </button>
             <table id="users" class="table table-bordered">
                 <thead>
                     <tr>
@@ -137,6 +149,61 @@
 </section>
 <!-- END MODAL POPUP -->
 
+<!-- Modal  Editar-->
+<div class="modal fade modal-lg" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="title-modal">EDIT USER</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modalBody">
+            <div class="input-group">
+                <span class="input-group-text" id="icon-input-id"><i class="icon-id"></i></span>
+                <input id="id-modal" type="text" class="form-control" readonly>
+            </div>
+            <label for="id-modal" class="form-label">You can't change the id</label>
+
+            <div class="input-group">
+                <span class="input-group-text" id="icon-input-id"><i class="icon-doc-inv"></i></span>
+                <input id="mail-modal" type="text" class="form-control" readonly>
+            </div>
+            <label class="form-label">You can't change the Email</label>
+
+            <div class="input-group">
+                <span class="input-group-text" id="icon-input-name"><i class="icon-user-2"></i></span>
+                <input id="name-modal" type="text" class="form-control" placeholder="Insert Name">
+            </div>
+            <label class="form-label">Please insert the new Name</label>
+
+            <div class="input-group ">
+                <span class="input-group-text" id="icon-input-id"><i class="icon-mobile"></i></span>
+                <input id="cel-modal" type="text" class="form-control" placeholder="Insert cellPhone">
+            </div>
+            <label class="form-label">Please insert the new cellPhone</label>
+
+                      
+            <div class="input-group ">
+                <span class="input-group-text" id="icon-input-id"><i class="icon-mobile"></i></span>
+                <input id="type-modal" type="text" class="form-control" placeholder="" readonly>
+            </div>
+            <label class="form-label"> You can't change the type</label>
+
+                      <div class="input-group">
+                <span class="input-group-text" id="icon-input-address"><i class="icon-home"></i></span>
+                <input id="address-modal" type="text" class="form-control" placeholder="Insert Address">
+            </div>
+            <label for="id-modal" class="form-label">Please insert the new Address</label>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" onclick="editUser()" id="save-edit" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fin Modal  Editar-->
 
 </body>
 
@@ -146,3 +213,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
     crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>

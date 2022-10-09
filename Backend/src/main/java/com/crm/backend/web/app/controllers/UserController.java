@@ -57,4 +57,9 @@ public class UserController {
 	public String deleteUser (@PathVariable String id){
 		return userDao.deleteUser(id);
 	}
+
+	@PostMapping("/edit")
+    public void editUser (@RequestBody User user){
+        userDao.editUser(user);
+    }
 }

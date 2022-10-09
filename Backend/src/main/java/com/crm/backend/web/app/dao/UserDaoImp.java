@@ -84,4 +84,9 @@ public class UserDaoImp implements UserDao{
             return "el usuario no fue eliiminado";
         }
     }
+
+    @Override
+    public void editUser(User user) {
+        entityManager.merge(user);
+    }
 }
