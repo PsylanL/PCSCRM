@@ -12,36 +12,32 @@ async function product(){
     let response = await request.json();
     this.data = response;
     console.log(data);
-    loadProducts(this.data);
+    list(this.data);
 }
 
 
 window.onload = product(); 
 
-async function loadProducts(elem) {
+async function list(elem) {
 
     let listHTML = '';
 
 
-    for (let it_product of elem) {
-        btnDelete = "<button class='btn btn-danger' onclick=deleteProduct('" + it_product.id + "')>\n\
-                    Delete\n\
-                    </button>";
-        btnEdit = "<button class='btn btn-primary' onclick=listEdit('" + it_product.id + "') data-bs-toggle='modal' data-bs-target='#editModal'>\n\
-                   Edit\n\
-                   </button>";
-
-
-        let productHTML = "<div class='item'>\n\
-                            <img src="+it_product.urlImg+"> \n\
-                            <h5>"+it_product.name+"</h2>\n\
-                            <h6>"+it_product.id+"</h4>\n\
-                            <p><b>Units:</b>"+ it_product.idInventory +"</p>\n\
-                            "+btnDelete+"\n\
-                            "+btnEdit+"\n\
-                        </div>"
+    for (let element of elem) {
+           let productHTML = "<div class='product'>\n\
+                            <img id='imgP' src="+element.urlImg+"> \n\
+                            <h5><b>"+element.name+"</b></h2>\n\
+                            <h6><p><b>ID:</b>"+element.id+"</h4>\n\
+                            <p><b>UNITS:</b>"+ element.idInventory +"</p>\n\
+                            <button class='btn btn-danger' onclick=deleteProduct('" + element.id + "')>\n\
+                            Delete\n\
+                            </button>\n\
+                            <button class='btn btn-primary' onclick=listEdit('" + element.id + "') data-bs-toggle='modal' data-bs-target='#editModal'>\n\
+                            Edit\n\
+                            </button>\n\
+                          </div>"
         listHTML += productHTML;
-        document.querySelector('.products').outerHTML = listHTML;
+        document.querySelector('.products').innerHTML = listHTML;
 
     }
 
@@ -207,12 +203,15 @@ var editProduct = '';
     $("#id-modal").val(array.id);
     $("#name-modal").val(array.name);
     $("#idInventory-modal").val(array.idInventory);
+    $("#url-modal").val(array.urlImg);
+
   }
 
 async function edit(){
     let user = editProduct;
     user.name = document.getElementById('name-modal').value;
     user.idInventory = document.getElementById('idInventory-modal').value;
+
 
     try {
         const request = await fetch('http://localhost:8080/api/product/edit', {

@@ -19,7 +19,8 @@ body{
     height: 10vh;
     position: relative;
     top: 0; left: 0;
-    background: #949597d0;
+        background: linear-gradient(90deg, rgba(104,132,134,1) 12%, rgba(64,69,70,0.9556197478991597) 50%, rgba(111,121,139,1) 83%);
+
 }
 
 .header .logo{
@@ -69,7 +70,7 @@ body{
 
 .container2{
     position: absolute;
-    width: 100vh;
+    width: auto;
     max-height: fit-content;
     left: 0;
     transition: all 500ms ease;
@@ -108,6 +109,7 @@ body{
 
 .container2 .cont-menu-lateral nav a#b{
     background: #1636eb;
+    
 }
 
 .cont-menu-lateral nav a#b:hover{
@@ -528,3 +530,44 @@ body{
     margin-top: 2vh;
 }
 /*FIN EDIT MODAL*/
+
+/*CATÁLOGO*/
+
+.products{
+    margin-left: 55vh;
+    margin-top: 7vh;
+    width: 150vh;
+    height: 68vh;
+    background-color: #fafafa;
+    overflow: scroll;
+
+}
+.product{
+   background: #00000036;
+    backdrop-filter: blur(6.1px);
+    -webkit-backdrop-filter: blur(6.1px);
+   
+    width: 40vh;
+    height: 52vh;
+    background-color: #00000036;
+    box-sizing: border-box;
+    float: left;
+    text-align: center;
+    border-radius: 5vh;
+    margin: 3vh;
+    justify-content: center;
+    box-shadow: 25px 22px 12px -9px rgba(0,0,0,0.79);
+
+    
+}
+
+#imgP{
+    border-radius: 3vh;
+    width: 37vh;
+    height: 25vh;    
+    margin-top: 1vh;
+   
+}
+
+
+/*FIN CATÁLOGO*/
