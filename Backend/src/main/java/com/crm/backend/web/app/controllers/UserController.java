@@ -62,4 +62,10 @@ public class UserController {
     public void editUser (@RequestBody User user){
         userDao.editUser(user);
     }
+
+	@GetMapping("/consulta")
+    public  int consulta(){
+        return userDao.consulta();
+    }
+
 }

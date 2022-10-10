@@ -48,5 +48,10 @@ public class ClientController {
     public void edit (@RequestBody Client client){
         clientDao.edit(client);
     }
+    @GetMapping("/consulta")
+    public  int consulta(){
+        return clientDao.consulta();
+    }
+
 
 }

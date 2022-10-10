@@ -17,4 +17,6 @@ public interface ClientDao {
 
     void edit(Client client);
     
+    int consulta();
+    
 }

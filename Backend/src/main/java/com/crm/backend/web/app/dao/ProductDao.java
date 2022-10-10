@@ -18,5 +18,6 @@ public interface ProductDao {
 
 	void edit(Product product);
 
+	int consulta();
 
 }

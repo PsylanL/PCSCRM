@@ -17,6 +17,6 @@ public interface LeadDao {
     
     void editLead(Lead lead);
 
-
+    int consulta();
     
 }

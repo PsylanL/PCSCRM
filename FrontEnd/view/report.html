@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/FrontEnd/style/style_report.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+    <style>
+        .toast-error{
+            background-color: red;
+        }
+        .toast-success{
+            background-color: green;
+        }
+    </style>
+
+    <link rel="stylesheet" href="/FrontEnd/style/fontello.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report</title>
+</head>
+
+<body>
+    <!--INICIO MENU SUPERIOR -->
+    <header class="header">
+        <div class="logo">
+            <h1>Logo</h1>
+        </div>
+        
+        <nav class="menu-superior">
+            <a href="#" id="user"></a>
+            <a href="#" onclick="cerrarSesion()"> Cerrar sesion</a>
+        </nav>
+        
+        <script src="../js/Header.js"></script>
+    </header>
+<!-- FIN MENU SUPERIOR -->
+
+<!-- INICIO MENU LATERAL -->
+<div class="container2">
+    <div class="cont-menu-lateral">
+        <nav>
+            <a style="background-color: #1636eb;" id="homeLateral" class="icon-home" href="/FrontEnd/view/home.html" onclick="alter(this,'red')">  Home</a>
+            <a id="clientsLateral" class="icon-users" href="clients.html" onclick="client()">  Clients</a>
+            <a style="background-color: #1636eb;" id="leadLateral" class="icon-users" href="lead.html">  Lead</a>
+            <a id="ordersLateral" class="icon-check" href="orders.html">  Orders</a>
+            <a style="background-color: #1636eb;" id="productsLateral" class="icon-basket" href="products.html">  Products</a>
+            <a id="reportLateral" class="icon-doc-inv" href="#">Report</a>
+            <a style="background-color: #1636eb;" id="manageLateral" class="icon-users" href="manage.html"> Manage</a>
+        </nav>
+    </div>
+
+</div>
+
+<!-- FIN MENU LATERAL -->
+
+<!--Report-->
+
+<div class="container" id="report">
+
+    <div class="container" id="campos">
+
+        <h1 class="h1, icon-doc-inv">Report</h1>
+        <br>
+        <br>
+
+        <canvas class="grafica">
+
+        </canvas>
+        
+                  
+    </div>
+
+</div>
+       
+
+
+</body>
+
+</html>
+
+<script src="../js/report.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+    crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>

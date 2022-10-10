@@ -49,4 +49,10 @@ public class ProductController {
         productDao.edit(product);
     }
 
+    @GetMapping("/consulta")
+    public  int consulta(){
+        return productDao.consulta();
+    }
+
+
 }

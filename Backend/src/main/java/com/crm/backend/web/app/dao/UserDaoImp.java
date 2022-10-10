@@ -89,4 +89,19 @@ public class UserDaoImp implements UserDao{
     public void editUser(User user) {
         entityManager.merge(user);
     }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public int consulta() {
+        String query = " from User";
+		List<User> resulList = entityManager.createQuery(query).getResultList();
+
+        int count = 0;
+        for (User user : resulList) {
+            count++;
+        };
+       
+        return count;
+        
+    }
 }

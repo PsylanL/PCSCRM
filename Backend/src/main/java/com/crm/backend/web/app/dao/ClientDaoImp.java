@@ -1,5 +1,6 @@
 package com.crm.backend.web.app.dao;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -60,4 +61,19 @@ public class ClientDaoImp implements ClientDao {
         entityManager.merge(client);
     }
     
+    @SuppressWarnings("unchecked")
+    @Override
+    public int consulta() {
+        String query = " from Client";
+		List<Client> resulList = entityManager.createQuery(query).getResultList();
+
+        int count = 0;
+        for (Client client : resulList) {
+            count++;
+        };
+       
+        return count;
+        
+    }
+
 }

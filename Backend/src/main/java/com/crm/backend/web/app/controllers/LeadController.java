@@ -49,4 +49,9 @@ public class LeadController {
     public void editLead (@RequestBody Lead lead){
         lDao.editLead(lead);
     }
+
+     @GetMapping("/consulta")
+    public  int consulta(){
+        return lDao.consulta();
+    }
 }

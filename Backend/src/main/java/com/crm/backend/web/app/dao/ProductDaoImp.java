@@ -60,4 +60,19 @@ public class ProductDaoImp implements ProductDao{
         entityManager.merge(product);
     }
 
+    @SuppressWarnings("unchecked")
+    @Override
+    public int consulta() {
+        String query = " from Product";
+		List<Product> resulList = entityManager.createQuery(query).getResultList();
+
+        int count = 0;
+        for (Product product : resulList) {
+            count++;
+        };
+       
+        return count;
+        
+    }
+
 }

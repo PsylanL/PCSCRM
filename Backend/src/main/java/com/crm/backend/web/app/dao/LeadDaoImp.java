@@ -60,6 +60,21 @@ public class LeadDaoImp implements LeadDao {
         entityManager.merge(lead);
     }
 
+    @SuppressWarnings("unchecked")
+    @Override
+    public int consulta() {
+        String query = " from Lead";
+		List<Lead> resulList = entityManager.createQuery(query).getResultList();
+
+        int count = 0;
+        for (Lead lead : resulList) {
+            count++;
+        };
+       
+        return count;
+        
+    }
+
     
     
 }
