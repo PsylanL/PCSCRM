@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
@@ -9,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    
 
     <style>
         .toast-error{
@@ -30,7 +32,7 @@
     <!--INICIO MENU SUPERIOR -->
     <header class="header">
         <div class="logo">
-            <h1>Logo</h1>
+            <img id="imgLogo" src="../img/logo.png" alt="">
         </div>
         
         <nav class="menu-superior">
@@ -92,6 +94,7 @@
                 </thead>
                 <tbody id="tbody"></tbody>
             </table>
+            
         </div>
         <!-- FIN TABLA -->
 
@@ -142,7 +145,7 @@
                                         placeholder="example123@mail.com">
                                 </div>
                             </form>
-                            <button class="register_button" onclick="register()">Register</button>
+                            <button class="register_button">Register</button>
                         </div> <!-- END MODAL POPUP -->
                     </div> <!-- END COINTAINER3 -->
                     <a href="#" class="modal_close">X</a>

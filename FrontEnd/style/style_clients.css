@@ -23,9 +23,15 @@ body{
     background: linear-gradient(90deg, rgba(104,132,134,1) 12%, rgba(64,69,70,0.9556197478991597) 50%, rgba(111,121,139,1) 83%);
 }
 
-.header .logo{
+.logo{
     float: left;
-    line-height: 7.5vh;
+    width: auto;
+    height: auto;
+    
+}
+#imgLogo{
+    width: 10vh;
+    height: 10vh;
 }
 
 .logo h1{
@@ -193,7 +199,9 @@ body{
     width: 10vh;
 }
 
-
+#tbody{
+    overflow-y: scroll;
+}
 
 /*END TABLE*/
 

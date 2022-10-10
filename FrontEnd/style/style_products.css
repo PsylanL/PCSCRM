@@ -536,7 +536,7 @@ body{
 .products{
     margin-left: 55vh;
     margin-top: 7vh;
-    width: 150vh;
+    width: auto;
     height: 68vh;
     background-color: #fafafa;
     overflow: scroll;

@@ -33,15 +33,8 @@ async function getIdByEmail (){
                 document.getElementById('manageLateral').style.display = 'block';
             }
         } catch (error) {
-            document.getElementById('homeLateral').style.display = 'none';
-            document.getElementById('clientsLateral').style.display = 'none';
-            document.getElementById('leadLateral').style.display = 'none';
-            document.getElementById('ordersLateral').style.display = 'none';
-            document.getElementById('productsLateral').style.display = 'none';
-            document.getElementById('reportLateral').style.display = 'none';
-            document.getElementById('manageLateral').style.display = 'none';
             console.log('user not logged');
-            window.location.replace('notLogged.html');
+            window.location.href = 'index.html';
         }
     });
 }

@@ -5,7 +5,7 @@ async function client(){
     let request = await fetch(getClients);
     let response = await request.json();
     this.data = response;
-    console.log(data);
+    console.log(this.data);
     list(this.data);
 }
 
@@ -219,3 +219,7 @@ async function edit(){
 
 
 /*FIN EDIT */
+
+
+/*PAGINATION */
+
