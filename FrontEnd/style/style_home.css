@@ -13,10 +13,12 @@ body{
 }
 
 
+
+
 /*INICIO ESTILOS HEADER*/
 .header{
     width: 100%;
-    height: 10vh;
+    height: 10.2vh;
     position: relative;
     top: 0; left: 0;
     background: rgb(104,132,134);
@@ -66,7 +68,7 @@ body{
 /*INICIO MENU LATERAL*/
 
 .container2{
-    position: absolute;
+    position: fixed;
     width: 100%;
     top: 10vh;
     left: 0;
@@ -164,6 +166,26 @@ body{
     }
 }
 
+
+.home_chart{
+    position: absolute;
+    top: 15vh;
+    left: 65vh;
+}
+
+.home_chart a{
+    position: absolute;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    left: 70vh;
+    transition: all 500ms ease;
+}
+
+.home_chart a:hover{
+    transform: scale(1.2);
+    color: green;
+}
 
 /*FIN MENU LATERAL*/
 
