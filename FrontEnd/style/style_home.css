@@ -67,8 +67,8 @@ body{
 
 .container2{
     position: absolute;
-    width: auto;
-    max-height: fit-content;
+    width: 100%;
+    top: 10vh;
     left: 0;
     transition: all 500ms ease;
     
@@ -80,8 +80,9 @@ body{
     float: left;
     max-width: 25.9vh;
     background: #2980F2;
-    height: 90vh;
-    position: relative;
+    height: 100vh;
+    position: fixed;
+    transition: all 500ms ease;
 }
 
 
@@ -126,9 +127,43 @@ body{
     cursor: pointer;
 }
 
-#homeLateral{
-    padding: 2rem;
-    border-left: 7px solid #c7c7c7;
+
+.slider_logos{
+    top: 90vh;
+    left: 26vh;
+    width: 171vh;
+    height: 30vh;
+    margin: auto;
+    overflow: hidden;
+    position: fixed;
 }
 
+.slide-track_logos{
+    
+    display: flex;
+    animation: scroll 15s linear infinite;
+    -webkit-animation: scroll 15s linear infinite;
+    width: calc(20vh * 20);
+}
+
+.slider_logos .slide_logos{
+    width: 20vh;
+}
+
+.slide_logos img{
+    height: 10vh;
+    width: 100%;
+}
+
+@keyframes scroll{
+    0%{ /*Tambien sirve usar from{} to{} */
+        transform: translateX(0px);
+    }
+    100%{
+        transform: translateX(calc(-20vh * 10));
+    }
+}
+
+
 /*FIN MENU LATERAL*/
+
