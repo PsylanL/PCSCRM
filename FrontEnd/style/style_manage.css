@@ -19,7 +19,8 @@ body{
     height: 10vh;
     position: relative;
     top: 0; left: 0;
-    background: #949597d0;
+    background: rgb(104,132,134);
+    background: linear-gradient(90deg, rgba(104,132,134,1) 12%, rgba(64,69,70,0.9556197478991597) 50%, rgba(111,121,139,1) 83%);
 }
 
 .header .logo{
@@ -69,7 +70,7 @@ body{
 
 .container2{
     position: absolute;
-    width: 100vh;
+    width: auto;
     max-height: fit-content;
     left: 0;
     transition: all 500ms ease;
@@ -102,22 +103,20 @@ body{
 }
 
 .cont-menu-lateral nav a:hover{
-    border-left: 5px solid #c7c7c7;
+    border-left: 7px solid #c7c7c7;
     background: #172540;
+    padding: 2rem;
 }
 
-.container2 .cont-menu-lateral nav a#b{
-    background: #1636eb;
-}
-
-.cont-menu-lateral nav a#b:hover{
-    border-left: 5px solid #c7c7c7;
-    background: #172540;
-}
 
 .cont-menu-lateral nav a#admin{
     visibility: hidden;
     cursor: default;
+}
+
+#manageLateral{
+    padding: 2rem;
+    border-left: 7px solid #c7c7c7;
 }
 
 
@@ -135,7 +134,7 @@ body{
 /*BOTONES E INPUT*/
 .buttons{
     width: max-content;
-    margin-left: 50vh;
+    margin-left: 70vh;
 }
 
 .input-group{
@@ -180,7 +179,7 @@ body{
 
 #users{
     margin-top: 5vh;
-    margin-left: 50vh;
+    margin-left: 70vh;
    
 }
 
@@ -188,10 +187,11 @@ body{
     width: max-content;
 }
 
+
+
 #icon-user{
     width: 10vh;
 }
-
 
 
 /*ENcdBLE*/

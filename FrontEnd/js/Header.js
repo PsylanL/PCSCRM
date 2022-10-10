@@ -23,7 +23,7 @@ async function getIdByEmail (){
     getUser().then((userObj) => {
         try {
             userHTML = document.getElementById('user');
-            userHTML.innerHTML = ' <i class="icon-users" ></i>' + userObj[0].name;
+            userHTML.innerHTML = ' <i class="icon-users" ></i>' + ' '+userObj[0].name;
             if (userObj[0].type == 'ClientService'){
                 document.getElementById('productsLateral').style.display = 'none';
                 document.getElementById('reportLateral').style.display = 'none';
