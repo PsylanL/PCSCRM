@@ -12,13 +12,45 @@ async function product(){
     let response = await request.json();
     this.data = response;
     console.log(data);
-    list(this.data);
+    loadProducts(this.data);
 }
+
 
 window.onload = product(); 
 
+async function loadProducts(elem) {
 
-async function list(elem) {
+    let listHTML = '';
+
+
+    for (let it_product of elem) {
+        btnDelete = "<button class='btn btn-danger' onclick=deleteProduct('" + it_product.id + "')>\n\
+                    Delete\n\
+                    </button>";
+        btnEdit = "<button class='btn btn-primary' onclick=listEdit('" + it_product.id + "') data-bs-toggle='modal' data-bs-target='#editModal'>\n\
+                   Edit\n\
+                   </button>";
+
+
+        let productHTML = "<div class='item'>\n\
+                            <img src="+it_product.urlImg+"> \n\
+                            <h5>"+it_product.name+"</h2>\n\
+                            <h6>"+it_product.id+"</h4>\n\
+                            <p><b>Units:</b>"+ it_product.idInventory +"</p>\n\
+                            "+btnDelete+"\n\
+                            "+btnEdit+"\n\
+                        </div>"
+        listHTML += productHTML;
+        document.querySelector('.products').outerHTML = listHTML;
+
+    }
+
+    elem='';
+
+}
+
+
+/*async function list(elem) {
 
     let ProductsTable = document.getElementById('products');
     let tableBody = document.getElementById('tbody');
@@ -59,7 +91,7 @@ async function list(elem) {
 
     elem = '';
 
-}
+}*/
 
 
 
@@ -87,6 +119,7 @@ async function registerProduct(){
     user.id = document.getElementById('txtId').value;
     user.name = document.getElementById('txtName').value;
     user.idInventory = document.getElementById('txtIdInventory').value; 
+    user.urlImg = document.getElementById('txtUrl').value;
     
   
     const request = await fetch('http://localhost:8080/api/product/register', {

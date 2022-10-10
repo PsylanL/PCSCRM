@@ -24,4 +24,8 @@ public class Product {
     @Column(name = "idinventory")
     @Getter @Setter
     private String idInventory;
+
+    @Column(name = "urlimg")
+    @Getter @Setter
+    private String urlImg;
 }
