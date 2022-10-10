@@ -25,7 +25,6 @@ async function getIdByEmail (){
             userHTML = document.getElementById('user');
             userHTML.innerHTML = ' <i class="icon-users" ></i>' + ' '+userObj[0].name;
             if (userObj[0].type == 'ClientService'){
-                document.getElementById('productsLateral').style.display = 'none';
                 document.getElementById('reportLateral').style.display = 'none';
                 document.getElementById('manageLateral').style.display = 'none';
                 console.log('soy servicio cliente');

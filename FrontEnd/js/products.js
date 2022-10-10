@@ -234,3 +234,34 @@ async function edit(){
 
 
 /*FIN EDIT */
+
+
+window.onload = getIdByEmail(); 
+
+//Se almacena el usuario logueado
+async function getIdByEmail (){
+    let email = localStorage.email;
+    const getUsers = "http://localhost:8080/api/user/list";
+    let request = await fetch(getUsers);
+    let response = await request.json();
+    response.forEach(element => {
+        if (element.mail == email){
+            localStorage.id = element.id;
+        }
+    });
+    getUser().then((userObj) => {
+        try {
+            if (userObj[0].type != 'Manager'){
+                document.getElementById('btn-agg-product').style.display = 'none';
+            }
+        } catch (error) {}
+    });
+}
+
+
+async function getUser(){
+    const getUsers = "http://localhost:8080/api/user/search/"+localStorage.id;
+    let request = await fetch(getUsers);
+    let response = await request.json();
+    return response;
+}
