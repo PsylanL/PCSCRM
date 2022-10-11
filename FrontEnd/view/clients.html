@@ -2,21 +2,23 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/FrontEnd/style/style_clients.css">
+    <link rel="stylesheet" href="../style/style_all.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
-    
+
 
     <style>
-        .toast-error{
+        .toast-error {
             background-color: red;
         }
-        .toast-success{
+
+        .toast-success {
             background-color: green;
         }
     </style>
@@ -34,69 +36,72 @@
         <div class="logo">
             <img id="imgLogo" src="../img/logo.png" alt="">
         </div>
-        
+
         <nav class="menu-superior">
             <a href="#" id="user"></a>
             <a href="#" onclick="cerrarSesion()"> Cerrar sesion</a>
         </nav>
-        
+
         <script src="../js/Header.js"></script>
     </header>
-<!-- FIN MENU SUPERIOR -->
+    <!-- FIN MENU SUPERIOR -->
 
-<!-- INICIO MENU LATERAL -->
-<div class="container2">
-    <div class="cont-menu-lateral">
-        <nav>
-            <a style="background-color: #1636eb;" id="homeLateral" class="icon-home" href="/FrontEnd/view/home.html" onclick="alter(this,'red')">  Home</a>
-            <a id="clientsLateral" class="icon-users" href="clients.html" onclick="client()">  Clients</a>
-            <a style="background-color: #1636eb;" id="leadLateral" class="icon-users" href="lead.html">  Lead</a>
-            <a id="ordersLateral" class="icon-check" href="orders.html">  Orders</a>
-            <a style="background-color: #1636eb;" id="productsLateral" class="icon-basket" href="products.html">  Products</a>
-            <a id="reportLateral" class="icon-doc-inv" href="#">Report</a>
-            <a style="background-color: #1636eb;" id="manageLateral" class="icon-users" href="manage.html"> Manage</a>
-        </nav>
+    <!-- INICIO MENU LATERAL -->
+    <div class="container2">
+        <div class="cont-menu-lateral">
+            <nav>
+                <a style="background-color: #1636eb;" id="homeLateral" class="icon-home" href="/FrontEnd/view/home.html"
+                    onclick="alter(this,'red')"> Home</a>
+                <a id="clientsLateral" class="icon-users" href="clients.html" onclick="client()"> Clients</a>
+                <a style="background-color: #1636eb;" id="leadLateral" class="icon-users" href="lead.html"> Lead</a>
+                <a id="ordersLateral" class="icon-check" href="orders.html"> Orders</a>
+                <a style="background-color: #1636eb;" id="productsLateral" class="icon-basket" href="products.html">
+                    Products</a>
+                <a id="reportLateral" class="icon-doc-inv" href="report.html">Report</a> <a
+                    style="background-color: #1636eb;" id="manageLateral" class="icon-users" href="manage.html">
+                    Manage</a>
+            </nav>
+        </div>
+
     </div>
 
-</div>
+    <!-- FIN MENU LATERAL -->
 
-<!-- FIN MENU LATERAL -->
-
-        <!-- BOTONES E INPUT-->
-        <div class="buttons">
-            <div class="input-group flex-nowrap">
-                <button id="btn-agg-client" class="btn btn-primary">Add New Client <i class="icon-user-add"></i>
-                </button>
-                <span class="input-group-text" id="icon-input-search"><i class="icon-id"></i></span>
-                <input id="input-search" type="text" class="form-control" placeholder="Insert ID">
-                <button onclick="search()" class="btn btn-primary" id="btn-search">Buscar <i
-                        class="icon-search"></i></button>
-            </div>
-
+    <!-- BOTONES E INPUT-->
+    <div class="buttons">
+        <div class="input-group flex-nowrap">
+            <button id="btn-agg-client" class="btn btn-primary">Add New Client <i class="icon-user-add"></i>
+            </button>
+            <span class="input-group-text" id="icon-input-search"><i class="icon-id"></i></span>
+            <input id="input-search" type="text" class="form-control" placeholder="Insert ID">
+            <button onclick="search()" class="btn btn-primary" id="btn-search">Buscar <i
+                    class="icon-search"></i></button>
         </div>
-        <!-- BOTONES E INPUT-->
 
-        <!-- INICIO TABLA -->
+    </div>
+    <!-- BOTONES E INPUT-->
 
-        <div class="cont-tabla">
+    <!-- INICIO TABLA -->
 
-            <table id="clients" class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>ID</th>
-                        <th>NAME</th>
-                        <th>CELLPHONE</th>
-                        <th>MAIL</th>
-                        <th>ADDRESS</th>
-                        <th>ACTIONS</th>
-                    </tr>
-                </thead>
-                <tbody id="tbody"></tbody>
-            </table>
-            
-        </div>
-        <!-- FIN TABLA -->
+    <div class="cont-tabla">
+
+        <table id="clients" class="table table-bordered">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>ID</th>
+                    <th>NAME</th>
+                    <th>CELLPHONE</th>
+                    <th>MAIL</th>
+                    <th>ADDRESS</th>
+                    <th>ACTIONS</th>
+                </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+        </table>
+
+    </div>
+    <!-- FIN TABLA -->
 
 
 
@@ -145,14 +150,14 @@
                                         placeholder="example123@mail.com">
                                 </div>
                             </form>
-                            <button class="register_button">Register</button>
+                            <button class="register_button" onclick="register()">Register</button>
                         </div> <!-- END MODAL POPUP -->
                     </div> <!-- END COINTAINER3 -->
                     <a href="#" class="modal_close">X</a>
                 </div><!-- END MODAL CONTAINER -->
     </section>
     <!-- END MODAL POPUP -->
-   
+
     <!-- Modal -->
     <div class="modal fade modal-lg" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
@@ -171,7 +176,7 @@
 
                     <div class="input-group">
                         <span class="input-group-text" id="icon-input-id"><i class="icon-doc-inv"></i></span>
-                        <input id="mail-modal" type="text" class="form-control" >
+                        <input id="mail-modal" type="text" class="form-control">
                     </div>
                     <label class="form-label">Mail</label>
                     <label class="form-label">Please insert the new Mail</label>
@@ -196,11 +201,14 @@
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="button" onclick="edit()" id="save-edit" class="btn btn-primary">Save changes</button>
+                        <button type="button" onclick="edit()" id="save-edit" class="btn btn-primary">Save
+                            changes</button>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+        <!--FIN MODAL-->
 
 
 

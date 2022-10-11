@@ -1,0 +1,89 @@
+#ordersLateral{
+    padding: 2rem;
+    border-left: 7px solid #c7c7c7;
+}
+
+
+/*BOTONES E INPUT*/
+.buttons{
+    width: max-content;
+    margin-left: 50vh;
+}
+
+.input-group{
+    margin-top: 5vh;
+}
+
+#btn-search{
+    margin-left: 1vh;
+}
+
+#btn-agg-order{
+   margin-left: 25vh;
+   
+}
+
+#icon-input-search{
+    margin-left: 2vh;
+}
+
+#notify{
+    color: #000000;
+}
+
+#msg{
+    background-color: white;
+    color: #000000;
+}
+/*FIN BUTTONS*/
+
+/*INICIO TABLA*/
+
+.cont-tabla{
+    left: 0;
+    width: max-content;
+    max-height: fit-content;
+    margin-left: 0vh;
+    float: left;
+}
+
+#orders{
+    margin-top: 5vh;
+    margin-left: 50vh;
+   
+}
+
+.size{
+    width: max-content;
+    margin: auto;
+}
+
+
+
+.icon-list{
+    
+}
+
+#tbody{
+    overflow-y: scroll;
+    
+}
+
+/*END TABLE*/
+
+/*EDIT MODAL*/
+.modal-header{
+    background-color: #2980F2;
+}
+
+#title-modal{
+    margin-left: auto;
+    font-weight: 700;
+    color: #000000;
+}
+
+
+.modal-body .input-group{
+    margin-top: 2vh;
+}
+/*FIN EDIT MODAL*/
