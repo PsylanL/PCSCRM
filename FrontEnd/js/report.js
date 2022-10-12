@@ -68,6 +68,3 @@ window.onload = consulta().then((data)=>{
 }); 
 
 });
-
-
-

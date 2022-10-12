@@ -65,3 +65,29 @@
 
 /*FIN MENU LATERAL*/
 
+/*RESPONSIVE*/
+
+@media screen and (max-width:1366px){
+    .slider_logos{
+        top: 10vh;
+        left: 25vh;
+        width: 171vh;
+        height: 10vh;
+        margin: auto;
+        overflow: hidden;
+        position: fixed;
+        z-index: 2;
+    }
+
+    .slide_logos img{
+        height: 10vh;
+        width: 100%;
+    }
+
+    .home_chart{
+        position: absolute;
+        top: 15vh;
+        left: 45vh;
+    }
+
+}
