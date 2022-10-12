@@ -81,44 +81,97 @@ closeModal.addEventListener('click', (e)=>{
     modal1.classList.remove('modal1--show')
 })
 
+/*Expresiones regulares*/
+const expresiones = {
+	password: /^[a-zA-Z0-9]{4,16}$/, // Letras, numeros rango [4,16]
+    id: /^\d{7,14}$/, // 7 a 14 numeros.
+	nombre: /^[a-zA-ZÀ-ÿ\s]{4,40}$/, // Letras y espacios, pueden llevar acentos.
+	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+	telefono: /^\d{7,14}$/ // 7 a 14 numeros.
+};
 
+/*Register*/
+
+
+async function sendRegister(user){
+    const request = await fetch('http://localhost:8080/api/user/register', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user)
+    });
+        notification("success", "REGISTERED CLIENT ", "Successfully Registered");
+        setTimeout(function(){ window.location.href = 'manage.html';}, 1000);
+}
 
 
 async function register(){
     let user = {};
-
     user.id = document.getElementById('txtId').value;
-
     user.name = document.getElementById('txtName').value;
-
     user.cellPhone = document.getElementById('txtCellPhone').value;
-    
     user.adress = document.getElementById('txtAdress').value;
-
     user.mail = document.getElementById('txtMail').value;
+    user.password = document.getElementById('txtPassword').value;     
+    user.type = document.getElementById('txtType').value;
 
-    user.password = document.getElementById('txtPassword').value;
-      
-     user.type = document.getElementById('txtType').value;
+    let check = 0;      
+        for(let i=0; i < this.data.length; i++){ 
+        if(user.id === data[i].id){
+            check = 1;         
+            }
+        }
+        switch (check){
+            case 0:{
+                if(user.id != '' && user.name != '' && user.cellPhone  != ''
+            && user.adress != '' && user.mail != '' && user.password != '' &&  user.type != ''){
 
-    console.log(user);
+                    if(expresiones.id.test(user.id)){
 
-    if(user.password == document.getElementById('txtRepeat').value){
-        const request = await fetch('http://localhost:8080/api/user/register', {
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(user)
-        });
-        notification("success", "REGISTERED USER ", "Successfully Registered");
-        setTimeout(function(){ window.location.href = 'manage.html';}, 1000);
-    } else {
-        notification("error", "WRONG PASSWORD", "Verify Password");
+                        if(expresiones.nombre.test(user.name)){
+
+                             if(expresiones.telefono.test(user.cellPhone)){
+
+                                if(expresiones.correo.test(user.mail)){
+
+                                     if(expresiones.password.test(user.password)){
+
+                                         sendRegister(user);
+
+                                     }else{
+                                        notification("error", "Enter a valid Password", "Minimum 4 characters, at least one letter and one number (no special characters")
+                                    }
+                                }else{
+                                   notification("error", "Enter a valid Email", "Please verify ")
+                                }
+                            }else{
+                                notification("error", "Enter a valid CellPhone", " Enter only numbers, with range (7-14 digits)")
+                            }
+                        }else{
+                            notification("error", "Enter a valid Name", " Name from 4 to 40 letter name")
+                        }
+                    }else{
+                        notification("error", "Enter a valid Id", " Enter only numbers, with range (7-14 digits)")
+                    }                 
+                }else {
+                    notification("error", "INCOMPLETE FIELDS", "Please verify")
+                }
+                break;
+            }
+
+            case 1:{
+                notification("error", "ID ALREADY EXISTS", "Incomplete Registration");
+                break;
+            }
+        } 
+            console.log(user);
+
+            
     }
 
-}
+
 
 async function deleteUser(id){
     if(confirm("alerta, va a eliminar al usuario con id: "+id)){
