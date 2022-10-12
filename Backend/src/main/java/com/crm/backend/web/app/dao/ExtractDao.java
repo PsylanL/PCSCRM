@@ -8,4 +8,8 @@ public interface ExtractDao {
     void register(Extract extract);
 
     List<Extract> list();
+
+    String deleteOrder(String id);
+
+    void edit(Extract extract);
 }

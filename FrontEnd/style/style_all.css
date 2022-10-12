@@ -61,6 +61,13 @@ body{
     border-bottom: 0.21vh solid #c7c7c7;
     padding: 0.5vh 1vh;
 }
+
+
+#imgLogo{
+    width: 10vh;
+    height: 10vh;
+    margin-left: 5vh;
+}
 /*FIN ESTILOS HEADER*/
 
 

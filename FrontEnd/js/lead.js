@@ -89,18 +89,9 @@ closeModal.addEventListener('click', (e)=>{
     modal1.classList.remove('modal1--show')
 })
 
-/* REGISTER FUNCTION*/
+/*COMIENZO FUNCION ASINCRONA DE REGISTRO */
 
-async function registerLead(){
-    let user = {};
-    user.id = document.getElementById('txtId').value;
-    user.name = document.getElementById('txtName').value;
-    user.cellPhone = document.getElementById('txtCellPhone').value; 
-    user.adress = document.getElementById('txtAdress').value;
-    user.mail = document.getElementById('txtMail').value;
-
-    console.log(user);
-
+async function sendRegister(user){
     const request = await fetch('http://localhost:8080/api/lead/register', {
         method: 'POST',
         headers: {
@@ -109,10 +100,53 @@ async function registerLead(){
         },
         body: JSON.stringify(user)
     });
-    notification("success", "REGISTERED LEAD ", "Successfully Registered");
-    setTimeout(function(){ window.location.href = 'lead.html';}, 1000);
-
+        notification("success", "REGISTERED CLIENT ", "Successfully Registered");
+        setTimeout(function(){ window.location.href = 'clients.html';}, 1000);
 }
+
+/*FIN FUNCION ASINCRONA DE REGISTRO */
+
+/*COMIENZO FUNCION DE REGISTRO*/
+
+async function register(){
+    let user = {};
+    user.id = document.getElementById('txtId').value;
+    user.name = document.getElementById('txtName').value;
+    user.cellPhone = document.getElementById('txtCellPhone').value; 
+    user.adress = document.getElementById('txtAdress').value;
+    user.mail = document.getElementById('txtMail').value;
+    console.log(user);
+
+    
+
+    let check = 0;      
+        for(let i=0; i < this.data.length; i++){ 
+        if(user.id === data[i].id){
+            check = 1;         
+            }
+        }
+        switch (check){
+            case 0:{
+                if(user.id != '' && user.name != '' && user.cellPhone  != ''
+                && user.adress != '' && user.mail != ''){
+                    sendRegister(user);
+                }else {
+                    notification("error", "INCOMPLETE FIELDS", "Please verify")
+                }
+                break;
+            }
+            case 1:{
+                notification("error", "ID ALREADY EXISTS", "Incomplete Registration");
+                break;
+            }
+        } 
+            console.log(user);
+
+            
+    }
+    
+/*FIN FUNCION DE REGISTRO*/
+
 /*BEGINNING SEARCH FUNCTION*/
 function searchLead(){
 

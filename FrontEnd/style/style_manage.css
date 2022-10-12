@@ -4,7 +4,7 @@
 /*BOTONES E INPUT*/
 .buttons{
     width: max-content;
-    margin-left: 70vh;
+    margin-left: 85vh;
 }
 
 .input-group{
@@ -38,13 +38,10 @@
 
 /*INICIO TABLA*/
 
-
-
 .cont-tabla{
-    left: 25vh;
-    width: 75vh;
+    width: 100vh;
+    margin-right: 50vh;
     max-height: fit-content;
-    float: left;
 }
 
 #users{
