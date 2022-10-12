@@ -85,7 +85,7 @@ function searchOrder(){
         if(array.length != 0){
             list(array);
         } else{
-            notification("error","CLIENT NOT FOUND", "Please verify");
+            notification("error","ORDER NOT FOUND", "Please verify");
         }
         
         
@@ -128,7 +128,7 @@ async function edit(){
     console.log(user);
 
     try {
-        const request = await fetch('http://localhost:8080/api/client/edit', {
+        const request = await fetch('http://localhost:8080/api/extract/edit', {
                 method: 'POST',
                 headers: {
                     'Accept': 'application/json',
@@ -137,7 +137,7 @@ async function edit(){
                 body: JSON.stringify(user)
             });
         notification("success", "CLIENT EDITED", "Edited correctly");
-        setTimeout(function(){ window.location.href = 'clients.html';}, 1000);
+        setTimeout(function(){ window.location.href = 'orders.html';}, 1000);
     } catch (error) {
         notification("error", "UNEDITED CLIENT", "Not edited correctly");
     }
@@ -157,3 +157,102 @@ function notification(type,title,msg){
 }
 
 /*FIN NOTIFICATIONS */
+
+/*Expresiones Regulares*/
+
+const expresiones = {
+    idO:/^\d{1,14}$/, // 7 a 14 numeros.
+    id: /^\d{7,14}$/, // 7 a 14 numeros.
+    id2: /^\d{1,500}$/, // 1 a 500 numeros.
+};
+/*FIn expresiones Regulares*/
+
+/*Register*/
+
+async function sendRegister(user){
+    const request = await fetch('http://localhost:8080/api/extract/register', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user)
+    });
+        notification("success", "REGISTERED CLIENT ", "Successfully Registered");
+        setTimeout(function(){ window.location.href = 'orders.html';}, 1000);
+}
+
+async function register(){
+
+    let user = {};
+    user.id = document.getElementById('txtId').value;
+    user.idServiceClient = document.getElementById('txtIdServiceClient').value;
+    user.idSupplier = document.getElementById('txtIdSupplier').value; 
+    user.orderDate = document.getElementById('txtOrderDate').value;
+    user.orderQuantity = document.getElementById('txtOrderQuantity').value;
+    console.log(user);
+
+    
+
+    let check = 0;      
+        for(let i=0; i < this.data.length; i++){ 
+        if(user.id === data[i].id){
+            check = 1;         
+            }
+        }
+        switch (check){
+            case 0:{
+                if(user.id != '' && user.idServiceClient != '' && user.idSupplier  != ''&& user.orderDate != '' && user.orderQuantity != ''){
+
+                    if(expresiones.idO.test(user.id)){
+
+                        if(expresiones.id.test(user.idServiceClient)){
+
+                             if(expresiones.id.test(user.idSupplier)){
+
+                                if(expresiones.id2.test(user.orderQuantity)){
+
+                                    sendRegister(user);
+
+                                   }else{
+                                    notification("error", "Enter a valid Quantity", " Enter only numbers, with range (7-14 digits)")                                    }
+                            }else{
+                                notification("error", "Enter a valid Id Suplier", " Enter only numbers, with range (7-14 digits)")                            }
+                        }else{
+                            notification("error", "Enter a valid Id Service Client", " Enter only numbers, with range (7-14 digits)")                        }
+                    }else{
+                        notification("error", "Enter a valid Id", " Enter only numbers, with range (7-14 digits)")
+                    }                 
+                }else {
+                    notification("error", "INCOMPLETE FIELDS", "Please verify")
+                }
+                break;
+            }
+
+            case 1:{
+                notification("error", "ID ALREADY EXISTS", "Incomplete Registration");
+                break;
+            }
+        } 
+            console.log(user);
+
+            
+    }
+    
+/*FIN FUNCION DE REGISTRO*/
+
+/*ELIMINAR*/
+async function deleteOrder(id){
+    if(confirm("alerta, va a eliminar la orden con id: "+id)){
+        const request = await fetch('http://localhost:8080/api/extract/delete/'+id, {
+                method: 'DELETE',
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                },
+            });
+            let response = await request.text();
+        notification("success", "Order Deleted", "Order Id: "+id+ " Deleted");
+        setTimeout(function(){ window.location.href = 'orders.html';}, 1000);
+    }
+}
