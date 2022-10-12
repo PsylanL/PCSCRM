@@ -26,8 +26,15 @@ async function consulta(){
 
 console.log(consulta());
 
+$(document).ready(function () {
+    
+    $('#btn-report').click(function(){
+        
+      $('#columnchart_values').printThis();
+
+});
+
 window.onload = consulta().then((data)=>{
-    document.getElementById('campos').innerHTML += '<p><b>Number of Clients: </b> ' + this.data  + ' <br><b> Numbers of Leads  : </b>'+ this.data2 + ' <br><b> Numbers of Products  : </b>'+ this.data3 +  ' <br><b> Numbers of Products  : </b>'+ this.data4 +  '</p>';
     
     google.charts.load("current", {packages:['corechart']});
     google.charts.setOnLoadCallback(drawChart);
@@ -49,34 +56,15 @@ window.onload = consulta().then((data)=>{
                 2]);
 
   var options = {
-    title: "Column chart report",
-    width: 600,
-    height: 400,
+    title: "Report",
+    width: 800,
+    height: 450,
     bar: {groupWidth: "95%"},
-    legend: { position: "none" },
+    legend: { position: "absolute" },
   };
   var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
   chart.draw(view, options);
 }
 }); 
 
-/*Grafica*/
-
-let grafica = document.getElementById('grafica');
-var chart = new Chart(grafica,{
-    type:"bar",
-    data:{
-        labels:["Clients","Leads","Products","Users"],
-        datasets:[
-            {
-                label: "Grafica Cantidad",
-                backgroundColor:"rgb(0,0,0)",
-                data:[10,15,20,5]
-            }
-        ]
-    }
-})
-
-
-/* GRAFICA DE BARRAS */
-
+});

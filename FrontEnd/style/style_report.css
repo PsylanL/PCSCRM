@@ -4,19 +4,18 @@
 }
 
 /*Report*/
-#report{
-    margin-left: 30vh;
-    width: auto;
-    height: auto;
-    background-color: #c7c7c7;
-    border-radius: 5vh;
-    box-shadow: 21px 18px 8px -3px rgba(0,0,0,0.75);
 
-}
 
 #campos {
+    background-color: #1636eb8e;
     margin-top: 10vh;
+    width: max-content;
+    height: min-content;
+    border-radius: 5vh;
+    margin-left: 50%;
+    box-shadow: 11px 7px 17px 0px rgba(0,0,0,0.75);
 
+    
 }
 
 #campos h1 {
@@ -25,8 +24,9 @@
 }
 
 .report_chart{
-    position: absolute;
-    left: 80vh;
+    
+    position: relative;
+    left: 50vh
 }
 
 @media screen and (max-width:1366px){
