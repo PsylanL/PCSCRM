@@ -1,5 +1,4 @@
 var data = '';
-
 async function client(){
     const getClients = "http://localhost:8080/api/client/list";
     let request = await fetch(getClients);
@@ -99,7 +98,26 @@ closeModal.addEventListener('click', (e)=>{
 })
 
 
-/*BEGINNING REGISTER FUNCTION*/
+
+
+/*COMIENZO FUNCION ASINCRONA DE REGISTRO */
+
+async function sendRegister(user){
+    const request = await fetch('http://localhost:8080/api/client/register', {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(user)
+    });
+        notification("success", "REGISTERED CLIENT ", "Successfully Registered");
+        setTimeout(function(){ window.location.href = 'clients.html';}, 1000);
+}
+
+/*FIN FUNCION ASINCRONA DE REGISTRO */
+
+/*COMIENZO FUNCION DE REGISTRO*/
 
 async function register(){
     let user = {};
@@ -110,18 +128,36 @@ async function register(){
     user.mail = document.getElementById('txtMail').value;
     console.log(user);
 
-    const request = await fetch('http://localhost:8080/api/client/register', {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(user)
-    });
-    notification("success", "REGISTERED CLIENT ", "Successfully Registered");
-    setTimeout(function(){ window.location.href = 'clients.html';}, 1000);
-}
-/*END REGISTER FUNCTION*/
+    
+
+    let check = 0;      
+        for(let i=0; i < this.data.length; i++){ 
+        if(user.id === data[i].id){
+            check = 1;         
+            }
+        }
+        switch (check){
+            case 0:{
+                if(user.id != '' && user.name != '' && user.cellPhone  != ''
+                && user.adress != '' && user.mail != ''){
+                    sendRegister(user);
+                }else {
+                    notification("error", "INCOMPLETE FIELDS", "Please verify")
+                }
+                break;
+            }
+            case 1:{
+                notification("error", "ID ALREADY EXISTS", "Incomplete Registration");
+                break;
+            }
+        } 
+            console.log(user);
+
+            
+    }
+    
+/*FIN FUNCION DE REGISTRO*/
+    
 
 /*BEGINNING SEARCH FUNCTION*/
 function search(){
@@ -221,5 +257,5 @@ async function edit(){
 /*FIN EDIT */
 
 
-/*PAGINATION */
+/*VALIDACION*/
 

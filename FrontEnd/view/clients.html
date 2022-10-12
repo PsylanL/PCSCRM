@@ -116,7 +116,7 @@
                     <div>
                         <h1 class="con3title">Register New Client</h1>
                         <div class="center-forms">
-                            <form action="#" method="post">
+                            <form action="#" method="post" id="form_id">
                                 <div class="con3">
                                     <p class="con3p">Identification Number</p>
                                     <img class="con3img" src="../img/register_id.png" height="30px">
@@ -127,7 +127,7 @@
                                     <p class="con3p">Full Name</p>
                                     <img class="con3img" src="../img/register_id.png" height="30px">
                                     <input class="con3inputs" type="text" name="name" id="txtName"
-                                        placeholder="Pimienta Pimienta">
+                                        placeholder="Pimienta Pimienta" required>
                                 </div>
                                 <div class="con3">
                                     <p class="con3p">Phone Number</p>
@@ -135,14 +135,12 @@
                                     <input class="con3inputs" type="text" name="cellPhone" id="txtCellPhone"
                                         placeholder="300999888">
                                 </div>
-
                                 <div class="con3">
                                     <p class="con3p">Address</p>
                                     <img class="con3img" src="../img/register_address.png" height="30px">
                                     <input class="con3inputs" type="text" name="adress" id="txtAdress"
                                         placeholder="Calle 1">
                                 </div>
-
                                 <div class="con3">
                                     <p class="con3p">Email</p>
                                     <img class="con3img" src="../img/email.png" height="30px">
@@ -150,7 +148,7 @@
                                         placeholder="example123@mail.com">
                                 </div>
                             </form>
-                            <button class="register_button" onclick="register()">Register</button>
+                        <button class="register_button" onclick="register()">Register</button>
                         </div> <!-- END MODAL POPUP -->
                     </div> <!-- END COINTAINER3 -->
                     <a href="#" class="modal_close">X</a>
