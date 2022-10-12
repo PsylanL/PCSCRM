@@ -28,7 +28,36 @@ console.log(consulta());
 
 window.onload = consulta().then((data)=>{
     document.getElementById('campos').innerHTML += '<p><b>Number of Clients: </b> ' + this.data  + ' <br><b> Numbers of Leads  : </b>'+ this.data2 + ' <br><b> Numbers of Products  : </b>'+ this.data3 +  ' <br><b> Numbers of Products  : </b>'+ this.data4 +  '</p>';
+    
+    google.charts.load("current", {packages:['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+    var data = google.visualization.arrayToDataTable([
+    ["Element", "Density", { role: "style" } ],
+    ["Number of Clients", parseInt(this.data), "#b87333"],
+    ["Number of Leads", parseInt(this.data2), "silver"],
+    ["Number of Products", parseInt(this.data3), "gold"],
+    ["Number of Users", parseInt(this.data4), "color: #e5e4e2"]
+  ]);
 
+  var view = new google.visualization.DataView(data);
+  view.setColumns([0, 1,
+                   { calc: "stringify",
+                    sourceColumn: 1,
+                    type: "string",
+                    role: "annotation" },
+                2]);
+
+  var options = {
+    title: "Column chart report",
+    width: 600,
+    height: 400,
+    bar: {groupWidth: "95%"},
+    legend: { position: "none" },
+  };
+  var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+  chart.draw(view, options);
+}
 }); 
 
 /*Grafica*/
@@ -49,5 +78,5 @@ var chart = new Chart(grafica,{
 })
 
 
-
+/* GRAFICA DE BARRAS */
 
