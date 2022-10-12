@@ -97,8 +97,8 @@
 
 .modal_close{
     position: absolute;
-    top: 18vh;
-    left: 145vh;
+    top: 7vh;
+    left: 140vh;
     font-weight: bold;
     text-decoration: none;
     padding-left: 0.5vh;
@@ -124,8 +124,6 @@
 
 .modal_close:hover{
     text-decoration: none;
-    background-color: rgba(255, 0, 0, 0);
-    color: rgb(0, 0, 0);
 }
 
 .modal1--show{ /*modal--show have the corresponding attributes to show the modal*/
