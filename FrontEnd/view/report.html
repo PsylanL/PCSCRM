@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/printThis/1.15.0/printThis.js"></script>
 
 
     <style>
@@ -71,25 +71,12 @@
 
     <!--Report-->
 
-    <div class="container" id="report">
-
-        <div class="container" id="campos">
-
-            <h1 class="h1, icon-doc-inv">Report</h1>
-            <br>
-            <br>
-
-            <canvas class="grafica">
-
-            </canvas>
-
-
-        </div>
-
-    </div>
-
+     
+    <br><br><br>
+    
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <div class="report_chart">
+    <div class="report_chart" id="reportPDF">
+        <button type="button" id="btn-report" class="btn btn-primary"  >Download Report</button>
         <div id="columnchart_values" style="width: 900px; height: 300px;"></div>
     </div>
     
@@ -104,3 +91,4 @@
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"
     integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/printThis/1.15.0/printThis.js"></script>
