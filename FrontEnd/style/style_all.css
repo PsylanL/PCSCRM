@@ -86,7 +86,7 @@ body{
 
 
 .cont-menu-lateral{
-    width: 25vh;
+    width: max-content;
     float: left;
     max-width: 25.9vh;
     background: #2980F2;

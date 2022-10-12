@@ -1,5 +1,5 @@
 #productsLateral{
-    padding: 2rem;
+    padding: 1.55rem;
     border-left: 7px solid #c7c7c7;
 }
 
@@ -51,7 +51,7 @@
 }
 
 #products{
-    margin-top: 5vh;
+    margin-top: 50vh;
     margin-left: 50vh;
    
 }
@@ -110,7 +110,7 @@
 
 .modal_close{
     position: absolute;
-    top: 18vh;
+    top: 14vh;
     left: 145vh;
     font-weight: bold;
     text-decoration: none;
@@ -124,7 +124,7 @@
 
 .modal_close2{
     position: absolute;
-    top: 18vh;
+    top: 15vh;
     left: 145vh;
     font-weight: bold;
     text-decoration: none;
@@ -169,7 +169,7 @@
     padding-top: 2vh;
     padding-bottom: 1vh;
     position: relative;
-    left: 30vh;
+    left: 18vh;
 }
 
 .con3pass{
@@ -403,12 +403,12 @@
 /*CATÁLOGO*/
 
 .products{
-    margin-left: 55vh;
+    margin-left: 45vh;
     margin-top: 7vh;
     width: auto;
     height: 68vh;
     background-color: #fafafa;
-    overflow: scroll;
+    overflow-y: scroll;
 
 }
 .product{

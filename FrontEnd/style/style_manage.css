@@ -1,10 +1,13 @@
-
+#manageLateral{
+    padding: 1.8rem;
+    border-left: 7px solid #c7c7c7;
+}
 
 
 /*BOTONES E INPUT*/
 .buttons{
     width: max-content;
-    margin-left: 85vh;
+    margin-left: 75vh;
 }
 
 .input-group{
@@ -40,13 +43,13 @@
 
 .cont-tabla{
     width: 100vh;
-    margin-right: 50vh;
+    max-width: fit-content;
     max-height: fit-content;
 }
 
 #users{
     margin-top: 5vh;
-    margin-left: 70vh;
+    margin-left: 60vh;
    
 }
 
@@ -81,9 +84,11 @@
 .modal_container{
     height: fit-content;
     width: 50%;
+    position: fixed;
     background-color: #fff;
     margin: auto; /*Centers everything because its father has a display:flex*/
 }
+
 
 .modal_container2{
     height: fit-content;
@@ -94,8 +99,8 @@
 
 .modal_close{
     position: absolute;
-    top: 7vh;
-    left: 140vh;
+    top: 4vh;
+    left: 90vh;
     font-weight: bold;
     text-decoration: none;
     padding-left: 0.5vh;
@@ -127,13 +132,18 @@
     transition: all 500ms ease;
     opacity: 1;
     pointer-events: unset;
+    overflow-y: scroll;
 }
 
+.modal11--show{
+    position: relative;
+}
 
 .modal2--show{
     transition: all 500ms ease;
     opacity: 1;
     pointer-events: unset;
+    
 }
 /*END MODALS POPUP*/
 
@@ -151,7 +161,7 @@
     padding-top: 2vh;
     padding-bottom: 1vh;
     position: relative;
-    left: 30vh;
+    left: 22vh;
 }
 
 .con3pass{

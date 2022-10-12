@@ -1,5 +1,5 @@
 #ordersLateral{
-    padding: 2rem;
+    padding: 1.8rem;
     border-left: 7px solid #c7c7c7;
 }
 
@@ -40,7 +40,6 @@
 /*INICIO TABLA*/
 
 .cont-tabla{
-    left: 0;
     width: max-content;
     max-height: fit-content;
     margin-left: 0vh;
@@ -49,7 +48,7 @@
 
 #orders{
     margin-top: 5vh;
-    margin-left: 50vh;
+    margin-left: 40vh;
    
 }
 

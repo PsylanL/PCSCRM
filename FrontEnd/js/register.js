@@ -70,15 +70,18 @@ async function list(elem) {
 
 const openModal = document.getElementById('btn-agg-user');
 const  modal1 = document.querySelector('.modal1');
+const  modal11 = document.querySelector('.modal_container');
 const closeModal = document.querySelector('.modal_close');
 openModal.addEventListener('click', (e)=>{ 
     e.preventDefault();/*Evita que se ponga un # en el url cada que se abre el modal */
     modal1.classList.add('modal1--show')
+    modal11.classList.add('modal11--show')
 })
 
 closeModal.addEventListener('click', (e)=>{ 
     e.preventDefault();/*Evita que se ponga un # en el url cada que se abre el modal */
     modal1.classList.remove('modal1--show')
+    modal11.classList.remove('modal11--show')
 })
 
 /*Expresiones regulares*/

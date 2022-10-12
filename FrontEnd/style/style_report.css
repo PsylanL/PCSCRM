@@ -1,5 +1,5 @@
 #reportLateral{
-    padding: 2rem;
+    padding: 1.8rem;
     border-left: 7px solid #c7c7c7;
 }
 
@@ -24,7 +24,7 @@
 }
 
 .report_chart{
-    
+    width: fit-content;
     position: relative;
     left: 50vh
 }
