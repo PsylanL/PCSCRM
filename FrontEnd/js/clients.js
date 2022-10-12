@@ -117,6 +117,15 @@ async function sendRegister(user){
 
 /*FIN FUNCION ASINCRONA DE REGISTRO */
 
+/*Expresiones Regulares*/
+
+const expresiones = {
+    id: /^\d{7,14}$/, // 7 a 14 numeros.
+	nombre: /^[a-zA-ZÀ-ÿ\s]{4,40}$/, // Letras y espacios, pueden llevar acentos.
+	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+	telefono: /^\d{7,14}$/ // 7 a 14 numeros.
+};
+/*FIn expresiones Regulares*/
 /*COMIENZO FUNCION DE REGISTRO*/
 
 async function register(){
@@ -140,12 +149,35 @@ async function register(){
             case 0:{
                 if(user.id != '' && user.name != '' && user.cellPhone  != ''
                 && user.adress != '' && user.mail != ''){
-                    sendRegister(user);
+
+                    if(expresiones.id.test(user.id)){
+
+                        if(expresiones.nombre.test(user.name)){
+
+                             if(expresiones.telefono.test(user.cellPhone)){
+
+                                if(expresiones.correo.test(user.mail)){
+
+                                    sendRegister(user);
+
+                                   }else{
+                                        notification("error", "Enter a valid Email", "Please verify ")
+                                    }
+                            }else{
+                                notification("error", "Enter a valid CellPhone", " Enter only numbers, with range (7-14 digits)")
+                            }
+                        }else{
+                            notification("error", "Enter a valid Name", " Name from 4 to 40 letter name")
+                        }
+                    }else{
+                        notification("error", "Enter a valid Id", " Enter only numbers, with range (7-14 digits)")
+                    }                 
                 }else {
                     notification("error", "INCOMPLETE FIELDS", "Please verify")
                 }
                 break;
             }
+
             case 1:{
                 notification("error", "ID ALREADY EXISTS", "Incomplete Registration");
                 break;
