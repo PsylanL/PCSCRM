@@ -249,21 +249,40 @@ async function editLead(){
     userLead.cellPhone = document.getElementById('cel-modal').value;
     userLead.adress = document.getElementById('address-modal').value;
     userLead.mail = document.getElementById('mail-modal').value;
+
+    if(expresiones.nombre.test(userLead.name)){
+
+        if(expresiones.telefono.test(userLead.cellPhone)){
+
+            if(expresiones.correo.test(userLead.mail)){
+
+                try {
+                    const request = await fetch('http://localhost:8080/api/lead/edit', {
+                            method: 'POST',
+                            headers: {
+                                'Accept': 'application/json',
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(userLead)
+                        });
+                    notification("success", "LEAD EDITED", "Edited correctly");
+                    setTimeout(function(){ window.location.href = 'lead.html';}, 1000);
+
+                } catch (error) {
+                    notification("error", "UNEDITED LEAD", "Not edited correctly");
+                }
+
+               }else{
+                    notification("error", "Enter a valid Email", "Please verify ")
+                }         
+       }else{
+           notification("error", "Enter a valid CellPhone", " Enter only numbers, with range (7-14 digits)")
+       }
+   }else{
+       notification("error", "Enter a valid Name", " Name from 4 to 40 letter name")
+   }
     
-    try {
-        const request = await fetch('http://localhost:8080/api/lead/edit', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(userLead)
-            });
-        notification("success", "LEAD EDITED", "Edited correctly");
-        setTimeout(function(){ window.location.href = 'lead.html';}, 1000);
-    } catch (error) {
-        notification("error", "UNEDITED LEAD", "Not edited correctly");
-    }
+    
     
     
 }

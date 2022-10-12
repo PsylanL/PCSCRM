@@ -222,23 +222,31 @@ async function edit(){
     user.name = document.getElementById('name-modal').value;
     user.idInventory = document.getElementById('idInventory-modal').value;
 
+    if(expresiones.nombre.test(user.name)){
+                
+        if(expresiones.idInventory.test(user.idInventory)){
 
-    try {
-        const request = await fetch('http://localhost:8080/api/product/edit', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(user)
-            });
-        notification("success", "PRODUCT EDITED", "Edited correctly");
-        setTimeout(function(){ window.location.href = 'products.html';}, 1000);
-    } catch (error) {
-        notification("error", "UNEDITED PRODUCT", "Not edited correctly");
-    }
+            try {
+                const request = await fetch('http://localhost:8080/api/product/edit', {
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(user)
+                    });
+                notification("success", "PRODUCT EDITED", "Edited correctly");
+                setTimeout(function(){ window.location.href = 'products.html';}, 1000);
+            } catch (error) {
+                notification("error", "UNEDITED PRODUCT", "Not edited correctly");
+            }
 
-    
+        }else{
+            notification("error", "Enter a valid Id", " Enter only numbers, with range (2-16 digits)")
+        }                    
+    }else{
+        notification("error", "Enter a valid Name", " Name from 4 to 40 letter name")
+    }   
     
 }
 

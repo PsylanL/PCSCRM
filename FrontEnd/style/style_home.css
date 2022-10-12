@@ -71,8 +71,8 @@
     .slider_logos{
         top: 10vh;
         left: 25vh;
-        width: 171vh;
-        height: 10vh;
+        width: auto;
+        height: auto;
         margin: auto;
         overflow: hidden;
         position: fixed;

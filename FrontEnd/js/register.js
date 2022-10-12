@@ -256,22 +256,33 @@ async function editUser(){
     user.adress = document.getElementById('address-modal').value;
     user.mail = document.getElementById('mail-modal').value;
 
-    try {
-        const request = await fetch('http://localhost:8080/api/user/edit', {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(user)
-            });
-        notification("success", "USER EDITED", "Edited correctly");
-        setTimeout(function(){ window.location.href = 'manage.html';}, 1000);
-    } catch (error) {
-        notification("error", "UNEDITED USER", "Not edited correctly");
-    }
-    
-    
+    if(expresiones.nombre.test(user.name)){
+
+        if(expresiones.telefono.test(user.cellPhone)){
+
+            try {
+                const request = await fetch('http://localhost:8080/api/user/edit', {
+                        method: 'POST',
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(user)
+                    });
+                notification("success", "USER EDITED", "Edited correctly");
+                setTimeout(function(){ window.location.href = 'manage.html';}, 1000);
+            } catch (error) {
+                notification("error", "UNEDITED USER", "Not edited correctly");
+            }
+            
+       }else{
+           notification("error", "Enter a valid CellPhone", " Enter only numbers, with range (7-14 digits)")
+       }
+   }else{
+       notification("error", "Enter a valid Name", " Name from 4 to 40 letter name")
+   }
+
+       
 }
 
 
