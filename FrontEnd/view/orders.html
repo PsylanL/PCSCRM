@@ -65,7 +65,8 @@
     <!-- BOTONES E INPUT-->
     <div class="buttons">
         <div class="input-group flex-nowrap">
-            <button id="btn-agg-order" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">Add New Order <i class="icon-user-add"></i></button>
+            <button id="btn-agg-order" class="btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="#registerModal">Add New Order <i class="icon-user-add"></i></button>
             <span class="input-group-text" id="icon-input-search"><i class="icon-id"></i></span>
             <input id="input-search" type="text" class="form-control" placeholder="Insert ID">
             <button onclick="searchOrder()" class="btn btn-primary" id="btn-search">Buscar <i
@@ -99,12 +100,11 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade modal-lg" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
+    <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="title-modal">EDIT CLIENT</h1>
+                    <h1 class="modal-title fs-5" id="title-modal">EDIT ORDER</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body" id="modalBody">
@@ -150,18 +150,53 @@
 
     <!--MODAL REGISTER-->
     <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header" >
+                <div class="modal-header">
                     <h1 class="modal-title fs-5" id="title-modal">NEW ORDER</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    ...
+                <div class="modal-body" >
+                    <div class="input-group">
+                        <span class="input-group-text" id="icon-input-id"><i class="icon-id"></i></span>
+                        <input id="txtId" type="text" class="form-control" placeholder="Enter ID Order">
+                    </div>
+                    <label class="form-label">ID Order</label>
+
+                    <div class="input-group needs-validation">
+                        <span class="input-group-text" id="icon-input-id"><i class="icon-id"></i></span>
+                        <input id="txtIdServiceClient" type="text" class="form-control"
+                            placeholder="Enter ID Service Client">
+                    </div>
+                    <label class="form-label">ID Service Client</label>
+
+                    <div class="input-group">
+                        <span class="input-group-text" id="icon-input-id"><i class="icon-id"></i></span>
+                        <input id="txtIdSupplier" type="text" class="form-control" placeholder="Enter ID Supplier" required>
+                    </div>
+                    <label class="form-label">Id Supplier</label>
+
+                    <div class="input-group">
+                        <span class="input-group-text" id="icon-input-id"><i class="icon-id"></i></span>
+                        <input id="txtOrderDate" type="text" class="form-control" placeholder="Enter Order Date" required>
+                    </div>
+                    <label class="form-label">Order Date</label>
+
+                    <div class="input-group">
+                        <span class="input-group-text" id="icon-input-id"><i class="icon-id"></i></span>
+                        <input id="txtOrderQuantity" type="text" class="form-control"
+                            placeholder="Enter Order Quantity" required>
+                    </div>
+                    <label for="id-modal" class="form-label">Order Quantity</label>
                 </div>
+
+                <div class="input-group date">
+                    
+                </div>
+
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button type="button" class="btn btn-primary" onclick="register()">Save changes</button>
                 </div>
             </div>
         </div>

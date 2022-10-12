@@ -10,6 +10,7 @@
 .buttons{
     width: max-content;
     margin-left: 75vh;
+    
 }
 
 .input-group{
@@ -70,6 +71,7 @@
 
 /*BEGINNING MODAL POPUP*/
 .modal1{
+    z-index: 5;
     position: absolute;
     top:0;
     left: 0;

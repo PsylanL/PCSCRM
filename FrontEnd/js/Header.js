@@ -31,6 +31,7 @@ async function getIdByEmail (){
             }
             if (userObj[0].type == 'Admin'){
                 document.getElementById('manageLateral').style.display = 'block';
+                document.getElementById('reportLateral').style.display = 'block';
             }
         } catch (error) {
             console.log('user not logged');

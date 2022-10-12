@@ -17,7 +17,6 @@ public class ExtractDaoImp implements ExtractDao{
     @PersistenceContext
     private EntityManager entityManager;
 
-
     @SuppressWarnings("unchecked")
     @Override
     public List<Extract> list(){
@@ -27,8 +26,26 @@ public class ExtractDaoImp implements ExtractDao{
 
 
     @Override
-    public void register(Extract extract) {
-        // TODO Auto-generated method stub
-        
+    public void register(Extract extract){
+        entityManager.merge(extract);
     }
+
+    @SuppressWarnings("unchecked")
+    @Override
+    public String deleteOrder(String id) {
+       String query= "from Extract Where Id = ".concat(id);
+       List<Extract> extractList = entityManager.createQuery(query).getResultList();
+       try {
+               entityManager.remove(extractList.get(0));
+               return "La orden fue eliminada correctamente";
+           } catch(Exception e){
+               return "La orden no fue eliminado";
+       }
+    }
+
+    @Override
+    public void edit(Extract extract) {
+        entityManager.merge(extract);
+    }
+
 }
