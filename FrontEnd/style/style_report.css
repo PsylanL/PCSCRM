@@ -28,3 +28,8 @@
     position: absolute;
     left: 80vh;
 }
+
+@media screen and (max-width:1366px){
+
+    }
+}
