@@ -46,52 +46,6 @@ async function list(elem) {
 }
 
 
-/*async function list(elem) {
-
-    let ProductsTable = document.getElementById('products');
-    let tableBody = document.getElementById('tbody');
-
-    if(elem != this.data){
-        tableBody.innerHTML = "";
-        //console.log('hola')
-    }
-
-    for(element of elem) {
-        let row = document.createElement('tr');
-        let td = document.createElement('td');
-
-        td.innerHTML = '<i class="icon-user-circle-o" id="icon-user"></i>';
-        row.appendChild(td);
-
-        td = document.createElement('td');
-        td.innerText = element.id;
-        row.appendChild(td);
-
-        td = document.createElement('td');
-        td.innerText = element.name;
-        row.appendChild(td);
-
-        td = document.createElement('td');
-        td.innerText = element.idInventory;
-        row.appendChild(td);
-
-        td = document.createElement('td');
-        td.innerHTML = '<div class="size"><button class="icon-trash btn btn-outline-primary btn-sm" onclick="deleteProduct(' + element.id +')" id="btnDelete"></button>'
-            +' '+ '<button class="icon-edit btn btn-outline-primary btn-sm" id="btnEdit" onclick="listEdit('+ element.id +');" data-bs-toggle="modal" data-bs-target="#editModal"></button></div>';
-        row.appendChild(td);
-
-        tableBody.appendChild(row);
-    }
-
-    ProductsTable.appendChild(tableBody);
-
-    elem = '';
-
-}*/
-
-
-
-
 const openModal = document.getElementById('btn-agg-product');
 const  modal1 = document.querySelector('.modal1');
 
@@ -110,14 +64,9 @@ closeModal.addEventListener('click', (e)=>{
 
 /*BEGINNING REGISTER FUNCTION*/
 
-async function registerProduct(){
-    let user = {};
-    user.id = document.getElementById('txtId').value;
-    user.name = document.getElementById('txtName').value;
-    user.idInventory = document.getElementById('txtIdInventory').value; 
-    user.urlImg = document.getElementById('txtUrl').value;
-    
-  
+/*COMIENZO FUNCION DE REGISTRO*/
+
+async function sendRegister(user){
     const request = await fetch('http://localhost:8080/api/product/register', {
         method: 'POST',
         headers: {
@@ -126,10 +75,47 @@ async function registerProduct(){
         },
         body: JSON.stringify(user)
     });
-    notification("success", "REGISTERED CLIENT ", "Successfully Registered");
-    setTimeout(function(){ window.location.href = 'products.html';}, 1000);
+        notification("success", "REGISTERED PRODUCT ", "Successfully Registered");
+        setTimeout(function(){ window.location.href = 'products.html';}, 1000);
 }
-/*END REGISTER FUNCTION*/
+
+async function registerProduct(){
+     let user = {};
+    user.id = document.getElementById('txtId').value;
+    user.name = document.getElementById('txtName').value;
+    user.idInventory = document.getElementById('txtIdInventory').value; 
+    user.urlImg = document.getElementById('txtUrl').value;
+    console.log(user);
+
+    
+
+    let check = 0;      
+        for(let i=0; i < this.data.length; i++){ 
+        if(user.id === data[i].id){
+            check = 1;         
+            }
+        }
+        switch (check){
+            case 0:{
+                if(user.id != '' && user.name != '' && user.idInventory  != ''
+                && user.urlImg != ''){
+                    sendRegister(user);
+                }else {
+                    notification("error", "INCOMPLETE FIELDS", "Please verify")
+                }
+                break;
+            }
+            case 1:{
+                notification("error", "ID ALREADY EXISTS", "Incomplete Registration");
+                break;
+            }
+        } 
+            console.log(user);
+
+            
+    }
+    
+/*FIN FUNCION DE REGISTRO*/
 
 /*NOTIFICATIONS */
 
