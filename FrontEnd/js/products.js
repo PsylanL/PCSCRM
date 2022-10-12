@@ -63,7 +63,15 @@ closeModal.addEventListener('click', (e)=>{
 })
 
 /*BEGINNING REGISTER FUNCTION*/
+const expresiones = {
+    id: /^\d{2,16}$/, // 2 a 16 numeros.
+	nombre: /^[a-zA-ZÀ-ÿ\s]{4,40}$/, // Letras y espacios, pueden llevar acentos.
+	correo: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+	telefono: /^\d{7,14}$/, // 7 a 14 numeros.
+    idInventory: /^\d{1,16}$/ // 2 a 16 numeros.
 
+};
+/*FIn expresiones Regulares*/
 /*COMIENZO FUNCION DE REGISTRO*/
 
 async function sendRegister(user){
@@ -99,7 +107,23 @@ async function registerProduct(){
             case 0:{
                 if(user.id != '' && user.name != '' && user.idInventory  != ''
                 && user.urlImg != ''){
-                    sendRegister(user);
+                     if(expresiones.id.test(user.id)){
+
+                        if(expresiones.nombre.test(user.name)){
+                
+                            if(expresiones.idInventory.test(user.idInventory)){
+
+                                sendRegister(user);
+
+                            }else{
+                                notification("error", "Enter a valid Id", " Enter only numbers, with range (2-16 digits)")
+                            }                    
+                        }else{
+                            notification("error", "Enter a valid Name", " Name from 4 to 40 letter name")
+                        }
+                    }else{
+                        notification("error", "Enter a valid Id", " Enter only numbers, with range (2-16 digits)")
+                    }                 
                 }else {
                     notification("error", "INCOMPLETE FIELDS", "Please verify")
                 }
